@@ -1,0 +1,9 @@
+numpy
+pandas
+scipy
+matplotlib
+tabulate
+filterpy>=1.4.5   # reference EKF (ekf/filter.py), used to verify the batched torch EKF
+torch>=2.4        # CUDA build: pip install torch --index-url https://download.pytorch.org/whl/cu126
+transformers>=4.46,<5   # optional: qrlib's in-process LLM backend (LLM_BACKEND = "local"); the default
+safetensors             # llama-server backend needs neither
