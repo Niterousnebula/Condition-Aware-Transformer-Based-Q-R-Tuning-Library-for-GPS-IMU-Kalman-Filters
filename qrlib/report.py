@@ -546,9 +546,63 @@ sections, centred, so the short sections stay visible at the scale of a whole dr
 """
 
 
+def pct(better, worse):
+    v = 100 * (1 - better / worse)
+    return "<1 %" if v < 1 else f"{v:.0f} %"
+
+
+def table_raw_vs_ours(met, b):
+    """Raw GPS against the full system (library + online update, builder b) per drive and metric; the lower
+    RMSE wins and is set in bold. Raw GPS has no position during the outage, so the system wins it by default."""
+    ours = f"Library + online update ({b})"
+    out = []
+    for ds in [x for x in C.DATASETS if x in set(met.dataset)]:
+        d = met[met.dataset == ds]
+        raw, sys_ = d[d.method == "Raw GPS"], d[d.method == ours]
+        if raw.empty or sys_.empty:
+            continue
+        for col, lab in METRICS[:4]:
+            r = raw[col].dropna()
+            s = sys_[col].dropna()
+            rs, ss = mean_std(r) if len(r) else "no fixes", mean_std(s) if len(s) else "–"
+            if not len(s):
+                win = "–"
+            elif not len(r):
+                win, ss = "Our system (raw GPS gives no position)", f"**{ss}**"
+            elif abs(r.mean() - s.mean()) < 0.005:
+                win = "Tie"
+            elif s.mean() < r.mean():
+                win, ss = f"Our system ({pct(s.mean(), r.mean())} lower)", f"**{ss}**"
+            else:
+                win, rs = f"Raw GPS ({pct(r.mean(), s.mean())} lower)", f"**{rs}**"
+            out.append({"Drive": DS.get(ds, ds), "Metric (horizontal RMSE, m)": lab, "Raw GPS": rs,
+                        f"Our system ({BUILDER[b]})": ss, "Winner": win})
+    return pd.DataFrame(out)
+
+
+README_START, README_END = "<!-- RESULTS:START -->", "<!-- RESULTS:END -->"
+
+
+def publish(out, tables):
+    """For the main results root only: copy the figures (PNG) into docs/figures/ (tracked by git) and write the
+    results tables into README.md between the RESULTS markers."""
+    docs = C.ROOT / "docs" / "figures"
+    docs.mkdir(parents=True, exist_ok=True)
+    for f in sorted((out / "figures").glob("*.png")):
+        (docs / f.name).write_bytes(f.read_bytes())
+    readme = C.ROOT / "README.md"
+    s = readme.read_text(encoding="utf-8")
+    if README_START not in s or README_END not in s:
+        return
+    a, b = s.index(README_START) + len(README_START), s.index(README_END)
+    readme.write_text(s[:a] + "\n" + tables + "\n" + s[b:], encoding="utf-8")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--root", default=str(C.OUT), help="a results root with seed_<s>/ folders")
+    ap.add_argument("--publish", action=argparse.BooleanOptionalAction, default=None,
+                    help="write the results into README.md and docs/figures/ (default: only for results/qrlib)")
     a = ap.parse_args()
     root = Path(a.root)
     out = root / "paper"
@@ -562,7 +616,10 @@ def main():
     b = "llm" if "llm" in builders else builders[0]
     md = ["# Q/R library: paper tables",
           f"Root: {root}; seeds {', '.join(str(int(x)) for x in sorted(met.seed.unique()))}; main builder {b}.", ""]
-    for name, title, df in (("main", "Test part, horizontal RMSE (m), mean ± std over seeds", table_main(met, builders)),
+    vs = table_raw_vs_ours(met, b)
+    for name, title, df in (("raw_vs_ours", f"Raw GPS against our system ({BUILDER[b]} builder), test part, mean ± "
+                                            "std over seeds; the winner in bold", vs),
+                            ("main", "Test part, horizontal RMSE (m), mean ± std over seeds", table_main(met, builders)),
                             ("ablation", f"Ablations ({BUILDER[b]} builder), test part RMSE (m)",
                              table_ablation(met, ablation_roots(root), b)),
                             ("init", "Initialization period (drive start to split), RMSE (m)", table_init(ini, builders)),
@@ -581,6 +638,24 @@ def main():
     fig_init(root, fo, builders)
     fig_headline(met, fo, builders)
     (out / "captions.md").write_text(CAPTIONS, encoding="utf-8")
+    if a.publish or (a.publish is None and root.resolve() == C.OUT.resolve()):
+        seeds = ", ".join(str(int(x)) for x in sorted(met.seed.unique()))
+        blocks = [f"Seeds {seeds}. Horizontal RMSE in metres on the test part (normal GPS, the unseen 15 m section, "
+                  "the outage), mean ± std over seeds.", "", "**Raw GPS against our system** (winner in bold):", "",
+                  vs.to_markdown(index=False) if not vs.empty else "(no runs)", "",
+                  "**All methods:**", "", table_main(met, builders).to_markdown(index=False), "",
+                  "More tables (ablations, initialization period, LLM cost, detector): "
+                  "`results/qrlib/paper/tables/all.md`.", ""]
+        for name, cap in (("fig8_headline", "RMSE per drive and method, mean and std over seeds"),
+                          ("fig4_test_error", "Error over the test part"),
+                          ("fig3_onset", "Onset of the 15 m section, with and without the plausibility filter"),
+                          ("fig2_detector", "Detected GPS condition against the true sections"),
+                          ("fig6_library", "The library's horizontal GPS variance per condition"),
+                          ("fig7_initialization", "Error during the initialization period")):
+            if (fo / f"{name}.png").exists():
+                blocks += [f"**{cap}**", "", f"![{cap}](docs/figures/{name}.png)", ""]
+        publish(out, "\n".join(blocks))
+        print("README results and docs/figures updated")
     print(f"tables and figures in {out}")
 
 

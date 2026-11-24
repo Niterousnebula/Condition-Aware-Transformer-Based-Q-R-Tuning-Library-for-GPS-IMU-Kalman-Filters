@@ -1,0 +1,16 @@
+## Raw GPS against our system (LLM builder), test part, mean ± std over seeds; the winner in bold
+
+| Drive               | Metric (horizontal RMSE, m)   | Raw GPS   | Our system (LLM)     | Winner                                 |
+|:--------------------|:------------------------------|:----------|:---------------------|:---------------------------------------|
+| ETH                 | 15 m section                  | 15.17     | **4.80 ± 1.23**      | Our system (68 % lower)                |
+| ETH                 | Normal GPS                    | **3.93**  | 4.02 ± 0.07          | Raw GPS (2 % lower)                    |
+| ETH                 | 30 s after outage             | **2.23**  | 2.30 ± 0.10          | Raw GPS (3 % lower)                    |
+| ETH                 | Outage                        | no fixes  | **2001.75 ± 232.00** | Our system (raw GPS gives no position) |
+| iNav-WHU playground | 15 m section                  | 17.19     | **14.64 ± 0.76**     | Our system (15 % lower)                |
+| iNav-WHU playground | Normal GPS                    | **1.32**  | 1.62 ± 0.23          | Raw GPS (19 % lower)                   |
+| iNav-WHU playground | 30 s after outage             | **1.49**  | 3.28 ± 1.02          | Raw GPS (55 % lower)                   |
+| iNav-WHU playground | Outage                        | no fixes  | **6.12 ± 2.46**      | Our system (raw GPS gives no position) |
+| iNav-WHU street     | 15 m section                  | **16.91** | 34.67 ± 11.82        | Raw GPS (51 % lower)                   |
+| iNav-WHU street     | Normal GPS                    | **1.20**  | 2.70 ± 1.30          | Raw GPS (56 % lower)                   |
+| iNav-WHU street     | 30 s after outage             | **0.87**  | 7.18 ± 0.55          | Raw GPS (88 % lower)                   |
+| iNav-WHU street     | Outage                        | no fixes  | **24.95 ± 0.92**     | Our system (raw GPS gives no position) |

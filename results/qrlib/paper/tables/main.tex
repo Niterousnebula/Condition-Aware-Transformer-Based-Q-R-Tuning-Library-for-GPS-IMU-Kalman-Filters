@@ -1,0 +1,33 @@
+\begin{tabular}{llrrrrr}
+\toprule
+Drive & Method & 15 m section & Normal GPS & 30 s after outage & Outage & NIS / dof \\
+\midrule
+ETH & Raw GPS & 15.17 & 3.93 & 2.23 & -- & -- \\
+ETH & Baseline THETA0 & 4.58 & 4.12 & 2.40 & 3493.03 & 0.54 \\
+ETH & Paper 1 GWO (ground truth, offline) & 5.72 & 4.04 & 2.32 & 2100.28 & 1.15 \\
+ETH & Static (llm) & 6.11 $\pm$ 0.52 & 4.02 $\pm$ 0.02 & 2.31 $\pm$ 0.01 & 2610.96 $\pm$ 326.94 & 2.90 $\pm$ 2.16 \\
+ETH & Library (llm) & 4.80 $\pm$ 1.23 & 4.02 $\pm$ 0.07 & 2.30 $\pm$ 0.10 & 2001.75 $\pm$ 232.00 & 1.70 $\pm$ 1.33 \\
+ETH & Static (random) & 3.86 $\pm$ 0.50 & 4.26 $\pm$ 0.12 & 2.60 $\pm$ 0.12 & 2241.98 $\pm$ 391.80 & 4.84 $\pm$ 2.52 \\
+ETH & Library (random) & 3.81 $\pm$ 0.37 & 3.98 $\pm$ 0.01 & 2.27 $\pm$ 0.01 & 1900.74 $\pm$ 601.06 & 1.60 $\pm$ 1.40 \\
+ETH & Static (gwo) & 3.73 $\pm$ 0.41 & 4.27 $\pm$ 0.11 & 2.62 $\pm$ 0.13 & 2005.30 $\pm$ 263.36 & 5.90 $\pm$ 8.65 \\
+ETH & Library (gwo) & 4.06 $\pm$ 0.11 & 4.01 $\pm$ 0.04 & 2.30 $\pm$ 0.05 & 1876.95 $\pm$ 334.76 & 1.32 $\pm$ 0.15 \\
+iNav-WHU playground & Raw GPS & 17.19 & 1.32 & 1.49 & -- & -- \\
+iNav-WHU playground & Baseline THETA0 & 11.78 & 1.57 & 24.41 & 55.99 & 7.48 \\
+iNav-WHU playground & Paper 1 GWO (ground truth, offline) & 7.76 & 1.57 & 4.18 & 8.27 & 1.32 \\
+iNav-WHU playground & Static (llm) & 10.36 $\pm$ 0.90 & 1.55 $\pm$ 0.03 & 13.47 $\pm$ 5.64 & 30.34 $\pm$ 13.17 & 5.79 $\pm$ 3.03 \\
+iNav-WHU playground & Library (llm) & 14.64 $\pm$ 0.76 & 1.62 $\pm$ 0.23 & 3.28 $\pm$ 1.02 & 6.12 $\pm$ 2.46 & 2.02 $\pm$ 1.70 \\
+iNav-WHU playground & Static (random) & 10.09 $\pm$ 0.74 & 1.55 $\pm$ 0.03 & 12.83 $\pm$ 1.31 & 28.86 $\pm$ 3.22 & 2.55 $\pm$ 0.55 \\
+iNav-WHU playground & Library (random) & 12.93 $\pm$ 4.58 & 1.63 $\pm$ 0.21 & 3.26 $\pm$ 0.32 & 6.48 $\pm$ 0.74 & 1.96 $\pm$ 1.35 \\
+iNav-WHU playground & Static (gwo) & 8.97 $\pm$ 0.04 & 1.52 & 11.53 $\pm$ 0.07 & 25.37 $\pm$ 0.15 & 5.06 $\pm$ 1.25 \\
+iNav-WHU playground & Library (gwo) & 10.48 $\pm$ 0.38 & 1.51 $\pm$ 0.03 & 4.78 $\pm$ 2.14 & 9.58 $\pm$ 4.47 & 4.61 $\pm$ 2.95 \\
+iNav-WHU street & Raw GPS & 16.91 & 1.20 & 0.87 & -- & -- \\
+iNav-WHU street & Baseline THETA0 & 10.93 & 1.32 & 1.65 & 6.92 & 5.38 \\
+iNav-WHU street & Paper 1 GWO (ground truth, offline) & 7.73 & 1.43 & 1.71 & 6.41 & 1.26 \\
+iNav-WHU street & Static (llm) & 22.74 $\pm$ 22.37 & 2.39 $\pm$ 1.93 & 27.69 $\pm$ 44.99 & 105.57 $\pm$ 175.59 & 348.67 $\pm$ 598.35 \\
+iNav-WHU street & Library (llm) & 34.67 $\pm$ 11.82 & 2.70 $\pm$ 1.30 & 7.18 $\pm$ 0.55 & 24.95 $\pm$ 0.92 & 1.75 $\pm$ 0.12 \\
+iNav-WHU street & Static (random) & 9.89 $\pm$ 0.26 & 1.34 $\pm$ 0.11 & 3.75 $\pm$ 2.48 & 14.23 $\pm$ 12.83 & 155.09 $\pm$ 261.95 \\
+iNav-WHU street & Library (random) & 40.46 $\pm$ 9.92 & 3.91 $\pm$ 2.21 & 7.64 $\pm$ 0.86 & 26.54 $\pm$ 2.51 & 2.20 $\pm$ 0.44 \\
+iNav-WHU street & Static (gwo) & 8.97 $\pm$ 0.32 & 1.28 & 2.65 $\pm$ 0.17 & 7.96 $\pm$ 0.50 & 6.49 $\pm$ 2.80 \\
+iNav-WHU street & Library (gwo) & 9.96 $\pm$ 0.80 & 1.26 $\pm$ 0.03 & 7.36 $\pm$ 0.78 & 25.92 $\pm$ 4.56 & 5.79 $\pm$ 4.25 \\
+\bottomrule
+\end{tabular}

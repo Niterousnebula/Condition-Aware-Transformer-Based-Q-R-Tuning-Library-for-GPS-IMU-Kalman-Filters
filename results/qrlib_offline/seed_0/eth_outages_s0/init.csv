@@ -1,0 +1,2 @@
+dataset,method,train_rmse_all,train_rmse_moderate_5m,train_rmse_moderate_5m_first10s,train_rmse_outside
+eth_outages_s0,THETA0,3.5984086495625958,3.114564713315577,2.83111702931369,3.654336590752585

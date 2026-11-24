@@ -1,0 +1,1505 @@
+--- seeds [0, 1, 2], builders ['llm', 'random', 'gwo']; llm: server qwen35-9b at http://127.0.0.1:8070/v1/chat/completions, thinking False; library: initialization mode; score dropouts True; Q span 1.0
+=== seed 0
+=== eth_outages_s0: split at 1233 s (step 12291 of 27048), decision every 10 IMU steps; library: initialization mode
+  reference run over the training part: 7 s
+  llm init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 2.550  (LLM parsed 7/8)
+    nominal   llm    round 2: best 2.448  (LLM parsed 7/8)
+  llm init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 1.928  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.682  (LLM parsed 7/8)
+  llm init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 1.627  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.627  (LLM parsed 7/8)
+  llm init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 1.599  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.599  (LLM parsed 7/8)
+  llm init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 1.687  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.687  (LLM parsed 7/8)
+  llm init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 1.735  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.735  (LLM parsed 7/8)
+  llm init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 6.873  (LLM parsed 7/8)
+    moderate  llm    round 2: best 6.848  (LLM parsed 7/8)
+  llm init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 6.098  (LLM parsed 7/8)
+    moderate  llm    round 2: best 6.098  (LLM parsed 7/8)
+  llm init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  llm    round 1: best 6.106  (LLM parsed 7/8)
+    moderate  llm    round 2: best 6.106  (LLM parsed 8/8)
+  llm init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  llm    round 1: best 5.755  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.755  (LLM parsed 7/8)
+  llm initialization mode: 10 tunings, 268 s
+  llm: static, 24 window(s)
+    all (one setting for the whole drive) llm    round 1: best 3.417  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 2: best 3.417  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 3: best 3.417  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 4: best 3.417  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 5: best 3.236  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 6: best 3.236  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 3.074  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 3.057  (LLM parsed 7/8)
+  llm library: nominal 1.735 (THETA0 2.204), moderate 5.755 (THETA0 6.157); static 3.057
+  random init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   random round 1: best 2.513
+    nominal   random round 2: best 2.144
+  random init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   random round 1: best 1.696
+    nominal   random round 2: best 1.696
+  random init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   random round 1: best 1.651
+    nominal   random round 2: best 1.468
+  random init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   random round 1: best 1.554
+    nominal   random round 2: best 1.505
+  random init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   random round 1: best 1.888
+    nominal   random round 2: best 1.719
+  random init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   random round 1: best 1.800
+    nominal   random round 2: best 1.800
+  random init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  random round 1: best 6.789
+    moderate  random round 2: best 6.789
+  random init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  random round 1: best 6.203
+    moderate  random round 2: best 6.163
+  random init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  random round 1: best 6.166
+    moderate  random round 2: best 6.166
+  random init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  random round 1: best 5.941
+    moderate  random round 2: best 5.654
+  random initialization mode: 10 tunings, 16 s
+  random: static, 24 window(s)
+    all (one setting for the whole drive) random round 1: best 2.995
+    all (one setting for the whole drive) random round 2: best 2.995
+    all (one setting for the whole drive) random round 3: best 2.967
+    all (one setting for the whole drive) random round 4: best 2.967
+    all (one setting for the whole drive) random round 5: best 2.967
+    all (one setting for the whole drive) random round 6: best 2.954
+    all (one setting for the whole drive) random round 7: best 2.954
+    all (one setting for the whole drive) random round 8: best 2.954
+  random library: nominal 1.800 (THETA0 2.161), moderate 5.654 (THETA0 6.129); static 2.954
+  gwo init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 2.011
+    nominal   gwo    round 2: best 2.011
+  gwo init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 1.572
+    nominal   gwo    round 2: best 1.572
+  gwo init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 1.605
+    nominal   gwo    round 2: best 1.604
+  gwo init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 1.625
+    nominal   gwo    round 2: best 1.608
+  gwo init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 1.581
+    nominal   gwo    round 2: best 1.581
+  gwo init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 1.650
+    nominal   gwo    round 2: best 1.638
+  gwo init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 6.596
+    moderate  gwo    round 2: best 6.574
+  gwo init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 6.212
+    moderate  gwo    round 2: best 6.209
+  gwo init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  gwo    round 1: best 5.966
+    moderate  gwo    round 2: best 5.965
+  gwo init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  gwo    round 1: best 5.643
+    moderate  gwo    round 2: best 5.640
+  gwo initialization mode: 10 tunings, 16 s
+  gwo: static, 24 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 3.113
+    all (one setting for the whole drive) gwo    round 2: best 2.942
+    all (one setting for the whole drive) gwo    round 3: best 2.942
+    all (one setting for the whole drive) gwo    round 4: best 2.942
+    all (one setting for the whole drive) gwo    round 5: best 2.942
+    all (one setting for the whole drive) gwo    round 6: best 2.942
+    all (one setting for the whole drive) gwo    round 7: best 2.942
+    all (one setting for the whole drive) gwo    round 8: best 2.938
+  gwo library: nominal 1.638 (THETA0 2.167), moderate 5.640 (THETA0 5.920); static 2.938
+  test part, 14 fixed methods: 13 s
+  online llm: new condition 'heavy' at t = 1596 s
+    heavy     llm    round 1: best 15.759  (LLM parsed 7/8)
+    heavy     llm    round 2: best 15.759  (LLM parsed 7/8)
+    heavy     llm    round 3: best 15.748  (LLM parsed 7/8)
+  online llm: new condition 'recovery' at t = 2247 s
+    recovery  llm    round 1: best 1.230  (LLM parsed 7/8)
+    recovery  llm    round 2: best 1.230  (LLM parsed 7/8)
+    recovery  llm    round 3: best 1.178  (LLM parsed 8/8)
+  Library + online update (llm): 86 s, 2 new entries
+  online random: new condition 'heavy' at t = 1596 s
+    heavy     random round 1: best 16.642
+    heavy     random round 2: best 16.642
+    heavy     random round 3: best 16.642
+  online random: new condition 'recovery' at t = 2247 s
+    recovery  random round 1: best 1.180
+    recovery  random round 2: best 0.968
+    recovery  random round 3: best 0.968
+  Library + online update (random): 11 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 1596 s
+    heavy     gwo    round 1: best 16.883
+    heavy     gwo    round 2: best 16.883
+    heavy     gwo    round 3: best 16.859
+  online gwo: new condition 'recovery' at t = 2247 s
+    recovery  gwo    round 1: best 1.338
+    recovery  gwo    round 2: best 1.307
+    recovery  gwo    round 3: best 1.307
+  Library + online update (gwo): 11 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0             3.6                    3.11                             2.83                3.65      NaN
+   Initialization mode (llm)            3.54                    3.33                             3.83                3.57       10
+Initialization mode (random)            3.56                     3.3                             3.39                3.59       10
+   Initialization mode (gwo)            3.58                    3.22                             3.29                3.62       10
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      5.78            15.2          NaN               2.23          3.93           NaN       NaN             NaN
+                         Baseline THETA0       827            4.58     3.49e+03                2.4          4.12          0.54         0             NaN
+     Paper 1 GWO (ground truth, offline)       497            5.72      2.1e+03               2.32          4.04          1.15         0             NaN
+                            Static (llm)       529            6.47     2.24e+03               2.29          4.01          1.46         0             NaN
+                           Library (llm)       482             3.9     2.04e+03               2.22          3.93         0.511         3             NaN
+           Library, true condition (llm)       474            3.88        2e+03               2.22          3.93         0.518         2             NaN
+   Library, no plausibility filter (llm)       556            5.83     2.35e+03               2.22          3.93           7.1         4             NaN
+                         Static (random)       450            4.07      1.9e+03               2.56           4.2          7.04         0             NaN
+                        Library (random)       516            4.56     2.18e+03               2.27          3.99         0.539         3             NaN
+        Library, true condition (random)       508            4.51     2.15e+03               2.27          3.99          0.55         2             NaN
+Library, no plausibility filter (random)       523             4.8     2.21e+03               2.27          3.99         0.814         4             NaN
+                            Static (gwo)       520            3.38      2.2e+03               2.73          4.38          15.9         0             NaN
+                           Library (gwo)       358            4.51     1.51e+03               2.34          4.05         0.683         3             NaN
+           Library, true condition (gwo)       363            4.52     1.53e+03               2.34          4.05         0.691         2             NaN
+   Library, no plausibility filter (gwo)       388             4.6     1.64e+03               2.33          4.05          0.84         4             NaN
+           Library + online update (llm)       497            5.78      2.1e+03               2.22          3.97         0.904       NaN               2
+        Library + online update (random)       520            4.24      2.2e+03               2.28          3.99         0.805       NaN               2
+           Library + online update (gwo)       459            4.08     1.94e+03               2.35          4.06          1.18       NaN               2
+  done in 9.2 min
+=== seed 0
+=== inavwhu/playground00_outages_s0: split at 520 s (step 104023 of 265330), decision every 200 IMU steps; library: initialization mode
+  reference run over the training part: 45 s
+  llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 0.174  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.155  (LLM parsed 8/8)
+  llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 0.146  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.146  (LLM parsed 8/8)
+  llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 0.135  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.135  (LLM parsed 8/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 0.132  (LLM parsed 8/8)
+    nominal   llm    round 2: best 0.132  (LLM parsed 8/8)
+  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 0.143  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.143  (LLM parsed 8/8)
+  llm init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 0.142  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.141  (LLM parsed 6/8)
+  llm init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 9.376  (LLM parsed 8/8)
+    moderate  llm    round 2: best 9.376  (LLM parsed 8/8)
+  llm init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 7.593  (LLM parsed 8/8)
+    moderate  llm    round 2: best 7.455  (LLM parsed 8/8)
+  llm initialization mode: 8 tunings, 338 s
+  llm: static, 17 window(s)
+    all (one setting for the whole drive) llm    round 1: best 2.363  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 2: best 2.321  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 3: best 2.314  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 4: best 2.291  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 2.290  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 2.290  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 7: best 2.282  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 8: best 2.282  (LLM parsed 8/8)
+  llm library: nominal 0.141 (THETA0 0.248), moderate 7.455 (THETA0 7.593); static 2.282
+  random init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   random round 1: best 0.135
+    nominal   random round 2: best 0.135
+  random init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   random round 1: best 0.128
+    nominal   random round 2: best 0.128
+  random init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   random round 1: best 0.127
+    nominal   random round 2: best 0.127
+  random init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   random round 1: best 0.124
+    nominal   random round 2: best 0.124
+  random init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   random round 1: best 0.140
+    nominal   random round 2: best 0.140
+  random init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   random round 1: best 0.138
+    nominal   random round 2: best 0.138
+  random init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  random round 1: best 7.503
+    moderate  random round 2: best 7.258
+  random init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  random round 1: best 6.414
+    moderate  random round 2: best 6.414
+  random initialization mode: 8 tunings, 140 s
+  random: static, 17 window(s)
+    all (one setting for the whole drive) random round 1: best 2.306
+    all (one setting for the whole drive) random round 2: best 2.280
+    all (one setting for the whole drive) random round 3: best 2.276
+    all (one setting for the whole drive) random round 4: best 2.276
+    all (one setting for the whole drive) random round 5: best 2.276
+    all (one setting for the whole drive) random round 6: best 2.276
+    all (one setting for the whole drive) random round 7: best 2.276
+    all (one setting for the whole drive) random round 8: best 2.276
+  random library: nominal 0.138 (THETA0 0.201), moderate 6.414 (THETA0 6.745); static 2.276
+  gwo init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 0.136
+    nominal   gwo    round 2: best 0.136
+  gwo init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 0.136
+    nominal   gwo    round 2: best 0.136
+  gwo init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 0.131
+    nominal   gwo    round 2: best 0.129
+  gwo init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 0.121
+    nominal   gwo    round 2: best 0.121
+  gwo init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 0.135
+    nominal   gwo    round 2: best 0.135
+  gwo init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 0.133
+    nominal   gwo    round 2: best 0.133
+  gwo init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 8.547
+    moderate  gwo    round 2: best 8.365
+  gwo init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 7.184
+    moderate  gwo    round 2: best 7.172
+  gwo initialization mode: 8 tunings, 138 s
+  gwo: static, 17 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 2.269
+    all (one setting for the whole drive) gwo    round 2: best 2.269
+    all (one setting for the whole drive) gwo    round 3: best 2.268
+    all (one setting for the whole drive) gwo    round 4: best 2.268
+    all (one setting for the whole drive) gwo    round 5: best 2.268
+    all (one setting for the whole drive) gwo    round 6: best 2.268
+    all (one setting for the whole drive) gwo    round 7: best 2.268
+    all (one setting for the whole drive) gwo    round 8: best 2.268
+  gwo library: nominal 0.133 (THETA0 0.175), moderate 7.172 (THETA0 7.731); static 2.268
+  test part, 14 fixed methods: 100 s
+  online llm: new condition 'heavy' at t = 672 s
+    heavy     llm    round 1: best 24.433  (LLM parsed 8/8)
+    heavy     llm    round 2: best 24.433  (LLM parsed 8/8)
+    heavy     llm    round 3: best 23.159  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 1024 s
+    recovery  llm    round 1: best 0.097  (LLM parsed 8/8)
+    recovery  llm    round 2: best 0.097  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.097  (LLM parsed 8/8)
+  Library + online update (llm): 167 s, 2 new entries
+  online random: new condition 'heavy' at t = 672 s
+    heavy     random round 1: best 20.056
+    heavy     random round 2: best 20.056
+    heavy     random round 3: best 19.779
+  online random: new condition 'recovery' at t = 1024 s
+    recovery  random round 1: best 0.097
+    recovery  random round 2: best 0.097
+    recovery  random round 3: best 0.095
+  Library + online update (random): 90 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 672 s
+    heavy     gwo    round 1: best 27.653
+    heavy     gwo    round 2: best 27.653
+    heavy     gwo    round 3: best 27.653
+  online gwo: new condition 'recovery' at t = 1024 s
+    recovery  gwo    round 1: best 0.152
+    recovery  gwo    round 2: best 0.152
+    recovery  gwo    round 3: best 0.152
+  Library + online update (gwo): 90 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0            1.22                    2.81                             2.35               0.796      NaN
+   Initialization mode (llm)            1.54                    3.92                             3.95               0.813        8
+Initialization mode (random)            1.36                     3.4                             2.83               0.766        8
+   Initialization mode (gwo)            1.52                    3.87                             3.65               0.799        8
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      4.74            17.2          NaN               1.49          1.32           NaN       NaN             NaN
+                         Baseline THETA0      15.6            11.8           56               24.4          1.57          7.48         0             NaN
+     Paper 1 GWO (ground truth, offline)      3.34            7.76         8.27               4.18          1.57          1.32         0             NaN
+                            Static (llm)      10.1            10.4         35.6               15.7          1.57          4.71         0             NaN
+                           Library (llm)      3.62            10.3         7.41               3.96          1.55          1.46         2             NaN
+           Library, true condition (llm)      3.57            10.2         6.87               3.72          1.69           1.6         2             NaN
+   Library, no plausibility filter (llm)      34.5            21.5          125               54.7          1.53          34.3         2             NaN
+                         Static (random)       8.8            10.4         30.4               13.5          1.56           2.9         0             NaN
+                        Library (random)      2.97            8.86         4.72               2.56          1.55         0.621         2             NaN
+        Library, true condition (random)      3.12            9.12         4.98               2.67          1.71         0.692         2             NaN
+Library, no plausibility filter (random)      10.9            15.6         36.6               17.4          1.56          11.1         2             NaN
+                            Static (gwo)      7.43            8.97         25.4               11.6          1.52          6.49         0             NaN
+                           Library (gwo)      3.06            10.4         1.82               1.63          1.54          2.62         3             NaN
+           Library, true condition (gwo)      3.17            10.5         2.75               1.87          1.67          2.78         2             NaN
+   Library, no plausibility filter (gwo)      50.1            16.5          183               83.2           1.8          15.8         3             NaN
+           Library + online update (llm)       4.3            14.2         7.13               3.88          1.36         0.668       NaN               2
+        Library + online update (random)      3.35            10.1         5.68               2.94          1.61          2.97       NaN               2
+           Library + online update (gwo)      3.48            10.9         5.85                2.9          1.48             8       NaN               2
+  done in 23.0 min
+=== seed 0
+=== inavwhu/street00_outages_s0: split at 511 s (step 102221 of 280293), decision every 200 IMU steps; library: initialization mode
+  reference run over the training part: 44 s
+  llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 0.202  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.189  (LLM parsed 7/8)
+  llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 0.132  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.132  (LLM parsed 8/8)
+  llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 0.147  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.147  (LLM parsed 8/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 0.156  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.156  (LLM parsed 8/8)
+  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 0.189  (LLM parsed 8/8)
+    nominal   llm    round 2: best 0.185  (LLM parsed 8/8)
+  llm init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 0.183  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.183  (LLM parsed 6/8)
+  llm init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 7.800  (LLM parsed 6/8)
+    moderate  llm    round 2: best 7.800  (LLM parsed 8/8)
+  llm init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 6.736  (LLM parsed 6/8)
+    moderate  llm    round 2: best 6.736  (LLM parsed 8/8)
+  llm initialization mode: 8 tunings, 329 s
+  llm: static, 17 window(s)
+    all (one setting for the whole drive) llm    round 1: best 2.163  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 2: best 2.162  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 3: best 2.144  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 4: best 2.144  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 2.144  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 2.142  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 2.142  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 2.142  (LLM parsed 6/8)
+  llm library: nominal 0.183 (THETA0 0.350), moderate 6.736 (THETA0 6.759); static 2.142
+  random init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   random round 1: best 0.033
+    nominal   random round 2: best 0.033
+  random init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   random round 1: best 0.097
+    nominal   random round 2: best 0.097
+  random init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   random round 1: best 0.136
+    nominal   random round 2: best 0.136
+  random init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   random round 1: best 0.147
+    nominal   random round 2: best 0.147
+  random init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   random round 1: best 0.175
+    nominal   random round 2: best 0.175
+  random init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   random round 1: best 0.172
+    nominal   random round 2: best 0.172
+  random init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  random round 1: best 7.840
+    moderate  random round 2: best 7.840
+  random init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  random round 1: best 6.753
+    moderate  random round 2: best 6.753
+  random initialization mode: 8 tunings, 138 s
+  random: static, 17 window(s)
+    all (one setting for the whole drive) random round 1: best 2.163
+    all (one setting for the whole drive) random round 2: best 2.135
+    all (one setting for the whole drive) random round 3: best 2.134
+    all (one setting for the whole drive) random round 4: best 2.124
+    all (one setting for the whole drive) random round 5: best 2.124
+    all (one setting for the whole drive) random round 6: best 2.124
+    all (one setting for the whole drive) random round 7: best 2.124
+    all (one setting for the whole drive) random round 8: best 2.124
+  random library: nominal 0.172 (THETA0 0.401), moderate 6.753 (THETA0 6.770); static 2.124
+  gwo init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 0.039
+    nominal   gwo    round 2: best 0.034
+  gwo init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 0.088
+    nominal   gwo    round 2: best 0.087
+  gwo init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 0.176
+    nominal   gwo    round 2: best 0.158
+  gwo init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 0.150
+    nominal   gwo    round 2: best 0.150
+  gwo init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 0.190
+    nominal   gwo    round 2: best 0.188
+  gwo init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 0.192
+    nominal   gwo    round 2: best 0.185
+  gwo init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 8.206
+    moderate  gwo    round 2: best 8.171
+  gwo init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 7.034
+    moderate  gwo    round 2: best 7.034
+  gwo initialization mode: 8 tunings, 136 s
+  gwo: static, 17 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 2.133
+    all (one setting for the whole drive) gwo    round 2: best 2.132
+    all (one setting for the whole drive) gwo    round 3: best 2.132
+    all (one setting for the whole drive) gwo    round 4: best 2.131
+    all (one setting for the whole drive) gwo    round 5: best 2.131
+    all (one setting for the whole drive) gwo    round 6: best 2.131
+    all (one setting for the whole drive) gwo    round 7: best 2.131
+    all (one setting for the whole drive) gwo    round 8: best 2.130
+  gwo library: nominal 0.185 (THETA0 0.415), moderate 7.034 (THETA0 7.034); static 2.130
+  test part, 14 fixed methods: 109 s
+  online llm: new condition 'heavy' at t = 679 s
+    heavy     llm    round 1: best 18.947  (LLM parsed 6/8)
+    heavy     llm    round 2: best 18.825  (LLM parsed 8/8)
+    heavy     llm    round 3: best 18.825  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 1075 s
+    recovery  llm    round 1: best 0.115  (LLM parsed 6/8)
+    recovery  llm    round 2: best 0.115  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.115  (LLM parsed 8/8)
+  Library + online update (llm): 172 s, 2 new entries
+  online random: new condition 'heavy' at t = 679 s
+    heavy     random round 1: best 18.782
+    heavy     random round 2: best 18.782
+    heavy     random round 3: best 18.619
+  online random: new condition 'recovery' at t = 1075 s
+    recovery  random round 1: best 0.182
+    recovery  random round 2: best 0.182
+    recovery  random round 3: best 0.182
+  Library + online update (random): 97 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 679 s
+    heavy     gwo    round 1: best 21.961
+    heavy     gwo    round 2: best 21.961
+    heavy     gwo    round 3: best 21.961
+  online gwo: new condition 'recovery' at t = 1075 s
+    recovery  gwo    round 1: best 0.093
+    recovery  gwo    round 2: best 0.093
+    recovery  gwo    round 3: best 0.093
+  Library + online update (gwo): 97 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0            1.21                    2.81                             2.36               0.786      NaN
+   Initialization mode (llm)            1.43                    3.65                             2.79                0.76        8
+Initialization mode (random)            1.47                    3.77                             3.24                0.76        8
+   Initialization mode (gwo)            1.48                    3.82                             3.14               0.763        8
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      4.83            16.9          NaN              0.866           1.2           NaN       NaN             NaN
+                         Baseline THETA0      3.68            10.9         6.92               1.65          1.32          5.38         0             NaN
+     Paper 1 GWO (ground truth, offline)         3            7.73         6.41               1.71          1.43          1.26         0             NaN
+                            Static (llm)      3.12            10.3            3               1.34          1.28          4.04         0             NaN
+                           Library (llm)      7.55            9.51         26.1               7.85          1.25          3.79         3             NaN
+           Library, true condition (llm)      7.49             9.5         25.9               7.83          1.24          4.25         2             NaN
+   Library, no plausibility filter (llm)      38.2            16.9          142               37.3          1.35          41.4         3             NaN
+                         Static (random)      8.29            10.1           29               6.58          1.47           458         0             NaN
+                        Library (random)      7.65            9.69         26.6               7.21          1.25          3.86         3             NaN
+        Library, true condition (random)      7.43            9.81         25.6               7.01          1.25          4.34         2             NaN
+Library, no plausibility filter (random)      71.1            16.1          265               72.2          1.26            57         3             NaN
+                            Static (gwo)      3.33            8.81         7.45               2.56          1.28          8.59         0             NaN
+                           Library (gwo)      6.75            10.7         22.3               6.98          1.29          4.93         2             NaN
+           Library, true condition (gwo)      6.48            10.7         21.1               6.78          1.28          5.53         2             NaN
+   Library, no plausibility filter (gwo)      73.7            22.7          276               68.1          1.38          44.2         2             NaN
+           Library + online update (llm)      11.1            30.8         25.9                7.8          2.73          1.78       NaN               2
+        Library + online update (random)      14.8            46.6         24.5               6.72          4.65          1.86       NaN               2
+           Library + online update (gwo)      6.74            10.7         22.3               6.97          1.29          4.93       NaN               2
+  done in 23.3 min
+=== seed 1
+=== eth_outages_s0: split at 1233 s (step 12291 of 27048), decision every 10 IMU steps; library: initialization mode
+  reference run over the training part: 7 s
+  llm init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 2.475  (LLM parsed 7/8)
+    nominal   llm    round 2: best 2.475  (LLM parsed 8/8)
+  llm init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 1.714  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.568  (LLM parsed 7/8)
+  llm init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 1.561  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.561  (LLM parsed 7/8)
+  llm init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 1.558  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.551  (LLM parsed 7/8)
+  llm init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 1.735  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.730  (LLM parsed 7/8)
+  llm init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 1.848  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.848  (LLM parsed 7/8)
+  llm init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 6.515  (LLM parsed 7/8)
+    moderate  llm    round 2: best 6.515  (LLM parsed 7/8)
+  llm init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 5.923  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.923  (LLM parsed 7/8)
+  llm init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  llm    round 1: best 5.984  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.962  (LLM parsed 7/8)
+  llm init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  llm    round 1: best 5.610  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.592  (LLM parsed 7/8)
+  llm initialization mode: 10 tunings, 260 s
+  llm: static, 24 window(s)
+    all (one setting for the whole drive) llm    round 1: best 3.516  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 2: best 3.460  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 3: best 3.460  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 4: best 3.275  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 5: best 3.275  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 6: best 3.275  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 3.275  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 8: best 3.180  (LLM parsed 7/8)
+  llm library: nominal 1.848 (THETA0 2.214), moderate 5.592 (THETA0 6.182); static 3.180
+  random init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   random round 1: best 2.550
+    nominal   random round 2: best 1.986
+  random init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   random round 1: best 1.583
+    nominal   random round 2: best 1.583
+  random init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   random round 1: best 1.588
+    nominal   random round 2: best 1.588
+  random init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   random round 1: best 1.560
+    nominal   random round 2: best 1.560
+  random init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   random round 1: best 1.812
+    nominal   random round 2: best 1.764
+  random init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   random round 1: best 1.743
+    nominal   random round 2: best 1.743
+  random init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  random round 1: best 6.565
+    moderate  random round 2: best 6.565
+  random init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  random round 1: best 6.219
+    moderate  random round 2: best 6.196
+  random init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  random round 1: best 6.056
+    moderate  random round 2: best 5.960
+  random init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  random round 1: best 5.691
+    moderate  random round 2: best 5.691
+  random initialization mode: 10 tunings, 17 s
+  random: static, 24 window(s)
+    all (one setting for the whole drive) random round 1: best 3.071
+    all (one setting for the whole drive) random round 2: best 3.071
+    all (one setting for the whole drive) random round 3: best 3.071
+    all (one setting for the whole drive) random round 4: best 3.071
+    all (one setting for the whole drive) random round 5: best 3.071
+    all (one setting for the whole drive) random round 6: best 3.071
+    all (one setting for the whole drive) random round 7: best 3.071
+    all (one setting for the whole drive) random round 8: best 3.071
+  random library: nominal 1.743 (THETA0 2.188), moderate 5.691 (THETA0 5.978); static 3.071
+  gwo init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 2.382
+    nominal   gwo    round 2: best 1.954
+  gwo init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 1.494
+    nominal   gwo    round 2: best 1.435
+  gwo init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 1.522
+    nominal   gwo    round 2: best 1.522
+  gwo init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 1.560
+    nominal   gwo    round 2: best 1.534
+  gwo init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 1.670
+    nominal   gwo    round 2: best 1.670
+  gwo init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 1.706
+    nominal   gwo    round 2: best 1.706
+  gwo init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 6.494
+    moderate  gwo    round 2: best 6.494
+  gwo init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 5.957
+    moderate  gwo    round 2: best 5.957
+  gwo init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  gwo    round 1: best 6.013
+    moderate  gwo    round 2: best 6.013
+  gwo init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  gwo    round 1: best 5.715
+    moderate  gwo    round 2: best 5.659
+  gwo initialization mode: 10 tunings, 17 s
+  gwo: static, 24 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 2.952
+    all (one setting for the whole drive) gwo    round 2: best 2.952
+    all (one setting for the whole drive) gwo    round 3: best 2.952
+    all (one setting for the whole drive) gwo    round 4: best 2.952
+    all (one setting for the whole drive) gwo    round 5: best 2.952
+    all (one setting for the whole drive) gwo    round 6: best 2.952
+    all (one setting for the whole drive) gwo    round 7: best 2.952
+    all (one setting for the whole drive) gwo    round 8: best 2.952
+  gwo library: nominal 1.706 (THETA0 2.182), moderate 5.659 (THETA0 6.097); static 2.952
+  test part, 14 fixed methods: 13 s
+  online llm: new condition 'heavy' at t = 1596 s
+    heavy     llm    round 1: best 16.517  (LLM parsed 7/8)
+    heavy     llm    round 2: best 16.517  (LLM parsed 8/8)
+    heavy     llm    round 3: best 16.517  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 2247 s
+    recovery  llm    round 1: best 1.118  (LLM parsed 7/8)
+    recovery  llm    round 2: best 1.108  (LLM parsed 8/8)
+    recovery  llm    round 3: best 1.104  (LLM parsed 7/8)
+  Library + online update (llm): 94 s, 2 new entries
+  online random: new condition 'heavy' at t = 1596 s
+    heavy     random round 1: best 17.233
+    heavy     random round 2: best 17.233
+    heavy     random round 3: best 17.233
+  online random: new condition 'recovery' at t = 2247 s
+    recovery  random round 1: best 1.029
+    recovery  random round 2: best 1.029
+    recovery  random round 3: best 0.568
+  Library + online update (random): 11 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 1596 s
+    heavy     gwo    round 1: best 17.167
+    heavy     gwo    round 2: best 16.903
+    heavy     gwo    round 3: best 16.774
+  online gwo: new condition 'recovery' at t = 2247 s
+    recovery  gwo    round 1: best 1.120
+    recovery  gwo    round 2: best 1.120
+    recovery  gwo    round 3: best 1.109
+  Library + online update (gwo): 11 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0             3.6                    3.11                             2.83                3.65      NaN
+   Initialization mode (llm)            3.61                    3.27                             3.21                3.65       10
+Initialization mode (random)            3.55                    3.27                             3.29                3.58       10
+   Initialization mode (gwo)            3.55                    3.34                             3.36                3.58       10
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      5.78            15.2          NaN               2.23          3.93           NaN       NaN             NaN
+                         Baseline THETA0       827            4.58     3.49e+03                2.4          4.12          0.54         0             NaN
+     Paper 1 GWO (ground truth, offline)       497            5.72      2.1e+03               2.32          4.04          1.15         0             NaN
+                            Static (llm)       652            5.52     2.75e+03               2.32          4.04          1.86         0             NaN
+                           Library (llm)       517            4.49     2.19e+03               2.43          4.11          1.07         3             NaN
+           Library, true condition (llm)       513             4.5     2.17e+03               2.43          4.11          1.08         2             NaN
+   Library, no plausibility filter (llm)       551            4.56     2.33e+03               2.43          4.11          1.18         4             NaN
+                         Static (random)       510            4.23     2.16e+03               2.51          4.17           5.4         0             NaN
+                        Library (random)       215            4.52          910               2.27          3.98         0.953         3             NaN
+        Library, true condition (random)       207            4.52          874               2.27          3.98         0.962         2             NaN
+Library, no plausibility filter (random)       326            5.16     1.38e+03               2.27          3.98          1.69         4             NaN
+                            Static (gwo)       403            3.63      1.7e+03               2.66          4.28          1.29         0             NaN
+                           Library (gwo)       470            4.53     1.99e+03               2.25          3.97         0.558         3             NaN
+           Library, true condition (gwo)       472            4.52        2e+03               2.25          3.97         0.565         2             NaN
+   Library, no plausibility filter (gwo)       515            4.98     2.18e+03               2.25          3.97         0.907         4             NaN
+           Library + online update (llm)       411             5.2     1.74e+03               2.41          4.11          3.23       NaN               2
+        Library + online update (random)       286            3.57     1.21e+03               2.27          3.98          3.21       NaN               2
+           Library + online update (gwo)       515            3.94     2.18e+03               2.26          3.97          1.29       NaN               2
+  done in 9.3 min
+=== seed 1
+=== inavwhu/playground00_outages_s0: split at 520 s (step 104023 of 265330), decision every 200 IMU steps; library: initialization mode
+  reference run over the training part: 45 s
+  llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 0.135  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.135  (LLM parsed 8/8)
+  llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 0.147  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.147  (LLM parsed 6/8)
+  llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 0.137  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.137  (LLM parsed 8/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 0.126  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.126  (LLM parsed 8/8)
+  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 0.137  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.137  (LLM parsed 8/8)
+  llm init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 0.132  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.132  (LLM parsed 6/8)
+  llm init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 8.737  (LLM parsed 6/8)
+    moderate  llm    round 2: best 8.737  (LLM parsed 8/8)
+  llm init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 7.281  (LLM parsed 6/8)
+    moderate  llm    round 2: best 7.281  (LLM parsed 6/8)
+  llm initialization mode: 8 tunings, 323 s
+  llm: static, 17 window(s)
+    all (one setting for the whole drive) llm    round 1: best 2.363  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 2: best 2.318  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 3: best 2.318  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 4: best 2.318  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 2.318  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 2.289  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 7: best 2.289  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 2.289  (LLM parsed 8/8)
+  llm library: nominal 0.132 (THETA0 0.208), moderate 7.281 (THETA0 7.561); static 2.289
+  random init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   random round 1: best 0.135
+    nominal   random round 2: best 0.135
+  random init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   random round 1: best 0.124
+    nominal   random round 2: best 0.124
+  random init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   random round 1: best 0.132
+    nominal   random round 2: best 0.125
+  random init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   random round 1: best 0.137
+    nominal   random round 2: best 0.137
+  random init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   random round 1: best 0.148
+    nominal   random round 2: best 0.147
+  random init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   random round 1: best 0.141
+    nominal   random round 2: best 0.141
+  random init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  random round 1: best 8.025
+    moderate  random round 2: best 7.959
+  random init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  random round 1: best 6.720
+    moderate  random round 2: best 6.720
+  random initialization mode: 8 tunings, 141 s
+  random: static, 17 window(s)
+    all (one setting for the whole drive) random round 1: best 2.363
+    all (one setting for the whole drive) random round 2: best 2.278
+    all (one setting for the whole drive) random round 3: best 2.278
+    all (one setting for the whole drive) random round 4: best 2.278
+    all (one setting for the whole drive) random round 5: best 2.278
+    all (one setting for the whole drive) random round 6: best 2.278
+    all (one setting for the whole drive) random round 7: best 2.278
+    all (one setting for the whole drive) random round 8: best 2.278
+  random library: nominal 0.141 (THETA0 0.205), moderate 6.720 (THETA0 6.790); static 2.278
+  gwo init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 0.142
+    nominal   gwo    round 2: best 0.138
+  gwo init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 0.141
+    nominal   gwo    round 2: best 0.140
+  gwo init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 0.129
+    nominal   gwo    round 2: best 0.127
+  gwo init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 0.118
+    nominal   gwo    round 2: best 0.118
+  gwo init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 0.132
+    nominal   gwo    round 2: best 0.129
+  gwo init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 0.127
+    nominal   gwo    round 2: best 0.127
+  gwo init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 8.691
+    moderate  gwo    round 2: best 8.651
+  gwo init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 7.353
+    moderate  gwo    round 2: best 7.353
+  gwo initialization mode: 8 tunings, 139 s
+  gwo: static, 17 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 2.351
+    all (one setting for the whole drive) gwo    round 2: best 2.278
+    all (one setting for the whole drive) gwo    round 3: best 2.273
+    all (one setting for the whole drive) gwo    round 4: best 2.268
+    all (one setting for the whole drive) gwo    round 5: best 2.268
+    all (one setting for the whole drive) gwo    round 6: best 2.268
+    all (one setting for the whole drive) gwo    round 7: best 2.268
+    all (one setting for the whole drive) gwo    round 8: best 2.268
+  gwo library: nominal 0.127 (THETA0 0.167), moderate 7.353 (THETA0 7.922); static 2.268
+  test part, 14 fixed methods: 100 s
+  online llm: new condition 'heavy' at t = 672 s
+    heavy     llm    round 1: best 28.078  (LLM parsed 6/8)
+    heavy     llm    round 2: best 28.078  (LLM parsed 8/8)
+    heavy     llm    round 3: best 23.748  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 1024 s
+    recovery  llm    round 1: best 0.103  (LLM parsed 6/8)
+    recovery  llm    round 2: best 0.103  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.103  (LLM parsed 8/8)
+  Library + online update (llm): 156 s, 2 new entries
+  online random: new condition 'heavy' at t = 672 s
+    heavy     random round 1: best 19.661
+    heavy     random round 2: best 19.661
+    heavy     random round 3: best 19.661
+  online random: new condition 'recovery' at t = 1024 s
+    recovery  random round 1: best 0.118
+    recovery  random round 2: best 0.118
+    recovery  random round 3: best 0.118
+  Library + online update (random): 90 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 672 s
+    heavy     gwo    round 1: best 28.714
+    heavy     gwo    round 2: best 28.656
+    heavy     gwo    round 3: best 28.656
+  online gwo: new condition 'recovery' at t = 1024 s
+    recovery  gwo    round 1: best 0.101
+    recovery  gwo    round 2: best 0.100
+    recovery  gwo    round 3: best 0.100
+  Library + online update (gwo): 89 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0            1.22                    2.81                             2.35               0.796      NaN
+   Initialization mode (llm)            1.49                     3.8                             3.79               0.781        8
+Initialization mode (random)            1.38                    3.42                             4.03                0.79        8
+   Initialization mode (gwo)            1.57                    4.03                             3.92                 0.8        8
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      4.74            17.2          NaN               1.49          1.32           NaN       NaN             NaN
+                         Baseline THETA0      15.6            11.8           56               24.4          1.57          7.48         0             NaN
+     Paper 1 GWO (ground truth, offline)      3.34            7.76         8.27               4.18          1.57          1.32         0             NaN
+                            Static (llm)      11.4            11.2         40.1               17.7          1.57          3.44         0             NaN
+                           Library (llm)      3.37            10.8         4.83               2.64          1.55          2.32         2             NaN
+           Library, true condition (llm)      3.25            10.9         2.39               1.82           1.7          2.56         2             NaN
+   Library, no plausibility filter (llm)      15.6            14.2           56               22.9          1.65          25.5         2             NaN
+                         Static (random)      8.99            10.6           31               13.7          1.58          2.84         0             NaN
+                        Library (random)      3.11            9.79         4.36               2.45          1.55          5.29         3             NaN
+        Library, true condition (random)      3.54            9.95         6.95                3.5          1.72          5.78         2             NaN
+Library, no plausibility filter (random)      35.4            15.4          129               59.3          1.52          92.1         3             NaN
+                            Static (gwo)      7.45            8.93         25.5               11.6          1.52          4.19         0             NaN
+                           Library (gwo)      3.96            10.3         9.45               4.77          1.54          2.51         3             NaN
+           Library, true condition (gwo)      3.87            10.3         8.69               4.46          1.67          2.65         2             NaN
+   Library, no plausibility filter (gwo)      19.8            21.6         69.5               30.6          1.64          22.7         3             NaN
+           Library + online update (llm)      4.36            15.5         3.32                2.1          1.76          1.46       NaN               2
+        Library + online update (random)      5.31            18.2         7.14               3.59          1.85          2.48       NaN               2
+           Library + online update (gwo)      3.76            10.3         8.35               4.33          1.52          3.12       NaN               2
+  done in 22.5 min
+=== seed 1
+=== inavwhu/street00_outages_s0: split at 511 s (step 102221 of 280293), decision every 200 IMU steps; library: initialization mode
+  reference run over the training part: 44 s
+  llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 0.174  (LLM parsed 8/8)
+    nominal   llm    round 2: best 0.158  (LLM parsed 8/8)
+  llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 0.107  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.096  (LLM parsed 8/8)
+  llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 0.142  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.142  (LLM parsed 8/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 0.160  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.160  (LLM parsed 8/8)
+  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 0.189  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.187  (LLM parsed 8/8)
+  llm init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 0.181  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.181  (LLM parsed 6/8)
+  llm init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 7.923  (LLM parsed 6/8)
+    moderate  llm    round 2: best 7.913  (LLM parsed 8/8)
+  llm init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 6.794  (LLM parsed 6/8)
+    moderate  llm    round 2: best 6.794  (LLM parsed 6/8)
+  llm initialization mode: 8 tunings, 331 s
+  llm: static, 17 window(s)
+    all (one setting for the whole drive) llm    round 1: best 2.138  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 2: best 2.138  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 3: best 2.136  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 4: best 2.136  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 2.134  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 2.134  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 2.132  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 8: best 2.132  (LLM parsed 8/8)
+  llm library: nominal 0.181 (THETA0 0.524), moderate 6.794 (THETA0 6.817); static 2.132
+  random init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   random round 1: best 0.048
+    nominal   random round 2: best 0.048
+  random init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   random round 1: best 0.109
+    nominal   random round 2: best 0.093
+  random init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   random round 1: best 0.142
+    nominal   random round 2: best 0.142
+  random init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   random round 1: best 0.149
+    nominal   random round 2: best 0.146
+  random init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   random round 1: best 0.183
+    nominal   random round 2: best 0.177
+  random init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   random round 1: best 0.175
+    nominal   random round 2: best 0.175
+  random init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  random round 1: best 8.212
+    moderate  random round 2: best 8.212
+  random init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  random round 1: best 7.024
+    moderate  random round 2: best 7.024
+  random initialization mode: 8 tunings, 139 s
+  random: static, 17 window(s)
+    all (one setting for the whole drive) random round 1: best 2.163
+    all (one setting for the whole drive) random round 2: best 2.134
+    all (one setting for the whole drive) random round 3: best 2.134
+    all (one setting for the whole drive) random round 4: best 2.134
+    all (one setting for the whole drive) random round 5: best 2.134
+    all (one setting for the whole drive) random round 6: best 2.134
+    all (one setting for the whole drive) random round 7: best 2.134
+    all (one setting for the whole drive) random round 8: best 2.134
+  random library: nominal 0.175 (THETA0 0.458), moderate 7.024 (THETA0 7.024); static 2.134
+  gwo init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 0.036
+    nominal   gwo    round 2: best 0.036
+  gwo init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 0.089
+    nominal   gwo    round 2: best 0.089
+  gwo init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 0.187
+    nominal   gwo    round 2: best 0.157
+  gwo init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 0.163
+    nominal   gwo    round 2: best 0.157
+  gwo init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 0.197
+    nominal   gwo    round 2: best 0.197
+  gwo init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 0.192
+    nominal   gwo    round 2: best 0.192
+  gwo init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 7.696
+    moderate  gwo    round 2: best 7.696
+  gwo init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 6.659
+    moderate  gwo    round 2: best 6.659
+  gwo initialization mode: 8 tunings, 137 s
+  gwo: static, 17 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 2.163
+    all (one setting for the whole drive) gwo    round 2: best 2.131
+    all (one setting for the whole drive) gwo    round 3: best 2.130
+    all (one setting for the whole drive) gwo    round 4: best 2.130
+    all (one setting for the whole drive) gwo    round 5: best 2.130
+    all (one setting for the whole drive) gwo    round 6: best 2.130
+    all (one setting for the whole drive) gwo    round 7: best 2.130
+    all (one setting for the whole drive) gwo    round 8: best 2.130
+  gwo library: nominal 0.192 (THETA0 0.461), moderate 6.659 (THETA0 6.678); static 2.130
+  test part, 14 fixed methods: 110 s
+  online llm: new condition 'heavy' at t = 679 s
+    heavy     llm    round 1: best 19.162  (LLM parsed 8/8)
+    heavy     llm    round 2: best 19.036  (LLM parsed 8/8)
+    heavy     llm    round 3: best 18.621  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 1075 s
+    recovery  llm    round 1: best 0.168  (LLM parsed 6/8)
+    recovery  llm    round 2: best 0.168  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.168  (LLM parsed 8/8)
+  Library + online update (llm): 180 s, 2 new entries
+  online random: new condition 'heavy' at t = 679 s
+    heavy     random round 1: best 18.985
+    heavy     random round 2: best 18.985
+    heavy     random round 3: best 18.880
+  online random: new condition 'recovery' at t = 1075 s
+    recovery  random round 1: best 0.180
+    recovery  random round 2: best 0.180
+    recovery  random round 3: best 0.180
+  Library + online update (random): 97 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 679 s
+    heavy     gwo    round 1: best 20.444
+    heavy     gwo    round 2: best 20.444
+    heavy     gwo    round 3: best 20.444
+  online gwo: new condition 'recovery' at t = 1075 s
+    recovery  gwo    round 1: best 0.167
+    recovery  gwo    round 2: best 0.162
+    recovery  gwo    round 3: best 0.162
+  Library + online update (gwo): 97 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0            1.21                    2.81                             2.36               0.786      NaN
+   Initialization mode (llm)            1.47                    3.77                             3.14               0.759        8
+Initialization mode (random)            1.51                    3.91                             3.28                0.76        8
+   Initialization mode (gwo)            1.43                    3.64                             2.96               0.762        8
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      4.83            16.9          NaN              0.866           1.2           NaN       NaN             NaN
+                         Baseline THETA0      3.68            10.9         6.92               1.65          1.32          5.38         0             NaN
+     Paper 1 GWO (ground truth, offline)         3            7.73         6.41               1.71          1.43          1.26         0             NaN
+                            Static (llm)      3.14            9.35         5.39               2.09          1.27          2.39         0             NaN
+                           Library (llm)      7.47            10.1         25.6               7.17          1.27          3.95         3             NaN
+           Library, true condition (llm)      7.03            10.2         23.7               6.76          1.27          4.43         2             NaN
+   Library, no plausibility filter (llm)      92.9            16.3          347               95.9          1.26          45.6         3             NaN
+                         Static (random)      3.59            9.95         7.72                2.7          1.27          2.02         0             NaN
+                        Library (random)      8.58            10.9         29.8               8.53          1.29          4.88         2             NaN
+        Library, true condition (random)      7.82            10.9         26.7               7.79          1.29          5.47         2             NaN
+Library, no plausibility filter (random)      49.6            15.9          186               42.5          1.37          37.6         2             NaN
+                            Static (gwo)      3.49            8.77         8.45               2.84          1.28          3.32         0             NaN
+                           Library (gwo)      7.08             9.1         24.5               6.85          1.24           4.4         3             NaN
+           Library, true condition (gwo)      7.02             9.2         24.2                6.8          1.23          4.93         2             NaN
+   Library, no plausibility filter (gwo)      54.6            14.9          203               58.7          1.31          53.3         3             NaN
+           Library + online update (llm)        15              48         24.8               6.97          3.99          1.61       NaN               2
+        Library + online update (random)      11.2              29         29.3               8.42          1.42          2.04       NaN               2
+           Library + online update (gwo)      7.09            9.11         24.5               6.85          1.24          10.4       NaN               2
+  done in 23.4 min
+=== seed 2
+=== eth_outages_s0: split at 1233 s (step 12291 of 27048), decision every 10 IMU steps; library: initialization mode
+  reference run over the training part: 7 s
+  llm init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 2.304  (LLM parsed 7/8)
+    nominal   llm    round 2: best 2.143  (LLM parsed 7/8)
+  llm init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 1.666  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.493  (LLM parsed 7/8)
+  llm init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 1.539  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.539  (LLM parsed 7/8)
+  llm init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 1.626  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.626  (LLM parsed 7/8)
+  llm init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 1.729  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.729  (LLM parsed 7/8)
+  llm init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 1.879  (LLM parsed 7/8)
+    nominal   llm    round 2: best 1.825  (LLM parsed 7/8)
+  llm init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 6.617  (LLM parsed 7/8)
+    moderate  llm    round 2: best 6.574  (LLM parsed 7/8)
+  llm init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 6.131  (LLM parsed 7/8)
+    moderate  llm    round 2: best 6.131  (LLM parsed 7/8)
+  llm init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  llm    round 1: best 5.985  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.980  (LLM parsed 8/8)
+  llm init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  llm    round 1: best 5.713  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.713  (LLM parsed 8/8)
+  llm initialization mode: 10 tunings, 266 s
+  llm: static, 24 window(s)
+    all (one setting for the whole drive) llm    round 1: best 3.501  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 2: best 3.406  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 3: best 3.356  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 4: best 3.277  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 5: best 3.265  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 3.226  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 7: best 3.226  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 8: best 3.226  (LLM parsed 7/8)
+  llm library: nominal 1.825 (THETA0 2.216), moderate 5.713 (THETA0 5.885); static 3.226
+  random init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   random round 1: best 1.919
+    nominal   random round 2: best 1.919
+  random init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   random round 1: best 1.582
+    nominal   random round 2: best 1.582
+  random init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   random round 1: best 1.645
+    nominal   random round 2: best 1.587
+  random init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   random round 1: best 1.615
+    nominal   random round 2: best 1.615
+  random init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   random round 1: best 1.529
+    nominal   random round 2: best 1.529
+  random init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   random round 1: best 1.646
+    nominal   random round 2: best 1.646
+  random init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  random round 1: best 6.923
+    moderate  random round 2: best 6.690
+  random init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  random round 1: best 6.196
+    moderate  random round 2: best 6.196
+  random init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  random round 1: best 6.109
+    moderate  random round 2: best 6.109
+  random init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  random round 1: best 5.791
+    moderate  random round 2: best 5.791
+  random initialization mode: 10 tunings, 16 s
+  random: static, 24 window(s)
+    all (one setting for the whole drive) random round 1: best 3.516
+    all (one setting for the whole drive) random round 2: best 3.205
+    all (one setting for the whole drive) random round 3: best 3.205
+    all (one setting for the whole drive) random round 4: best 3.108
+    all (one setting for the whole drive) random round 5: best 3.108
+    all (one setting for the whole drive) random round 6: best 3.108
+    all (one setting for the whole drive) random round 7: best 3.107
+    all (one setting for the whole drive) random round 8: best 3.107
+  random library: nominal 1.646 (THETA0 2.190), moderate 5.791 (THETA0 6.126); static 3.107
+  gwo init: 'nominal' window 1 done at t = 30 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 2.330
+    nominal   gwo    round 2: best 2.060
+  gwo init: 'nominal' window 2 done at t = 60 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 1.487
+    nominal   gwo    round 2: best 1.485
+  gwo init: 'nominal' window 3 done at t = 90 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 1.549
+    nominal   gwo    round 2: best 1.549
+  gwo init: 'nominal' window 4 done at t = 120 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 1.686
+    nominal   gwo    round 2: best 1.681
+  gwo init: 'nominal' window 5 done at t = 150 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 1.690
+    nominal   gwo    round 2: best 1.690
+  gwo init: 'nominal' window 6 done at t = 180 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 1.640
+    nominal   gwo    round 2: best 1.640
+  gwo init: 'moderate' window 1 done at t = 771 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 6.648
+    moderate  gwo    round 2: best 6.625
+  gwo init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 6.191
+    moderate  gwo    round 2: best 6.182
+  gwo init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
+    moderate  gwo    round 1: best 5.980
+    moderate  gwo    round 2: best 5.980
+  gwo init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
+    moderate  gwo    round 1: best 5.644
+    moderate  gwo    round 2: best 5.639
+  gwo initialization mode: 10 tunings, 16 s
+  gwo: static, 24 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 3.107
+    all (one setting for the whole drive) gwo    round 2: best 3.076
+    all (one setting for the whole drive) gwo    round 3: best 3.076
+    all (one setting for the whole drive) gwo    round 4: best 3.076
+    all (one setting for the whole drive) gwo    round 5: best 3.076
+    all (one setting for the whole drive) gwo    round 6: best 3.076
+    all (one setting for the whole drive) gwo    round 7: best 3.076
+    all (one setting for the whole drive) gwo    round 8: best 3.076
+  gwo library: nominal 1.640 (THETA0 2.186), moderate 5.639 (THETA0 5.904); static 3.076
+  test part, 14 fixed methods: 13 s
+  online llm: new condition 'heavy' at t = 1596 s
+    heavy     llm    round 1: best 16.039  (LLM parsed 7/8)
+    heavy     llm    round 2: best 16.039  (LLM parsed 8/8)
+    heavy     llm    round 3: best 16.039  (LLM parsed 7/8)
+  online llm: new condition 'recovery' at t = 2247 s
+    recovery  llm    round 1: best 0.971  (LLM parsed 7/8)
+    recovery  llm    round 2: best 0.954  (LLM parsed 7/8)
+    recovery  llm    round 3: best 0.920  (LLM parsed 7/8)
+  Library + online update (llm): 93 s, 2 new entries
+  online random: new condition 'heavy' at t = 1596 s
+    heavy     random round 1: best 17.482
+    heavy     random round 2: best 16.576
+    heavy     random round 3: best 16.576
+  online random: new condition 'recovery' at t = 2247 s
+    recovery  random round 1: best 1.076
+    recovery  random round 2: best 1.076
+    recovery  random round 3: best 1.076
+  Library + online update (random): 11 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 1596 s
+    heavy     gwo    round 1: best 16.987
+    heavy     gwo    round 2: best 16.987
+    heavy     gwo    round 3: best 16.987
+  online gwo: new condition 'recovery' at t = 2247 s
+    recovery  gwo    round 1: best 1.220
+    recovery  gwo    round 2: best 1.220
+    recovery  gwo    round 3: best 1.220
+  Library + online update (gwo): 11 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0             3.6                    3.11                             2.83                3.65      NaN
+   Initialization mode (llm)            3.56                    3.26                              3.4                3.59       10
+Initialization mode (random)            3.56                    3.39                             3.26                3.58       10
+   Initialization mode (gwo)            3.56                    3.22                             3.33                 3.6       10
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      5.78            15.2          NaN               2.23          3.93           NaN       NaN             NaN
+                         Baseline THETA0       827            4.58     3.49e+03                2.4          4.12          0.54         0             NaN
+     Paper 1 GWO (ground truth, offline)       497            5.72      2.1e+03               2.32          4.04          1.15         0             NaN
+                            Static (llm)       673            6.34     2.84e+03               2.31          4.01          5.38         0             NaN
+                           Library (llm)       586            3.99     2.48e+03               2.28          3.99         0.648         3             NaN
+           Library, true condition (llm)       602            4.01     2.54e+03               2.28          3.99         0.657         2             NaN
+   Library, no plausibility filter (llm)       615            4.57      2.6e+03               2.29          3.99         0.888         4             NaN
+                         Static (random)       632             3.3     2.67e+03               2.74           4.4           2.1         0             NaN
+                        Library (random)       551            4.12     2.33e+03               2.25          3.97          0.69         3             NaN
+        Library, true condition (random)       570            4.06     2.41e+03               2.25          3.97           0.7         2             NaN
+Library, no plausibility filter (random)       622            4.95     2.63e+03               2.25          3.97          1.79         4             NaN
+                            Static (gwo)       501            4.18     2.11e+03               2.47          4.15         0.538         0             NaN
+                           Library (gwo)       329            4.52     1.39e+03               2.29          4.01          0.68         3             NaN
+           Library, true condition (gwo)       328             4.5     1.39e+03               2.29             4         0.688         2             NaN
+   Library, no plausibility filter (gwo)       322            4.68     1.36e+03               2.29             4         0.938         4             NaN
+           Library + online update (llm)       513            3.42     2.17e+03               2.26          3.99         0.953       NaN               2
+        Library + online update (random)       544            3.62      2.3e+03               2.26          3.97         0.774       NaN               2
+           Library + online update (gwo)       359            4.15     1.51e+03                2.3             4          1.48       NaN               2
+  done in 9.1 min
+=== seed 2
+=== inavwhu/playground00_outages_s0: split at 520 s (step 104023 of 265330), decision every 200 IMU steps; library: initialization mode
+  reference run over the training part: 45 s
+  llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 0.136  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.136  (LLM parsed 8/8)
+  llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 0.157  (LLM parsed 8/8)
+    nominal   llm    round 2: best 0.156  (LLM parsed 8/8)
+  llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 0.140  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.139  (LLM parsed 8/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 0.123  (LLM parsed 8/8)
+    nominal   llm    round 2: best 0.123  (LLM parsed 8/8)
+  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 0.133  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.133  (LLM parsed 8/8)
+  llm init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 0.127  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.126  (LLM parsed 6/8)
+  llm init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 8.154  (LLM parsed 6/8)
+    moderate  llm    round 2: best 8.154  (LLM parsed 8/8)
+  llm init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 6.909  (LLM parsed 6/8)
+    moderate  llm    round 2: best 6.909  (LLM parsed 8/8)
+  llm initialization mode: 8 tunings, 338 s
+  llm: static, 17 window(s)
+    all (one setting for the whole drive) llm    round 1: best 2.275  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 2: best 2.275  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 3: best 2.274  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 4: best 2.274  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 2.274  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 2.271  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 7: best 2.271  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 2.271  (LLM parsed 8/8)
+  llm library: nominal 0.126 (THETA0 0.177), moderate 6.909 (THETA0 7.174); static 2.271
+  random init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   random round 1: best 0.135
+    nominal   random round 2: best 0.135
+  random init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   random round 1: best 0.150
+    nominal   random round 2: best 0.150
+  random init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   random round 1: best 0.141
+    nominal   random round 2: best 0.141
+  random init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   random round 1: best 0.128
+    nominal   random round 2: best 0.118
+  random init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   random round 1: best 0.134
+    nominal   random round 2: best 0.133
+  random init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   random round 1: best 0.129
+    nominal   random round 2: best 0.129
+  random init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  random round 1: best 9.323
+    moderate  random round 2: best 8.197
+  random init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  random round 1: best 7.176
+    moderate  random round 2: best 7.176
+  random initialization mode: 8 tunings, 143 s
+  random: static, 17 window(s)
+    all (one setting for the whole drive) random round 1: best 2.359
+    all (one setting for the whole drive) random round 2: best 2.280
+    all (one setting for the whole drive) random round 3: best 2.280
+    all (one setting for the whole drive) random round 4: best 2.280
+    all (one setting for the whole drive) random round 5: best 2.280
+    all (one setting for the whole drive) random round 6: best 2.280
+    all (one setting for the whole drive) random round 7: best 2.280
+    all (one setting for the whole drive) random round 8: best 2.270
+  random library: nominal 0.129 (THETA0 0.186), moderate 7.176 (THETA0 7.644); static 2.270
+  gwo init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 0.143
+    nominal   gwo    round 2: best 0.136
+  gwo init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 0.128
+    nominal   gwo    round 2: best 0.128
+  gwo init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 0.121
+    nominal   gwo    round 2: best 0.119
+  gwo init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 0.113
+    nominal   gwo    round 2: best 0.113
+  gwo init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 0.133
+    nominal   gwo    round 2: best 0.133
+  gwo init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 0.132
+    nominal   gwo    round 2: best 0.132
+  gwo init: 'moderate' window 1 done at t = 358 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 8.841
+    moderate  gwo    round 2: best 8.799
+  gwo init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 7.354
+    moderate  gwo    round 2: best 7.354
+  gwo initialization mode: 8 tunings, 138 s
+  gwo: static, 17 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 2.356
+    all (one setting for the whole drive) gwo    round 2: best 2.281
+    all (one setting for the whole drive) gwo    round 3: best 2.269
+    all (one setting for the whole drive) gwo    round 4: best 2.269
+    all (one setting for the whole drive) gwo    round 5: best 2.269
+    all (one setting for the whole drive) gwo    round 6: best 2.269
+    all (one setting for the whole drive) gwo    round 7: best 2.268
+    all (one setting for the whole drive) gwo    round 8: best 2.268
+  gwo library: nominal 0.132 (THETA0 0.177), moderate 7.354 (THETA0 7.744); static 2.268
+  test part, 14 fixed methods: 99 s
+  online llm: new condition 'heavy' at t = 672 s
+    heavy     llm    round 1: best 24.168  (LLM parsed 8/8)
+    heavy     llm    round 2: best 22.537  (LLM parsed 8/8)
+    heavy     llm    round 3: best 21.555  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 1024 s
+    recovery  llm    round 1: best 0.137  (LLM parsed 8/8)
+    recovery  llm    round 2: best 0.137  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.137  (LLM parsed 8/8)
+  Library + online update (llm): 167 s, 2 new entries
+  online random: new condition 'heavy' at t = 672 s
+    heavy     random round 1: best 24.275
+    heavy     random round 2: best 24.275
+    heavy     random round 3: best 24.275
+  online random: new condition 'recovery' at t = 1024 s
+    recovery  random round 1: best 0.143
+    recovery  random round 2: best 0.143
+    recovery  random round 3: best 0.143
+  Library + online update (random): 90 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 672 s
+    heavy     gwo    round 1: best 28.559
+    heavy     gwo    round 2: best 28.559
+    heavy     gwo    round 3: best 28.559
+  online gwo: new condition 'recovery' at t = 1024 s
+    recovery  gwo    round 1: best 0.089
+    recovery  gwo    round 2: best 0.086
+    recovery  gwo    round 3: best 0.086
+  Library + online update (gwo): 89 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0            1.22                    2.81                             2.35               0.796      NaN
+   Initialization mode (llm)            1.42                    3.54                             3.39               0.787        8
+Initialization mode (random)            1.56                    4.05                             3.53               0.779        8
+   Initialization mode (gwo)            1.53                    3.91                             4.07               0.797        8
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      4.74            17.2          NaN               1.49          1.32           NaN       NaN             NaN
+                         Baseline THETA0      15.6            11.8           56               24.4          1.57          7.48         0             NaN
+     Paper 1 GWO (ground truth, offline)      3.34            7.76         8.27               4.18          1.57          1.32         0             NaN
+                            Static (llm)      5.03            9.44         15.4               7.05          1.52          9.21         0             NaN
+                           Library (llm)      3.35            10.1         6.02               3.08          1.53          3.15         3             NaN
+           Library, true condition (llm)      3.34            10.1         5.61               2.92          1.63           3.4         2             NaN
+   Library, no plausibility filter (llm)      11.6            16.1         39.5               17.8           1.7          21.4         3             NaN
+                         Static (random)      7.39            9.25         25.2               11.3          1.53          1.92         0             NaN
+                        Library (random)      3.43            10.2         6.31               3.15          1.55         0.481         2             NaN
+        Library, true condition (random)      3.57            10.4         6.51               3.24          1.76          0.54         2             NaN
+Library, no plausibility filter (random)      29.3              20          106               48.1          1.49          17.8         2             NaN
+                            Static (gwo)      7.38            9.01         25.2               11.4          1.52           4.5         0             NaN
+                           Library (gwo)      4.97            10.2         14.5                7.1          1.54          2.71         2             NaN
+           Library, true condition (gwo)      4.81            10.1         13.7               6.76          1.63          2.88         2             NaN
+   Library, no plausibility filter (gwo)      21.2            24.9         75.3               27.7          2.01          36.2         2             NaN
+           Library + online update (llm)       4.5            14.2         7.91               3.85          1.74          3.93       NaN               2
+        Library + online update (random)      3.48            10.5         6.63               3.27          1.43         0.431       NaN               2
+           Library + online update (gwo)      4.97            10.2         14.5                7.1          1.54          2.71       NaN               2
+  done in 23.0 min
+=== seed 2
+=== inavwhu/street00_outages_s0: split at 511 s (step 102221 of 280293), decision every 200 IMU steps; library: initialization mode
+  reference run over the training part: 44 s
+  llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 0.185  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.177  (LLM parsed 8/8)
+  llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 0.180  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.092  (LLM parsed 8/8)
+  llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 0.140  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.139  (LLM parsed 6/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 0.153  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.149  (LLM parsed 6/8)
+  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 0.184  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.184  (LLM parsed 8/8)
+  llm init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 0.178  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.178  (LLM parsed 6/8)
+  llm init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 7.718  (LLM parsed 6/8)
+    moderate  llm    round 2: best 7.712  (LLM parsed 8/8)
+  llm init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 6.686  (LLM parsed 6/8)
+    moderate  llm    round 2: best 6.677  (LLM parsed 7/8)
+  llm initialization mode: 8 tunings, 318 s
+  llm: static, 17 window(s)
+    all (one setting for the whole drive) llm    round 1: best 2.163  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 2: best 2.139  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 3: best 2.139  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 4: best 2.139  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 2.139  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 2.139  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 2.129  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 2.129  (LLM parsed 8/8)
+  llm library: nominal 0.178 (THETA0 0.405), moderate 6.677 (THETA0 6.694); static 2.129
+  random init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   random round 1: best 0.041
+    nominal   random round 2: best 0.036
+  random init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   random round 1: best 0.088
+    nominal   random round 2: best 0.088
+  random init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   random round 1: best 0.163
+    nominal   random round 2: best 0.145
+  random init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   random round 1: best 0.152
+    nominal   random round 2: best 0.152
+  random init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   random round 1: best 0.185
+    nominal   random round 2: best 0.185
+  random init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   random round 1: best 0.184
+    nominal   random round 2: best 0.181
+  random init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  random round 1: best 8.057
+    moderate  random round 2: best 8.057
+  random init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  random round 1: best 6.913
+    moderate  random round 2: best 6.913
+  random initialization mode: 8 tunings, 138 s
+  random: static, 17 window(s)
+    all (one setting for the whole drive) random round 1: best 2.137
+    all (one setting for the whole drive) random round 2: best 2.133
+    all (one setting for the whole drive) random round 3: best 2.133
+    all (one setting for the whole drive) random round 4: best 2.133
+    all (one setting for the whole drive) random round 5: best 2.133
+    all (one setting for the whole drive) random round 6: best 2.133
+    all (one setting for the whole drive) random round 7: best 2.133
+    all (one setting for the whole drive) random round 8: best 2.133
+  random library: nominal 0.181 (THETA0 0.414), moderate 6.913 (THETA0 6.913); static 2.133
+  gwo init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   gwo    round 1: best 0.076
+    nominal   gwo    round 2: best 0.051
+  gwo init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   gwo    round 1: best 0.115
+    nominal   gwo    round 2: best 0.089
+  gwo init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   gwo    round 1: best 0.146
+    nominal   gwo    round 2: best 0.146
+  gwo init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   gwo    round 1: best 0.153
+    nominal   gwo    round 2: best 0.150
+  gwo init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   gwo    round 1: best 0.187
+    nominal   gwo    round 2: best 0.168
+  gwo init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
+    nominal   gwo    round 1: best 0.164
+    nominal   gwo    round 2: best 0.164
+  gwo init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
+    moderate  gwo    round 1: best 7.568
+    moderate  gwo    round 2: best 7.466
+  gwo init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
+    moderate  gwo    round 1: best 6.536
+    moderate  gwo    round 2: best 6.536
+  gwo initialization mode: 8 tunings, 137 s
+  gwo: static, 17 window(s)
+    all (one setting for the whole drive) gwo    round 1: best 2.151
+    all (one setting for the whole drive) gwo    round 2: best 2.135
+    all (one setting for the whole drive) gwo    round 3: best 2.135
+    all (one setting for the whole drive) gwo    round 4: best 2.135
+    all (one setting for the whole drive) gwo    round 5: best 2.135
+    all (one setting for the whole drive) gwo    round 6: best 2.135
+    all (one setting for the whole drive) gwo    round 7: best 2.135
+    all (one setting for the whole drive) gwo    round 8: best 2.135
+  gwo library: nominal 0.164 (THETA0 0.356), moderate 6.536 (THETA0 6.590); static 2.135
+  test part, 14 fixed methods: 110 s
+  online llm: new condition 'heavy' at t = 679 s
+    heavy     llm    round 1: best 18.999  (LLM parsed 8/8)
+    heavy     llm    round 2: best 18.956  (LLM parsed 8/8)
+    heavy     llm    round 3: best 18.800  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 1075 s
+    recovery  llm    round 1: best 0.157  (LLM parsed 6/8)
+    recovery  llm    round 2: best 0.157  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.157  (LLM parsed 8/8)
+  Library + online update (llm): 170 s, 2 new entries
+  online random: new condition 'heavy' at t = 679 s
+    heavy     random round 1: best 18.859
+    heavy     random round 2: best 18.859
+    heavy     random round 3: best 18.799
+  online random: new condition 'recovery' at t = 1075 s
+    recovery  random round 1: best 0.125
+    recovery  random round 2: best 0.125
+    recovery  random round 3: best 0.125
+  Library + online update (random): 97 s, 2 new entries
+  online gwo: new condition 'heavy' at t = 679 s
+    heavy     gwo    round 1: best 19.394
+    heavy     gwo    round 2: best 19.394
+    heavy     gwo    round 3: best 19.394
+  online gwo: new condition 'recovery' at t = 1075 s
+    recovery  gwo    round 1: best 0.185
+    recovery  gwo    round 2: best 0.184
+    recovery  gwo    round 3: best 0.182
+  Library + online update (gwo): 97 s, 2 new entries
+                      method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                      THETA0            1.21                    2.81                             2.36               0.786      NaN
+   Initialization mode (llm)            1.44                    3.66                             2.81                0.76        8
+Initialization mode (random)            1.48                     3.8                             3.12               0.759        8
+   Initialization mode (gwo)            1.42                    3.58                             2.71               0.766        8
+                                  method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                                 Raw GPS      4.83            16.9          NaN              0.866           1.2           NaN       NaN             NaN
+                         Baseline THETA0      3.68            10.9         6.92               1.65          1.32          5.38         0             NaN
+     Paper 1 GWO (ground truth, offline)         3            7.73         6.41               1.71          1.43          1.26         0             NaN
+                            Static (llm)      83.4            48.6          308               79.6          4.61      1.04e+03         0             NaN
+                           Library (llm)      7.22            10.1         24.6               6.89          1.28          3.62         3             NaN
+           Library, true condition (llm)      7.14            10.2         24.2               6.81          1.28          4.07         2             NaN
+   Library, no plausibility filter (llm)      30.2            14.7          112               26.9          1.35          35.5         3             NaN
+                         Static (random)      3.26            9.61         5.95               1.97          1.28           5.7         0             NaN
+                        Library (random)      7.67            10.6         26.2               7.86          1.29          4.92         2             NaN
+        Library, true condition (random)       7.5            10.6         25.5               7.77          1.29          5.51         2             NaN
+Library, no plausibility filter (random)      70.8            19.2          264               73.7          1.37          53.6         2             NaN
+                            Static (gwo)      3.51            9.34         7.98               2.55          1.28          7.57         0             NaN
+                           Library (gwo)      8.69            9.21         30.9               8.23          1.25          4.06         3             NaN
+           Library, true condition (gwo)       8.9            9.43         31.6               8.43          1.24          4.55         2             NaN
+   Library, no plausibility filter (gwo)      46.7            12.8          174               49.8          1.28          32.9         3             NaN
+           Library + online update (llm)      9.48            25.3         24.1               6.77          1.38          1.85       NaN               2
+        Library + online update (random)      15.1            45.7         25.8               7.77          5.66          2.69       NaN               2
+           Library + online update (gwo)       8.8            10.1           31               8.26          1.25          2.04       NaN               2
+  done in 23.0 min
+all done in 165.8 min, results in D:\BTP2 EKF\results\qrlib

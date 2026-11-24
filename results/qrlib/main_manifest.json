@@ -1,0 +1,40 @@
+[
+ {
+  "started": "2026-11-24T01:40:20",
+  "argv": [],
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "steps": [
+   {
+    "step": "score check",
+    "status": "skipped (done)"
+   },
+   {
+    "step": "main run: seeds [0, 1, 2] x 3 drives x llm, random, gwo",
+    "status": "ok",
+    "minutes": 165.9
+   },
+   {
+    "step": "ablation: offline build (no initialization mode)",
+    "status": "ok",
+    "minutes": 32.0
+   },
+   {
+    "step": "ablation: one-step score (no simulated dropouts)",
+    "status": "ok",
+    "minutes": 35.1
+   },
+   {
+    "step": "ablation: Q over THETA0 +- 3 decades",
+    "status": "ok",
+    "minutes": 34.9
+   },
+   {
+    "step": "tables and figures",
+    "status": "ok",
+    "minutes": 0.1
+   }
+  ],
+  "finished": "2026-11-24T06:08:23"
+ }
+]

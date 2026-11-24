@@ -1,0 +1,2 @@
+dataset,method,train_rmse_all,train_rmse_moderate_5m,train_rmse_moderate_5m_first10s,train_rmse_outside
+inavwhu/street00_outages_s0,THETA0,1.208227258216407,2.805261505449639,2.3615918901619155,0.7860833268348614

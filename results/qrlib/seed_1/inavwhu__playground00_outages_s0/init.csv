@@ -1,0 +1,5 @@
+dataset,method,train_rmse_all,train_rmse_moderate_5m,train_rmse_moderate_5m_first10s,train_rmse_outside,tunings
+inavwhu/playground00_outages_s0,THETA0,1.2168666386564944,2.8122218809020896,2.346619990632481,0.7956422434581745,
+inavwhu/playground00_outages_s0,Initialization mode (llm),1.49181270616016,3.804042937311988,3.7949893903431295,0.781391608853336,8.0
+inavwhu/playground00_outages_s0,Initialization mode (random),1.3822247491932773,3.415868931042629,4.031032784058424,0.7897384020760436,8.0
+inavwhu/playground00_outages_s0,Initialization mode (gwo),1.568452651150775,4.03289654362229,3.923501548980656,0.7996937846871458,8.0

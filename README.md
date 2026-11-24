@@ -45,10 +45,7 @@ Reused from [1]: the EKF (`ekf/`: filterpy reference and batched GPU filter, the
 
 ## Method
 
-```
-GPS fixes -> condition detector (+ jump trigger) -> Q/R library -> EKF (Q/R in force, jump gate) -> position
-                 LLM / random / GWO builder  <->  GPS-only score (with simulated dropouts)
-```
+![The system](docs/figures/fig1_pipeline.png)
 
 **Filter and parameters.** The 16-state EKF of [1] (position, velocity, attitude quaternion, accelerometer
 and gyroscope biases), with a Joseph-form GPS update and a displacement plausibility gate (a fix is used only
@@ -134,7 +131,7 @@ Ground truth is used here only to check design choices, never to build or switch
 noise section, from the THETA0 state at the section start; Spearman correlation between score and true RMSE,
 and the true RMSE of the score's pick against the best setting and THETA0:
 
-| Drive | Section | Spearman (one-step / with dropouts) | True RMSE (m): pick with dropouts / best / THETA0 |
+| Drive | Section | Spearman rank correlation (one-step / with dropouts) | True RMSE (m): pick with dropouts / best / THETA0 |
 |---|---|---:|---|
 | ETH | 5 m | 0.99 / 0.82 | 3.10 / 3.10 / 3.12 |
 | ETH | 15 m | 0.88 / 0.73 | 3.37 / 3.21 / 4.60 |
@@ -143,6 +140,12 @@ and the true RMSE of the score's pick against the best setting and THETA0:
 | iNav street | 5 m | 0.98 / 0.98 | 1.84 / 1.79 / 2.81 |
 | iNav street | 15 m | 1.00 / 1.00 | 6.45 / 6.45 / 10.95 |
 
+*Spearman rank correlation* compares two orderings: +1 means the score ranks the settings exactly as their true
+error does (so its pick is the true best), 0 means no relation, negative means it prefers the worse ones. Only
+the ranking matters here, because the builders use the score only to choose between settings.
+
+![GPS-only score against the truth](docs/figures/fig5_score_check.png)
+
 On ETH the best settings trust the GPS velocity more; on iNav-WHU, without GPS velocity, they raise the
 horizontal GPS variance by about three decades, which is why R spans +- 3 decades.
 
@@ -150,7 +153,7 @@ horizontal GPS variance by about three decades, which is why R spans +- 3 decade
 without GPS. Narrowing Q to +- 1 decade bounds how badly any setting can coast, and the dropout score ranks
 that drift on two of the three drives:
 
-| Drive | Worst 30 s drift, Q +- 3 / +- 1 | Spearman(score, drift), one-step / with dropouts |
+| Drive | Worst 30 s drift, Q +- 3 / +- 1 | Spearman rank correlation (score, drift), one-step / with dropouts |
 |---|---:|---:|
 | ETH | 788 / 583 m | -0.11 / +0.30 |
 | iNav playground | 37 / 12 m | +0.59 / +0.76 |
@@ -239,7 +242,87 @@ checked); references are drawn in neutral inks with their own dash patterns.
 
 ## Results
 
-After `python main.py`: `results/qrlib/paper/tables/all.md` and `results/qrlib/paper/figures/`.
+Filled in by `python main.py` (its report step writes this section and `docs/figures/`):
+
+<!-- RESULTS:START -->
+Seeds 0, 1, 2. Horizontal RMSE in metres on the test part (normal GPS, the unseen 15 m section, the outage), mean ± std over seeds.
+
+**Raw GPS against our system** (winner in bold):
+
+| Drive               | Metric (horizontal RMSE, m)   | Raw GPS   | Our system (LLM)     | Winner                                 |
+|:--------------------|:------------------------------|:----------|:---------------------|:---------------------------------------|
+| ETH                 | 15 m section                  | 15.17     | **4.80 ± 1.23**      | Our system (68 % lower)                |
+| ETH                 | Normal GPS                    | **3.93**  | 4.02 ± 0.07          | Raw GPS (2 % lower)                    |
+| ETH                 | 30 s after outage             | **2.23**  | 2.30 ± 0.10          | Raw GPS (3 % lower)                    |
+| ETH                 | Outage                        | no fixes  | **2001.75 ± 232.00** | Our system (raw GPS gives no position) |
+| iNav-WHU playground | 15 m section                  | 17.19     | **14.64 ± 0.76**     | Our system (15 % lower)                |
+| iNav-WHU playground | Normal GPS                    | **1.32**  | 1.62 ± 0.23          | Raw GPS (19 % lower)                   |
+| iNav-WHU playground | 30 s after outage             | **1.49**  | 3.28 ± 1.02          | Raw GPS (55 % lower)                   |
+| iNav-WHU playground | Outage                        | no fixes  | **6.12 ± 2.46**      | Our system (raw GPS gives no position) |
+| iNav-WHU street     | 15 m section                  | **16.91** | 34.67 ± 11.82        | Raw GPS (51 % lower)                   |
+| iNav-WHU street     | Normal GPS                    | **1.20**  | 2.70 ± 1.30          | Raw GPS (56 % lower)                   |
+| iNav-WHU street     | 30 s after outage             | **0.87**  | 7.18 ± 0.55          | Raw GPS (88 % lower)                   |
+| iNav-WHU street     | Outage                        | no fixes  | **24.95 ± 0.92**     | Our system (raw GPS gives no position) |
+
+**All methods:**
+
+| Drive               | Method                              | 15 m section   | Normal GPS   | 30 s after outage   | Outage           | NIS / dof       |
+|:--------------------|:------------------------------------|:---------------|:-------------|:--------------------|:-----------------|:----------------|
+| ETH                 | Raw GPS                             | 15.17          | 3.93         | 2.23                | –                | –               |
+| ETH                 | Baseline THETA0                     | 4.58           | 4.12         | 2.40                | 3493.03          | 0.54            |
+| ETH                 | Paper 1 GWO (ground truth, offline) | 5.72           | 4.04         | 2.32                | 2100.28          | 1.15            |
+| ETH                 | Static (llm)                        | 6.11 ± 0.52    | 4.02 ± 0.02  | 2.31 ± 0.01         | 2610.96 ± 326.94 | 2.90 ± 2.16     |
+| ETH                 | Library (llm)                       | 4.80 ± 1.23    | 4.02 ± 0.07  | 2.30 ± 0.10         | 2001.75 ± 232.00 | 1.70 ± 1.33     |
+| ETH                 | Static (random)                     | 3.86 ± 0.50    | 4.26 ± 0.12  | 2.60 ± 0.12         | 2241.98 ± 391.80 | 4.84 ± 2.52     |
+| ETH                 | Library (random)                    | 3.81 ± 0.37    | 3.98 ± 0.01  | 2.27 ± 0.01         | 1900.74 ± 601.06 | 1.60 ± 1.40     |
+| ETH                 | Static (gwo)                        | 3.73 ± 0.41    | 4.27 ± 0.11  | 2.62 ± 0.13         | 2005.30 ± 263.36 | 5.90 ± 8.65     |
+| ETH                 | Library (gwo)                       | 4.06 ± 0.11    | 4.01 ± 0.04  | 2.30 ± 0.05         | 1876.95 ± 334.76 | 1.32 ± 0.15     |
+| iNav-WHU playground | Raw GPS                             | 17.19          | 1.32         | 1.49                | –                | –               |
+| iNav-WHU playground | Baseline THETA0                     | 11.78          | 1.57         | 24.41               | 55.99            | 7.48            |
+| iNav-WHU playground | Paper 1 GWO (ground truth, offline) | 7.76           | 1.57         | 4.18                | 8.27             | 1.32            |
+| iNav-WHU playground | Static (llm)                        | 10.36 ± 0.90   | 1.55 ± 0.03  | 13.47 ± 5.64        | 30.34 ± 13.17    | 5.79 ± 3.03     |
+| iNav-WHU playground | Library (llm)                       | 14.64 ± 0.76   | 1.62 ± 0.23  | 3.28 ± 1.02         | 6.12 ± 2.46      | 2.02 ± 1.70     |
+| iNav-WHU playground | Static (random)                     | 10.09 ± 0.74   | 1.55 ± 0.03  | 12.83 ± 1.31        | 28.86 ± 3.22     | 2.55 ± 0.55     |
+| iNav-WHU playground | Library (random)                    | 12.93 ± 4.58   | 1.63 ± 0.21  | 3.26 ± 0.32         | 6.48 ± 0.74      | 1.96 ± 1.35     |
+| iNav-WHU playground | Static (gwo)                        | 8.97 ± 0.04    | 1.52         | 11.53 ± 0.07        | 25.37 ± 0.15     | 5.06 ± 1.25     |
+| iNav-WHU playground | Library (gwo)                       | 10.48 ± 0.38   | 1.51 ± 0.03  | 4.78 ± 2.14         | 9.58 ± 4.47      | 4.61 ± 2.95     |
+| iNav-WHU street     | Raw GPS                             | 16.91          | 1.20         | 0.87                | –                | –               |
+| iNav-WHU street     | Baseline THETA0                     | 10.93          | 1.32         | 1.65                | 6.92             | 5.38            |
+| iNav-WHU street     | Paper 1 GWO (ground truth, offline) | 7.73           | 1.43         | 1.71                | 6.41             | 1.26            |
+| iNav-WHU street     | Static (llm)                        | 22.74 ± 22.37  | 2.39 ± 1.93  | 27.69 ± 44.99       | 105.57 ± 175.59  | 348.67 ± 598.35 |
+| iNav-WHU street     | Library (llm)                       | 34.67 ± 11.82  | 2.70 ± 1.30  | 7.18 ± 0.55         | 24.95 ± 0.92     | 1.75 ± 0.12     |
+| iNav-WHU street     | Static (random)                     | 9.89 ± 0.26    | 1.34 ± 0.11  | 3.75 ± 2.48         | 14.23 ± 12.83    | 155.09 ± 261.95 |
+| iNav-WHU street     | Library (random)                    | 40.46 ± 9.92   | 3.91 ± 2.21  | 7.64 ± 0.86         | 26.54 ± 2.51     | 2.20 ± 0.44     |
+| iNav-WHU street     | Static (gwo)                        | 8.97 ± 0.32    | 1.28         | 2.65 ± 0.17         | 7.96 ± 0.50      | 6.49 ± 2.80     |
+| iNav-WHU street     | Library (gwo)                       | 9.96 ± 0.80    | 1.26 ± 0.03  | 7.36 ± 0.78         | 25.92 ± 4.56     | 5.79 ± 4.25     |
+
+More tables (ablations, initialization period, LLM cost, detector): `results/qrlib/paper/tables/all.md`.
+
+**RMSE per drive and method, mean and std over seeds**
+
+![RMSE per drive and method, mean and std over seeds](docs/figures/fig8_headline.png)
+
+**Error over the test part**
+
+![Error over the test part](docs/figures/fig4_test_error.png)
+
+**Onset of the 15 m section, with and without the plausibility filter**
+
+![Onset of the 15 m section, with and without the plausibility filter](docs/figures/fig3_onset.png)
+
+**Detected GPS condition against the true sections**
+
+![Detected GPS condition against the true sections](docs/figures/fig2_detector.png)
+
+**The library's horizontal GPS variance per condition**
+
+![The library's horizontal GPS variance per condition](docs/figures/fig6_library.png)
+
+**Error during the initialization period**
+
+![Error during the initialization period](docs/figures/fig7_initialization.png)
+
+<!-- RESULTS:END -->
 
 ## Limitations
 
