@@ -1,0 +1,3 @@
+dataset,method,train_rmse_all,train_rmse_moderate_5m,train_rmse_moderate_5m_first10s,train_rmse_outside,tunings
+home/20260927_115918_outages_s0,THETA0,9.593278711769512,9.859250115097636,8.80141562117341,9.513242855451793,
+home/20260927_115918_outages_s0,Initialization mode (llm),21.231869633232115,16.72245203332561,17.422595184058412,22.391495092818904,8.0

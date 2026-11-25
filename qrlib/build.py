@@ -66,7 +66,7 @@ def search(drive, windows_s, states, proposer_name, rounds, K, seeds, info, log,
             history.append({"theta": np.asarray(th, dtype=float), "score": float(s), "round": rnd,
                             "source": source})
 
-    add(np.array([drive.clip(s) for s in seeds]), 0, "seed")
+    add(np.array([info["clip"](s) for s in seeds]), 0, "seed")   # info["clip"]: an R-only search fixes Q
     for r in range(1, rounds + 1):
         cands, plog = prop.propose(history, K, info, rng)
         if plog:

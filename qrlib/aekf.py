@@ -43,6 +43,7 @@ class Stream:
         T = lambda a: torch.as_tensor(np.asarray(a, dtype=float), dtype=DTYPE, device=dev)
         t_imu, t_gps = data["t_imu"], data["t_gps"]
         self.data = data
+        self.gate_vmax = data.get("max_speed_ms") or C.GATE_VMAX     # a car drive sets its own top speed
         self.n = n = len(t_imu)
         self.channels = measurement_channels(data)
         self.m = m = len(self.channels)
@@ -180,7 +181,7 @@ def update(S, x, P, z, R, has_fix, t_now, t_last, gate, p_fix=None, extra_ok=Non
     rejected = torch.zeros_like(has_fix)
     if gate == "fix":
         d = torch.linalg.vector_norm(z[:, 0:2] - p_fix, dim=1)
-        plausible = d <= C.GATE_VMAX * (t_now - t_last) + C.GATE_MARGIN
+        plausible = d <= S.gate_vmax * (t_now - t_last) + C.GATE_MARGIN
         rejected = has_fix & ~plausible
         use = use & plausible
     if extra_ok is not None:

@@ -1,10 +1,10 @@
 """Paper 2 (Condition-Aware Transformer-Based Q/R Tuning Library for GPS-IMU Kalman Filters), everything in
-one command: the score check, the main run, the ablations, then the tables and figures.
+one command: the main run, the ablations, then the tables and figures.
 
     python main.py                 # the full run, resumable (starts and stops the LLM server itself)
     python main.py --plan          # what is done, what is left and a rough time estimate; runs nothing
     python main.py --plots-only    # rebuild the tables and figures from finished runs
-    python main.py --smoke         # tiny budgets, ETH, random search + GWO (no LLM): checks the pipeline
+    python main.py --smoke         # tiny budgets, ETH and the home drive, GWO only (no LLM): checks the pipeline
     python main.py --force         # run finished steps again (deletes nothing; reruns overwrite)
 
 The LLM is a llama-server on this machine (LLAMA_SERVER below). main.py starts it when a step needs the LLM
@@ -12,14 +12,13 @@ and nothing answers on its port, logs it to results/qrlib/llama_server.log and s
 A server that was already running is used as it is and left running.
 
 Steps, each in its own process (so an ablation's settings cannot leak into the next step):
-    1. score check     the GPS-only score against ground truth: R grid on the noise sections, coasting on
-                       normal GPS (python -m qrlib.score_check) -> results/qrlib/score_*.csv, coast_*.csv
-    2. main run        3 seeds x 3 drives x LLM, random search, GWO (python -m qrlib) -> results/qrlib/seed_<s>/
-    3. ablations       LLM only, seed 0: offline build, one-step score, Q over +- 3 decades
+    1. main run        3 seeds x 4 drives (ETH, iNav-WHU playground00 and street00, the home drive) x LLM and
+                       GWO; every run also has the baseline THETA0 (python -m qrlib) -> results/qrlib/seed_<s>/
+    2. ablations       LLM only, seed 0: offline build, one-step score, Q over +- 3 decades
                        -> results/qrlib_offline/, qrlib_onestep/, qrlib_wideq/
-    4. report          tables and figures (python -m qrlib.report) -> results/qrlib/paper/
+    3. report          tables and figures (python -m qrlib.report) -> results/qrlib/paper/
 
-Resumable: a finished (seed, drive) is skipped, as is a finished score check, so after an interruption run
+Resumable: a finished (seed, drive) is skipped, so after an interruption run
 the same command again. A failed step is logged and the next steps still run (the report is built from
 whatever finished); the exit code is 1 if any step failed. Everything printed goes to
 results/qrlib/main.log, every session is appended to results/qrlib/main_manifest.json, and
@@ -36,17 +35,17 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-DRIVES = ("eth_outages_s0", "inavwhu/playground00_outages_s0", "inavwhu/street00_outages_s0")
+HOME = "home/20260927_115918_outages_s0"      # make_home_data.py, from collected data/
+DRIVES = ("eth_outages_s0", "inavwhu/playground00_outages_s0", "inavwhu/street00_outages_s0", HOME)
 SEEDS = (0, 1, 2)
-BUILDERS = ("llm", "random", "gwo")
+BUILDERS = ("llm", "gwo")       # the benchmark: baseline THETA0 (always run) against the GWO and LLM builders
 ABLATIONS = (("offline build (no initialization mode)", "--offline", "qrlib_offline"),
              ("one-step score (no simulated dropouts)", "--onestep", "qrlib_onestep"),
              ("Q over THETA0 +- 3 decades", "--wide-q", "qrlib_wideq"))
-SMOKE_DRIVES, SMOKE_BUILDERS, SMOKE_SEEDS = ("eth_outages_s0",), ("random", "gwo"), (0, 1)
-# rough minutes per (seed, drive) at full budget with all three builders, and with the LLM alone
-MINUTES = {"eth_outages_s0": (12, 6), "inavwhu/playground00_outages_s0": (55, 25),
-           "inavwhu/street00_outages_s0": (55, 25)}
-SCORE_CHECK_MIN = 25
+SMOKE_DRIVES, SMOKE_BUILDERS, SMOKE_SEEDS = ("eth_outages_s0", HOME), ("gwo",), (0, 1)
+# rough minutes per (seed, drive) at full budget with BUILDERS, and with the LLM alone (home: scaled from smoke)
+MINUTES = {"eth_outages_s0": (9, 6), "inavwhu/playground00_outages_s0": (40, 25),
+           "inavwhu/street00_outages_s0": (40, 25), HOME: (15, 10)}
 LLAMA_SERVER = [r"D:\llama-b9754-bin-win-cuda-13.3-x64\llama-server.exe",
                 "-m", r"D:\Modelfile\Qwen_Qwen3.5-9B-Q4_K_M.gguf", "--alias", "qwen35-9b", "-c", "4096",
                 "--port", "8070"]
@@ -74,8 +73,6 @@ def steps(smoke):
     else:
         drives, builders, seeds, ab_seeds, ab_builders = DRIVES, BUILDERS, SEEDS, (0,), ("llm",)
         extra = []
-        sc = results_root() / "coast_points.csv"
-        py.append(("score check", ["-m", "qrlib.score_check"], sc.exists(), 0 if sc.exists() else SCORE_CHECK_MIN))
     root = results_root(smoke=smoke)
     left = [(s, d) for s in seeds for d in drives if not done(root, s, d)]
     py.append((f"main run: seeds {list(seeds)} x {len(drives)} drives x {', '.join(builders)}",
@@ -139,7 +136,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--plan", action="store_true", help="print what is done and left, run nothing")
     ap.add_argument("--plots-only", action="store_true", help="only rebuild the tables and figures")
-    ap.add_argument("--smoke", action="store_true", help="tiny budgets, ETH, no LLM")
+    ap.add_argument("--smoke", action="store_true", help="tiny budgets, ETH and the home drive, no LLM")
     ap.add_argument("--force", action="store_true", help="run finished steps again")
     a = ap.parse_args()
 

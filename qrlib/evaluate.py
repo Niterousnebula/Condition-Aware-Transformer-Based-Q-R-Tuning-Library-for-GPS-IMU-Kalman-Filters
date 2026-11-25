@@ -29,16 +29,19 @@ def _jsonable(v):
 def self_update_run(drive, start, labels, stats, library0, proposer_name, nominal_sig, n_dec, log,
                     rounds=C.UPDATE_ROUNDS, K=C.UPDATE_K):
     """The library follows the detected condition; a noise condition it has no entry for (or recovery), once
-    it has lasted UPDATE_S, gets one: a search on those last UPDATE_S seconds from this run's own state,
-    scored on GPS only. Outages cannot be scored (no fixes) and get no entry."""
+    it has lasted UPDATE_S, gets one: a search on those last UPDATE_S seconds from this run's own state at
+    their start, scored on GPS only (R only with C.UPDATE_R_ONLY). With C.UPDATE_REPROCESS the window is then
+    filtered again with the new entry from that same state, so the entry is used from the state it was scored
+    from; the positions already output for the window are kept (causal). Outages get no entry (no fixes)."""
     library = {k: dict(v) for k, v in library0.items()}
-    n_need = int(round(C.UPDATE_S / C.DECIDE_S))
+    need = lambda lab: int(round((C.UPDATE_RECOVERY_S if lab == "recovery" else C.UPDATE_S) / C.DECIDE_S))
     s_of = lambda k: drive.i_split + k * drive.decide
     # triggers depend only on the labels and on which entries exist, so they are known in advance
     triggers, have, run_lab, run_n = [], set(library), None, 0
     for k, lab in enumerate(labels):
         run_n = run_n + 1 if lab == run_lab else 1
         run_lab = lab
+        n_need = need(lab)
         if lab not in have and lab != "outage" and run_n == n_need:
             triggers.append((k - n_need + 1, k, lab))
             have.add(lab)
@@ -65,13 +68,25 @@ def self_update_run(drive, start, labels, stats, library0, proposer_name, nomina
             win_s = [(drive.t[s_of(kw)], drive.t[s_of(k_to)])]
             sig = float(np.nanmedian(stats["sigma_h"][kw:k_to + 1]))
             info = build.prompt_info(drive, lab, sig, nominal_sig, win_s, library)
-            seeds = [drive.theta0] + [v["theta"] for v in library.values()]
+            in_force = np.asarray(runner.lookup(library, lab, drive.theta0)[0], dtype=float)
+            if C.UPDATE_R_ONLY:                         # Q stays at the setting in force
+                free_r = drive.free & np.array([False] * 4 + [True] * 3)
+                info.update(free=free_r, theta0=in_force,
+                            clip=lambda th, f=free_r, b=in_force: drive.clip(np.where(f, th, b)))
+            seeds = [in_force, drive.theta0] + [v["theta"] for v in library.values()]
             log(f"  online {proposer_name}: new condition '{lab}' at t = {win_s[0][1]:.0f} s")
             entry = build.search(drive, win_s, {s_of(kw): saved[kw]}, proposer_name, rounds, K, seeds, info, log)
             entry["online_at_s"] = win_s[0][1]
             library[lab] = entry
             events.append({"label": lab, "t_s": win_s[0][1], "score": entry["score"],
                            "theta": entry["theta"].tolist()})
+            if C.UPDATE_REPROCESS:                      # re-filter the window with the new entry (outputs stay)
+                tab, _ = runner.tables_for(drive, labels, library, n_dec)
+                out = runner.run_test(drive, saved[kw], tab[None, kw:k_to], s_from=s_of(kw),
+                                      s_to=min(s_of(k_to), drive.S.n - 1), keep=False,
+                                      jumps=runner.jumps_for(labels)[None, kw:k_to])
+                state = runner._state(out)
+                saved[k_to] = state
     return {"pos": torch.cat(pos).cpu().numpy()[:, 0], "qr": torch.cat(qr).cpu().numpy(), "nis": nis,
             "used": used_all, "events": events, "library": library}
 
@@ -145,7 +160,7 @@ def _every(drive, hz=C.TRACE_HZ):
     return max(1, int(round(1.0 / (hz * float(np.median(np.diff(drive.t)))))))
 
 
-def run(dataset, builders=("llm", "random", "gwo"), smoke=False, device="cuda", log=print, out_dir=None):
+def run(dataset, builders=("llm", "gwo"), smoke=False, device="cuda", log=print, out_dir=None):
     t0 = time.time()
     out_dir = (C.OUT / _slug(dataset)) if out_dir is None else out_dir
     out_dir.mkdir(parents=True, exist_ok=True)

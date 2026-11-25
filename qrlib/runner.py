@@ -179,6 +179,9 @@ def lookup(library, label, theta0):
             if C.SEVERITY[j] in library:
                 th = np.array(library[C.SEVERITY[j]]["theta"], dtype=float)
                 th[4:7] = np.maximum(th[4:7], theta0[4:7])
+                if C.FALLBACK_NOISE_FLOOR:                 # GPS variance >= the bin's lower edge, per axis
+                    edge = C.NOISE_BINS[i - 1][1]
+                    th[4:6] = np.maximum(th[4:6], np.log10(edge ** 2 / 2.0))
                 return th, C.SEVERITY[j] + " (R >= THETA0)"
         for j in range(i + 1, len(C.SEVERITY)):
             if C.SEVERITY[j] in library:

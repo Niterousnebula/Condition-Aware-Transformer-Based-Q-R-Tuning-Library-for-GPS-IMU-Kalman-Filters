@@ -8,8 +8,10 @@ TRACE_HZ = 10.0                  # traces saved for the figures
 SEEDS = (0, 1, 2)                # python -m qrlib --seeds; each seed reruns every builder (LLM sampling too)
 PLOT_HIGHLIGHT_WIDEN = 0.5       # figures: the shaded noise / outage sections are drawn 50 % wider (centred)
 
-# The three drives of D:\EKF with their degraded GPS sections (~5 m, ~15 m, full outage at 25/50/75 %)
-DATASETS = ("eth_outages_s0", "inavwhu/playground00_outages_s0", "inavwhu/street00_outages_s0")
+# The three drives of D:\EKF with their degraded GPS sections (~5 m, ~15 m, full outage at 25/50/75 %), and the
+# home drive (make_home_data.py; a car, so its sections last 60 s instead of covering 76.2 m)
+DATASETS = ("eth_outages_s0", "inavwhu/playground00_outages_s0", "inavwhu/street00_outages_s0",
+            "home/20260927_115918_outages_s0")
 
 # Train = start .. midway between the end of the 5 m section and the start of the 15 m section; test = rest
 SPLIT_AFTER_SECTION = 0          # index of the last section inside the training part
@@ -68,7 +70,15 @@ BUILD_ROUNDS, BUILD_K = 8, 8     # offline build and the static entry: 8 rounds 
 # INIT_ROUNDS rounds of BUILD_K on its windows so far, and used from then on. INIT_MODE = False: offline build.
 INIT_MODE = True
 INIT_ROUNDS = 2
-UPDATE_S = 20.0                  # online: an unseen condition must last 20 s, then it is tuned on those 20 s
+UPDATE_S = 40.0                  # online: an unseen condition must last 40 s, then it is tuned on those 40 s
+# (at 1 Hz GPS, 20 s left ~13 scoreable fixes of heavy noise). The update searches R only (Q stays at the setting
+# in force: tens of noisy fixes cannot judge the IMU's noise), and once found, the filter re-processes that
+# window with the new setting, so it is used from the state it was scored from (causal fixed-lag re-filtering).
+UPDATE_RECOVERY_S = 20.0         # recovery lasts RECOVERY_S = 30 s and its GPS is clean: 20 s suffice
+UPDATE_R_ONLY = True
+UPDATE_REPROCESS = True
+# An unseen, noisier condition never assumes less GPS noise than its own bin's lower edge (heavy: >= 8 m)
+FALLBACK_NOISE_FLOOR = True
 UPDATE_ROUNDS, UPDATE_K = 3, 8
 SEED = 0
 

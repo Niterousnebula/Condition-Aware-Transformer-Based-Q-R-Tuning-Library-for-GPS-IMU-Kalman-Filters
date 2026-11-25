@@ -1,0 +1,1614 @@
+{
+ "events": [
+  {
+   "label": "heavy",
+   "t_s": 343.93320900000003,
+   "score": 16.60771137557421,
+   "theta": [
+    -3.42,
+    -5.38,
+    -5.42,
+    -8.28,
+    2.799819974399894,
+    2.1898465569192607,
+    0.0
+   ]
+  },
+  {
+   "label": "recovery",
+   "t_s": 505.70501900000005,
+   "score": 1.789178351280341,
+   "theta": [
+    -3.316788291231151,
+    -5.3725187326937,
+    -5.143503438862668,
+    -7.802303047924299,
+    -1.3280084358477937,
+    0.676490511329737,
+    0.0
+   ]
+  }
+ ],
+ "library": {
+  "nominal": {
+   "theta": [
+    -3.316788291231151,
+    -5.3725187326937,
+    -5.143503438862668,
+    -7.802303047924299,
+    -1.5010414838046389,
+    0.6241083177210546,
+    0.0
+   ],
+   "score": 46.33358362268089,
+   "sigma_h": 1.0510934650631882,
+   "best_source": "llm",
+   "best_round": 1,
+   "llm_parsed_share": 0.875,
+   "n_windows": 6,
+   "windows_s": [
+    [
+     0.0,
+     30.960493999999997
+    ],
+    [
+     30.960493999999997,
+     60.921999000000014
+    ],
+    [
+     60.921999000000014,
+     90.88204700000001
+    ],
+    [
+     90.88204700000001,
+     120.840963
+    ],
+    [
+     125.834063,
+     156.79107300000004
+    ],
+    [
+     242.69243,
+     262.045972
+    ]
+   ],
+   "n_evals": 19,
+   "seconds": 33.219550132751465,
+   "seed_score": 52.30274548962659,
+   "history": [
+    {
+     "theta": [
+      -3.1391350434685945,
+      -4.8654408188858405,
+      -5.0,
+      -8.0,
+      1.0,
+      1.5,
+      0.0
+     ],
+     "score": 52.30274548962659,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.6,
+      -5.3,
+      -4.9,
+      -8.1,
+      -1.3,
+      1.25,
+      0.0
+     ],
+     "score": 46.35019926370326,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.0,
+      1.8,
+      0.0
+     ],
+     "score": 52.406867782840955,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.14,
+      -4.87,
+      -5.0,
+      -8.0,
+      -0.06,
+      0.2,
+      0.0
+     ],
+     "score": 48.92648840173048,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.2,
+      -4.9,
+      -5.1,
+      -8.1,
+      -0.1,
+      0.25,
+      0.0
+     ],
+     "score": 48.81640863791472,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.0,
+      -4.7,
+      -4.9,
+      -7.9,
+      0.0,
+      0.15,
+      0.0
+     ],
+     "score": 49.06194514997725,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.5,
+      -5.4,
+      -5.5,
+      -8.4,
+      -0.2,
+      0.1,
+      0.0
+     ],
+     "score": 48.6494789409795,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.1,
+      -4.85,
+      -5.05,
+      -8.05,
+      -0.08,
+      0.18,
+      0.0
+     ],
+     "score": 48.87459333642343,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -2.9,
+      -4.6,
+      -4.8,
+      -7.8,
+      0.05,
+      0.3,
+      0.0
+     ],
+     "score": 49.14602209137977,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.5010414838046389,
+      0.6241083177210546,
+      0.0
+     ],
+     "score": 46.33358362268089,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.0681851759573764,
+      -5.5693673163172495,
+      -4.834693542628931,
+      -7.9446194074669165,
+      -1.2605273569064992,
+      1.607852668494865,
+      0.0
+     ],
+     "score": 46.37455546398224,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.45,
+      -5.5,
+      -5.2,
+      -8.1,
+      0.04,
+      0.18,
+      0.0
+     ],
+     "score": 49.254322754420365,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.3,
+      -5.6,
+      -5.1,
+      -7.9,
+      0.04,
+      0.15,
+      0.0
+     ],
+     "score": 49.269151672723666,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.5,
+      -5.45,
+      -5.3,
+      -8.15,
+      0.05,
+      0.22,
+      0.0
+     ],
+     "score": 49.27216106127166,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.25,
+      -5.55,
+      -5.15,
+      -8.05,
+      0.04,
+      0.16,
+      0.0
+     ],
+     "score": 49.2601573316358,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.6,
+      -5.4,
+      -5.25,
+      -8.2,
+      0.04,
+      0.2,
+      0.0
+     ],
+     "score": 49.24487896668587,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.15,
+      -5.7,
+      -5.05,
+      -7.85,
+      0.04,
+      0.14,
+      0.0
+     ],
+     "score": 49.27500410727327,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.4,
+      -5.52,
+      -5.22,
+      -8.08,
+      0.045,
+      0.17,
+      0.0
+     ],
+     "score": 49.271199773866776,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.35,
+      -5.48,
+      -5.18,
+      -8.02,
+      0.042,
+      0.19,
+      0.0
+     ],
+     "score": 49.25848189035553,
+     "round": 2,
+     "source": "llm"
+    }
+   ],
+   "llm_log": [
+    {
+     "round": 1,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_q_acc', 'log_q_gyro', 'log_q_ba', 'log_q_bg', 'log_r_xy', 'log_r_z']:\n- log_q_acc: accelerometer white noise PSD, (m/s^2)^2/Hz per axis, default -3.14, allowed [-4.14, -2.14]\n- log_q_gyro: gyroscope white noise PSD, (rad/s)^2/Hz per axis, default -4.87, allowed [-5.87, -3.87]\n- log_q_ba: accelerometer bias random walk PSD, (m/s^2)^2/s per axis, default -5.00, allowed [-6.00, -4.00]\n- log_q_bg: gyroscope bias random walk PSD, (rad/s)^2/s per axis, default -8.00, allowed [-9.00, -7.00]\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default 1.00, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 1.50, allowed [-1.50, 4.50]\n\nGPS condition to tune for: nominal. Estimated horizontal GPS white noise sigma_h = 1.05 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- moderate (GPS noise ~3.8 m): [-3.42, -5.38, -5.42, -8.28, 1.00, 1.80], score 13.765\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 6 window(s) of 29 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [-3.6, -5.3, -4.9, -8.1, -1.3, 1.25], \"score\": 46.35}\n{\"setting\": [-3.14, -4.87, -5.0, -8.0, 1.0, 1.5], \"score\": 52.303}\n{\"setting\": [-3.42, -5.38, -5.42, -8.28, 1.0, 1.8], \"score\": 52.407}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_q_acc, log_q_gyro, log_q_ba, log_q_bg, log_r_xy, log_r_z], ...]} with 6 numbers per setting.",
+     "reply": "The nominal GPS error of 1.05 m is significantly tighter than the moderate condition (~3.8 m), so the current best score of 46.35 suggests the filter is either over-trusting the GPS (causing divergence when noise spikes) or under-trusting it (causing lag). The moderate settings (-1.3 for horizontal variance) are too loose for nominal 1.05 m conditions. We need to aggressively reduce `log_r_xy` to reflect the true 1.05 m sigma (variance $\\approx 1.1$ m\u00b2, log $\\approx -0.06$) while potentially increasing IMU process noise slightly to allow the filter to react faster to the high-quality GPS updates without being overly sluggish. The previous attempts with very low GPS noise (-1.3) likely caused the EKF to diverge or oscillate wildly, hence the poor score; we must find a balance where the GPS weight is high but stable.\n\n```json\n{\n  \"settings\": [\n    [-3.14, -4.87, -5.0, -8.0, -0.06, 0.2],\n    [-3.2, -4.9, -5.1, -8.1, -0.1, 0.25],\n    [-3.0, -4.7, -4.9, -7.9, 0.0, 0.15],\n    [-3.5, -5.4, -5.5, -8.4, -0.2, 0.1],\n    [-3.1, -4.85, -5.05, -8.05, -0.08, 0.18],\n    [-2.9, -4.6, -4.8, -7.8, 0.05, 0.3]\n  ]\n}\n```]]}",
+     "n_parsed": 6,
+     "n_filled": 2,
+     "tokens_in": 872,
+     "tokens_out": 425,
+     "seconds": 10.918859243392944
+    },
+    {
+     "round": 2,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_q_acc', 'log_q_gyro', 'log_q_ba', 'log_q_bg', 'log_r_xy', 'log_r_z']:\n- log_q_acc: accelerometer white noise PSD, (m/s^2)^2/Hz per axis, default -3.14, allowed [-4.14, -2.14]\n- log_q_gyro: gyroscope white noise PSD, (rad/s)^2/Hz per axis, default -4.87, allowed [-5.87, -3.87]\n- log_q_ba: accelerometer bias random walk PSD, (m/s^2)^2/s per axis, default -5.00, allowed [-6.00, -4.00]\n- log_q_bg: gyroscope bias random walk PSD, (rad/s)^2/s per axis, default -8.00, allowed [-9.00, -7.00]\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default 1.00, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 1.50, allowed [-1.50, 4.50]\n\nGPS condition to tune for: nominal. Estimated horizontal GPS white noise sigma_h = 1.05 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- moderate (GPS noise ~3.8 m): [-3.42, -5.38, -5.42, -8.28, 1.00, 1.80], score 13.765\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 6 window(s) of 29 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [-3.32, -5.37, -5.14, -7.8, -1.5, 0.62], \"score\": 46.334}\n{\"setting\": [-3.6, -5.3, -4.9, -8.1, -1.3, 1.25], \"score\": 46.35}\n{\"setting\": [-3.07, -5.57, -4.83, -7.94, -1.26, 1.61], \"score\": 46.375}\n{\"setting\": [-3.5, -5.4, -5.5, -8.4, -0.2, 0.1], \"score\": 48.649}\n{\"setting\": [-3.2, -4.9, -5.1, -8.1, -0.1, 0.25], \"score\": 48.816}\n{\"setting\": [-3.1, -4.85, -5.05, -8.05, -0.08, 0.18], \"score\": 48.875}\n{\"setting\": [-3.14, -4.87, -5.0, -8.0, -0.06, 0.2], \"score\": 48.926}\n{\"setting\": [-3.0, -4.7, -4.9, -7.9, 0.0, 0.15], \"score\": 49.062}\n{\"setting\": [-2.9, -4.6, -4.8, -7.8, 0.05, 0.3], \"score\": 49.146}\n{\"setting\": [-3.14, -4.87, -5.0, -8.0, 1.0, 1.5], \"score\": 52.303}\n{\"setting\": [-3.42, -5.38, -5.42, -8.28, 1.0, 1.8], \"score\": 52.407}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_q_acc, log_q_gyro, log_q_ba, log_q_bg, log_r_xy, log_r_z], ...]} with 6 numbers per setting.",
+     "reply": "The current best score of 46.334 with $\\sigma_h \\approx 1.05$ m suggests the filter is currently over-trusting the IMU dynamics relative to the actual GPS observation noise, causing the estimator to lag behind the true position or over-correct in a way that increases RMS error. The GPS noise variance of $(1.05)^2 \\approx 1.10$ m$^2$ corresponds to $\\log_{10}(1.10) \\approx 0.04$, yet the best attempts are pushing $\\log_r_{xy}$ down to -1.5 (0.03 m$^2$) or even 0.1 (1.26 m$^2$), failing to accurately model the white noise floor. To improve, we must tighten the GPS process noise model ($\\log_r_{xy} \\approx 0.04$) and slightly increase IMU process noise to allow the filter to trust the GPS update more aggressively when it is clear. We will propose settings clustering around $\\log_r_{xy} = 0.04$ while fine-tuning the IMU biases and accelerometers to balance the trust weights.\n\n```json\n{\n  \"settings\": [\n    [-3.45, -5.50, -5.20, -8.10, 0.04, 0.18],\n    [-3.30, -5.60, -5.10, -7.90, 0.04, 0.15],\n    [-3.50, -5.45, -5.30, -8.15, 0.05, 0.22],\n    [-3.25, -5.55, -5.15, -8.05, 0.04, 0.16],\n    [-3.60, -5.40, -5.25, -8.20, 0.04, 0.20],\n    [-3.15, -5.70, -5.05, -7.85, 0.04, 0.14],\n    [-3.40, -5.52, -5.22, -8.08, 0.045, 0.17],\n    [-3.35, -5.48, -5.18, -8.02, 0.042, 0.19]\n  ]\n}\n```]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 1253,
+     "tokens_out": 578,
+     "seconds": 15.045653820037842
+    }
+   ],
+   "tuned_at_s": 262.045972,
+   "n_tunings": 6
+  },
+  "moderate": {
+   "theta": [
+    -3.42,
+    -5.38,
+    -5.42,
+    -8.28,
+    1.0,
+    1.8,
+    0.0
+   ],
+   "score": 13.765137427642397,
+   "sigma_h": 3.8406902740042748,
+   "best_source": "llm",
+   "best_round": 2,
+   "llm_parsed_share": 0.875,
+   "n_windows": 2,
+   "windows_s": [
+    [
+     158.788297,
+     189.76531900000003
+    ],
+    [
+     189.76531900000003,
+     219.72393600000004
+    ]
+   ],
+   "n_evals": 19,
+   "seconds": 28.933606147766113,
+   "seed_score": 14.13091867345666,
+   "history": [
+    {
+     "theta": [
+      -3.1391350434685945,
+      -4.8654408188858405,
+      -5.0,
+      -8.0,
+      1.0,
+      1.5,
+      0.0
+     ],
+     "score": 14.13091867345666,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.6,
+      -5.3,
+      -4.9,
+      -8.1,
+      -1.3,
+      1.25,
+      0.0
+     ],
+     "score": 19.16069041560606,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.45,
+      -5.25,
+      -5.35,
+      -8.25,
+      1.1,
+      1.8,
+      0.0
+     ],
+     "score": 13.818336380087512,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.25,
+      -4.95,
+      -5.1,
+      -7.95,
+      1.05,
+      1.6,
+      0.0
+     ],
+     "score": 14.000618186468785,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.1,
+      -4.85,
+      -4.95,
+      -8.05,
+      1.15,
+      1.65,
+      0.0
+     ],
+     "score": 14.02045327140404,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.4,
+      -5.2,
+      -5.3,
+      -8.2,
+      1.0,
+      1.75,
+      0.0
+     ],
+     "score": 13.843107243202814,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.05,
+      -4.8,
+      -4.9,
+      -7.9,
+      1.2,
+      1.7,
+      0.0
+     ],
+     "score": 14.057932540193788,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.3,
+      -5.1,
+      -5.25,
+      -8.15,
+      1.1,
+      1.85,
+      0.0
+     ],
+     "score": 13.8702269731684,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.55,
+      -5.4,
+      -5.45,
+      -8.3,
+      0.95,
+      1.55,
+      0.0
+     ],
+     "score": 13.775400746880768,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.493285421886593,
+      -5.062254003791855,
+      -5.210141592490288,
+      -7.8047981073512975,
+      0.5432201203943647,
+      1.0033667378289863,
+      0.0
+     ],
+     "score": 14.713600546483475,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.4424808349336184,
+      -5.362531343611731,
+      -5.550801568916238,
+      -8.405872972605202,
+      1.3450710482131676,
+      1.7858269262106439,
+      0.0
+     ],
+     "score": 14.295183205235682,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.5,
+      -5.45,
+      -5.5,
+      -8.35,
+      0.85,
+      1.65,
+      0.0
+     ],
+     "score": 13.811844009557484,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.48,
+      -5.42,
+      -5.48,
+      -8.32,
+      0.9,
+      1.7,
+      0.0
+     ],
+     "score": 13.789389893124211,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.284303162430843,
+      -5.316354777909156,
+      -5.47082976460493,
+      -8.410469625037294,
+      0.884725832255631,
+      1.6675668004307487,
+      0.0
+     ],
+     "score": 13.846074146648098,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.45,
+      -5.4,
+      -5.45,
+      -8.3,
+      0.95,
+      1.75,
+      0.0
+     ],
+     "score": 13.771530950154226,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.55,
+      -5.5,
+      -5.55,
+      -8.4,
+      0.75,
+      1.55,
+      0.0
+     ],
+     "score": 13.882085573089794,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.0,
+      1.8,
+      0.0
+     ],
+     "score": 13.765137427642397,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.6,
+      -5.4,
+      -5.45,
+      -8.3,
+      0.65,
+      1.45,
+      0.0
+     ],
+     "score": 14.081031886894907,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.4,
+      -5.35,
+      -5.4,
+      -8.25,
+      1.05,
+      1.85,
+      0.0
+     ],
+     "score": 13.775132822680176,
+     "round": 2,
+     "source": "llm"
+    }
+   ],
+   "llm_log": [
+    {
+     "round": 1,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_q_acc', 'log_q_gyro', 'log_q_ba', 'log_q_bg', 'log_r_xy', 'log_r_z']:\n- log_q_acc: accelerometer white noise PSD, (m/s^2)^2/Hz per axis, default -3.14, allowed [-4.14, -2.14]\n- log_q_gyro: gyroscope white noise PSD, (rad/s)^2/Hz per axis, default -4.87, allowed [-5.87, -3.87]\n- log_q_ba: accelerometer bias random walk PSD, (m/s^2)^2/s per axis, default -5.00, allowed [-6.00, -4.00]\n- log_q_bg: gyroscope bias random walk PSD, (rad/s)^2/s per axis, default -8.00, allowed [-9.00, -7.00]\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default 1.00, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 1.50, allowed [-1.50, 4.50]\n\nGPS condition to tune for: moderate. Estimated horizontal GPS white noise sigma_h = 3.84 m (2-axis standard deviation; this receiver's normal level: 1.11 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-3.60, -5.30, -4.90, -8.10, -1.30, 1.25], score 49.428\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 2 window(s) of 30 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [-3.45, -5.25, -5.35, -8.25, 1.1, 1.8], \"score\": 13.818}\n{\"setting\": [-3.14, -4.87, -5.0, -8.0, 1.0, 1.5], \"score\": 14.131}\n{\"setting\": [-3.6, -5.3, -4.9, -8.1, -1.3, 1.25], \"score\": 19.161}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_q_acc, log_q_gyro, log_q_ba, log_q_bg, log_r_xy, log_r_z], ...]} with 6 numbers per setting.",
+     "reply": "The current best score of 13.818 was achieved by slightly relaxing the IMU noise (higher `log_q_acc` and `log_q_bg`) while significantly increasing the GPS noise model (`log_r_xy` to 1.1 and `log_r_z` to 1.8) compared to the nominal settings. This suggests the filter is currently over-trusting the IMU integration for a moderate GPS condition where the actual noise is higher than the nominal 1.1m, leading to a mismatch that the high process noise attempts to compensate for. To improve, we should aim for a more balanced trade-off by slightly lowering the aggressive GPS noise increase while fine-tuning the accelerometer and gyro biases to better match the specific \"moderate\" error characteristics without letting the IMU drift too far between fixes.\n\n```json\n{\"settings\": [\n  [-3.25, -4.95, -5.10, -7.95, 1.05, 1.60],\n  [-3.10, -4.85, -4.95, -8.05, 1.15, 1.65],\n  [-3.40, -5.20, -5.30, -8.20, 1.00, 1.75],\n  [-3.05, -4.80, -4.90, -7.90, 1.20, 1.70],\n  [-3.30, -5.10, -5.25, -8.15, 1.10, 1.85],\n  [-3.55, -5.40, -5.45, -8.30, 0.95, 1.55]\n]}\n```]]}",
+     "n_parsed": 6,
+     "n_filled": 2,
+     "tokens_in": 873,
+     "tokens_out": 408,
+     "seconds": 10.439678192138672
+    },
+    {
+     "round": 2,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_q_acc', 'log_q_gyro', 'log_q_ba', 'log_q_bg', 'log_r_xy', 'log_r_z']:\n- log_q_acc: accelerometer white noise PSD, (m/s^2)^2/Hz per axis, default -3.14, allowed [-4.14, -2.14]\n- log_q_gyro: gyroscope white noise PSD, (rad/s)^2/Hz per axis, default -4.87, allowed [-5.87, -3.87]\n- log_q_ba: accelerometer bias random walk PSD, (m/s^2)^2/s per axis, default -5.00, allowed [-6.00, -4.00]\n- log_q_bg: gyroscope bias random walk PSD, (rad/s)^2/s per axis, default -8.00, allowed [-9.00, -7.00]\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default 1.00, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 1.50, allowed [-1.50, 4.50]\n\nGPS condition to tune for: moderate. Estimated horizontal GPS white noise sigma_h = 3.84 m (2-axis standard deviation; this receiver's normal level: 1.11 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-3.60, -5.30, -4.90, -8.10, -1.30, 1.25], score 49.428\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 2 window(s) of 30 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [-3.55, -5.4, -5.45, -8.3, 0.95, 1.55], \"score\": 13.775}\n{\"setting\": [-3.45, -5.25, -5.35, -8.25, 1.1, 1.8], \"score\": 13.818}\n{\"setting\": [-3.4, -5.2, -5.3, -8.2, 1.0, 1.75], \"score\": 13.843}\n{\"setting\": [-3.3, -5.1, -5.25, -8.15, 1.1, 1.85], \"score\": 13.87}\n{\"setting\": [-3.25, -4.95, -5.1, -7.95, 1.05, 1.6], \"score\": 14.001}\n{\"setting\": [-3.1, -4.85, -4.95, -8.05, 1.15, 1.65], \"score\": 14.02}\n{\"setting\": [-3.05, -4.8, -4.9, -7.9, 1.2, 1.7], \"score\": 14.058}\n{\"setting\": [-3.14, -4.87, -5.0, -8.0, 1.0, 1.5], \"score\": 14.131}\n{\"setting\": [-3.44, -5.36, -5.55, -8.41, 1.35, 1.79], \"score\": 14.295}\n{\"setting\": [-3.49, -5.06, -5.21, -7.8, 0.54, 1.0], \"score\": 14.714}\n{\"setting\": [-3.6, -5.3, -4.9, -8.1, -1.3, 1.25], \"score\": 19.161}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_q_acc, log_q_gyro, log_q_ba, log_q_bg, log_r_xy, log_r_z], ...]} with 6 numbers per setting.",
+     "reply": "The current best score of 13.775 was achieved with relatively high process noise (low log_q values) and moderate measurement noise, suggesting the filter might be slightly under-trusting the GPS or over-trusting the IMU dynamics. The \"nominal\" settings (score 19.16) failed because they were too conservative for this specific moderate-noise environment, leading to lag. To improve further, we should nudge the best setting slightly to balance the trade-off between tracking the noisy GPS and rejecting IMU drift, potentially increasing GPS noise variance slightly to allow the filter to react faster without amplifying the white noise error too much, or slightly tightening the IMU noise model if the current setting allows for too much rapid state fluctuation.\n\n```json\n{\n  \"settings\": [\n    [-3.50, -5.45, -5.50, -8.35, 0.85, 1.65],\n    [-3.48, -5.42, -5.48, -8.32, 0.90, 1.70],\n    [-3.52, -5.48, -5.52, -8.38, 0.80, 1.60],\n    [-3.45, -5.40, -5.45, -8.30, 0.95, 1.75],\n    [-3.55, -5.50, -5.55, -8.40, 0.75, 1.55],\n    [-3.42, -5.38, -5.42, -8.28, 1.00, 1.80],\n    [-3.60, -5.40, -5.45, -8.30, 0.65, 1.45],\n    [-3.40, -5.35, -5.40, -8.25, 1.05, 1.85]\n  ]\n}\n```]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 1259,
+     "tokens_out": 478,
+     "seconds": 12.41187834739685
+    }
+   ],
+   "tuned_at_s": 219.72393600000004,
+   "n_tunings": 2
+  },
+  "heavy": {
+   "theta": [
+    -3.42,
+    -5.38,
+    -5.42,
+    -8.28,
+    2.799819974399894,
+    2.1898465569192607,
+    0.0
+   ],
+   "score": 16.60771137557421,
+   "sigma_h": 12.332805880878615,
+   "best_source": "llm",
+   "best_round": 3,
+   "llm_parsed_share": 1.0,
+   "n_windows": 1,
+   "windows_s": [
+    [
+     304.987139,
+     343.93320900000003
+    ]
+   ],
+   "n_evals": 28,
+   "seconds": 29.08947467803955,
+   "seed_score": 19.670273760732496,
+   "history": [
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.505149978319906,
+      1.8,
+      0.0
+     ],
+     "score": 19.670273760732496,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.0,
+      1.5,
+      0.0
+     ],
+     "score": 21.481036136019444,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      -1.5010414838046389,
+      0.6241083177210546,
+      0.0
+     ],
+     "score": 71.68170900165299,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.0,
+      1.8,
+      0.0
+     ],
+     "score": 21.463794968131065,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.2,
+      2.0,
+      0.0
+     ],
+     "score": 17.432287183246316,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.5,
+      2.2,
+      0.0
+     ],
+     "score": 16.906183454876004,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.0,
+      1.8,
+      0.0
+     ],
+     "score": 17.95819583526748,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.8,
+      2.0,
+      0.0
+     ],
+     "score": 18.571691465429303,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.3,
+      1.9,
+      0.0
+     ],
+     "score": 17.24949758745092,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.1,
+      2.1,
+      0.0
+     ],
+     "score": 17.65626202789914,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.4,
+      1.7,
+      0.0
+     ],
+     "score": 17.134830458324558,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.9,
+      2.3,
+      0.0
+     ],
+     "score": 18.220062092099784,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.410466590827977,
+      2.1690419996675265,
+      0.0
+     ],
+     "score": 17.032626421824144,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.6,
+      2.3,
+      0.0
+     ],
+     "score": 16.778858039159452,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.7,
+      2.2,
+      0.0
+     ],
+     "score": 16.692196872386862,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.8,
+      2.1,
+      0.0
+     ],
+     "score": 16.624420938486153,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.5,
+      2.0,
+      0.0
+     ],
+     "score": 16.93447886078421,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.6,
+      1.9,
+      0.0
+     ],
+     "score": 16.845071837598322,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.4,
+      1.8,
+      0.0
+     ],
+     "score": 17.108301666324707,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.5,
+      1.7,
+      0.0
+     ],
+     "score": 17.008945621654536,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.799819974399894,
+      2.1898465569192607,
+      0.0
+     ],
+     "score": 16.60771137557421,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.25,
+      2.15,
+      0.0
+     ],
+     "score": 17.312958936032565,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.045417416652787,
+      2.259011058072618,
+      0.0
+     ],
+     "score": 17.78876881226677,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      1.7558598568108001,
+      2.093456847620154,
+      0.0
+     ],
+     "score": 18.7205029094326,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.415374196764658,
+      2.0138650425528244,
+      0.0
+     ],
+     "score": 17.04528585704716,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.35,
+      2.1,
+      0.0
+     ],
+     "score": 17.13551694844328,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.2,
+      2.2,
+      0.0
+     ],
+     "score": 17.413063466505594,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.42,
+      -5.38,
+      -5.42,
+      -8.28,
+      2.4289612723931993,
+      2.3472463403811656,
+      0.0
+     ],
+     "score": 16.989133625950263,
+     "round": 3,
+     "source": "llm"
+    }
+   ],
+   "llm_log": [
+    {
+     "round": 1,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_r_xy', 'log_r_z']:\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default 1.51, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 1.80, allowed [-1.50, 4.50]\n\nGPS condition to tune for: heavy. Estimated horizontal GPS white noise sigma_h = 12.33 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-1.50, 0.62], score 46.334\n- moderate (GPS noise ~3.8 m): [1.00, 1.80], score 13.765\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 1 window(s) of 39 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [1.51, 1.8], \"score\": 19.67}\n{\"setting\": [1.0, 1.8], \"score\": 21.464}\n{\"setting\": [1.0, 1.5], \"score\": 21.481}\n{\"setting\": [-1.5, 0.62], \"score\": 71.682}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_r_xy, log_r_z], ...]} with 2 numbers per setting.",
+     "reply": "The heavy GPS condition with a high estimated noise of 12.33 m indicates the filter must trust the IMU significantly more than the GPS, yet the current best score of 19.67 suggests the GPS is still contributing meaningful correction or that the white noise model is slightly misaligned with the actual error characteristics. The nominal settings from moderate conditions perform poorly here because they over-trust the unreliable GPS, leading to large error spikes. We need to increase the horizontal noise variance substantially to suppress GPS updates while keeping the vertical variance high enough to allow occasional altitude corrections without overwhelming the solution.\n\n```json\n{\"settings\": [[2.20, 2.0], [2.5, 2.2], [2.0, 1.8], [1.8, 2.0], [2.3, 1.9], [2.1, 2.1], [2.4, 1.7], [1.9, 2.3]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 629,
+     "tokens_out": 210,
+     "seconds": 5.818060874938965
+    },
+    {
+     "round": 2,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_r_xy', 'log_r_z']:\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default 1.51, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 1.80, allowed [-1.50, 4.50]\n\nGPS condition to tune for: heavy. Estimated horizontal GPS white noise sigma_h = 12.33 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-1.50, 0.62], score 46.334\n- moderate (GPS noise ~3.8 m): [1.00, 1.80], score 13.765\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 1 window(s) of 39 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [2.5, 2.2], \"score\": 16.906}\n{\"setting\": [2.4, 1.7], \"score\": 17.135}\n{\"setting\": [2.3, 1.9], \"score\": 17.249}\n{\"setting\": [2.2, 2.0], \"score\": 17.432}\n{\"setting\": [2.1, 2.1], \"score\": 17.656}\n{\"setting\": [2.0, 1.8], \"score\": 17.958}\n{\"setting\": [1.9, 2.3], \"score\": 18.22}\n{\"setting\": [1.8, 2.0], \"score\": 18.572}\n{\"setting\": [1.51, 1.8], \"score\": 19.67}\n{\"setting\": [1.0, 1.8], \"score\": 21.464}\n{\"setting\": [1.0, 1.5], \"score\": 21.481}\n{\"setting\": [-1.5, 0.62], \"score\": 71.682}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_r_xy, log_r_z], ...]} with 2 numbers per setting.",
+     "reply": "The best score of 16.906 with `[2.5, 2.2]` suggests the current tuning is slightly underestimating the horizontal noise (sigma ~63m) compared to the observed 12.33m (log10(variance) ~2.09), likely because the filter is still over-trusting the IMU relative to the degraded GPS. The vertical noise setting of 2.2 (sigma ~15.8m) seems appropriate for heavy conditions, but the horizontal value needs to increase further to allow the GPS to correct the drift more aggressively, while ensuring the vertical noise isn't too low to cause oscillations. A slight increase in horizontal noise and a potential reduction in vertical noise might lower the RMS error by better aligning the process noise model with the actual measurement uncertainty.\n\n{\"settings\": [[2.6, 2.3], [2.7, 2.2], [2.8, 2.1], [2.5, 2.0], [2.6, 1.9], [2.4, 1.8], [2.5, 1.7], [2.7, 1.8]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 828,
+     "tokens_out": 258,
+     "seconds": 6.9223151206970215
+    },
+    {
+     "round": 3,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_r_xy', 'log_r_z']:\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default 1.51, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 1.80, allowed [-1.50, 4.50]\n\nGPS condition to tune for: heavy. Estimated horizontal GPS white noise sigma_h = 12.33 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-1.50, 0.62], score 46.334\n- moderate (GPS noise ~3.8 m): [1.00, 1.80], score 13.765\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 1 window(s) of 39 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [2.8, 2.1], \"score\": 16.624}\n{\"setting\": [2.7, 2.2], \"score\": 16.692}\n{\"setting\": [2.6, 2.3], \"score\": 16.779}\n{\"setting\": [2.6, 1.9], \"score\": 16.845}\n{\"setting\": [2.5, 2.2], \"score\": 16.906}\n{\"setting\": [2.5, 2.0], \"score\": 16.934}\n{\"setting\": [2.5, 1.7], \"score\": 17.009}\n{\"setting\": [2.41, 2.17], \"score\": 17.033}\n{\"setting\": [2.4, 1.8], \"score\": 17.108}\n{\"setting\": [2.4, 1.7], \"score\": 17.135}\n{\"setting\": [2.3, 1.9], \"score\": 17.249}\n{\"setting\": [2.2, 2.0], \"score\": 17.432}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_r_xy, log_r_z], ...]} with 2 numbers per setting.",
+     "reply": "The current best score of 16.624 with settings [2.8, 2.1] suggests the filter is slightly under-trusting the GPS vertical channel relative to the horizontal, or that the horizontal noise model is still too aggressive given the heavy noise floor of 12.33m (which corresponds to roughly log10(160) \u2248 2.2). The plateau in scores from 2.8 down to 2.2 indicates we are in a local minimum where reducing horizontal noise variance further hurts performance more than helping it. We need to explore slightly lower horizontal variances (to match the 12.3m sigma more closely, targeting log10(160)\u22482.2) while potentially increasing vertical trust or keeping it stable, as the vertical sigma is likely lower than the horizontal.\n\n{\"settings\": [[2.25, 2.15], [2.3, 2.1], [2.2, 2.1], [2.25, 2.0], [2.35, 2.1], [2.2, 2.2], [2.15, 2.1], [2.3, 2.15]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 830,
+     "tokens_out": 267,
+     "seconds": 7.040816307067871
+    }
+   ],
+   "online_at_s": 343.93320900000003
+  },
+  "recovery": {
+   "theta": [
+    -3.316788291231151,
+    -5.3725187326937,
+    -5.143503438862668,
+    -7.802303047924299,
+    -1.3280084358477937,
+    0.676490511329737,
+    0.0
+   ],
+   "score": 1.789178351280341,
+   "sigma_h": 1.3730444450901729,
+   "best_source": "llm",
+   "best_round": 2,
+   "llm_parsed_share": 1.0,
+   "n_windows": 1,
+   "windows_s": [
+    [
+     486.73212400000006,
+     505.70501900000005
+    ]
+   ],
+   "n_evals": 29,
+   "seconds": 27.17259693145752,
+   "seed_score": 1.799233760296643,
+   "history": [
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.5010414838046389,
+      0.6241083177210546,
+      0.0
+     ],
+     "score": 1.799233760296643,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      1.0,
+      1.5,
+      0.0
+     ],
+     "score": 2.1648504323886657,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.5010414838046389,
+      0.6241083177210546,
+      0.0
+     ],
+     "score": 1.799233760296643,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      1.0,
+      1.8,
+      0.0
+     ],
+     "score": 2.161356231601956,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      2.799819974399894,
+      2.1898465569192607,
+      0.0
+     ],
+     "score": 5.494014272673257,
+     "round": 0,
+     "source": "seed"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.14,
+      0.62,
+      0.0
+     ],
+     "score": 1.964804600332283,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.270471402301197,
+      0.7750820940607038,
+      0.0
+     ],
+     "score": 1.9765363642547258,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.14,
+      1.0,
+      0.0
+     ],
+     "score": 1.9626191408773859,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.2,
+      0.8,
+      0.0
+     ],
+     "score": 1.9691197265014562,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.14,
+      0.5,
+      0.0
+     ],
+     "score": 1.9656470829119022,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.25,
+      1.2,
+      0.0
+     ],
+     "score": 1.9718249762345317,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.14,
+      0.7,
+      0.0
+     ],
+     "score": 1.964291219331213,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      0.16,
+      0.9,
+      0.0
+     ],
+     "score": 1.9648692735119346,
+     "round": 1,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.3280084358477937,
+      0.676490511329737,
+      0.0
+     ],
+     "score": 1.789178351280341,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.2693809376396417,
+      0.4683805767986281,
+      0.0
+     ],
+     "score": 1.7922151293187045,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.2,
+      0.7,
+      0.0
+     ],
+     "score": 1.795599410445903,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.0,
+      0.8,
+      0.0
+     ],
+     "score": 1.8214197698221966,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -0.8,
+      0.9,
+      0.0
+     ],
+     "score": 1.8557946900676012,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -0.6,
+      1.0,
+      0.0
+     ],
+     "score": 1.888887831079182,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -0.4,
+      1.1,
+      0.0
+     ],
+     "score": 1.9156585462105644,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -0.2,
+      1.2,
+      0.0
+     ],
+     "score": 1.935352510892704,
+     "round": 2,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.1359231975191306,
+      0.7092037555325726,
+      0.0
+     ],
+     "score": 1.8023002936149293,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.65,
+      0.62,
+      0.0
+     ],
+     "score": 1.8262142270938675,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.55,
+      0.55,
+      0.0
+     ],
+     "score": 1.8067216624330615,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.7,
+      0.65,
+      0.0
+     ],
+     "score": 1.8385725051143982,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.45,
+      0.6,
+      0.0
+     ],
+     "score": 1.794084817191137,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.58,
+      0.5,
+      0.0
+     ],
+     "score": 1.8122670694572398,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.62,
+      0.7,
+      0.0
+     ],
+     "score": 1.819000872112607,
+     "round": 3,
+     "source": "llm"
+    },
+    {
+     "theta": [
+      -3.316788291231151,
+      -5.3725187326937,
+      -5.143503438862668,
+      -7.802303047924299,
+      -1.5,
+      0.52,
+      0.0
+     ],
+     "score": 1.7997793542077254,
+     "round": 3,
+     "source": "llm"
+    }
+   ],
+   "llm_log": [
+    {
+     "round": 1,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_r_xy', 'log_r_z']:\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default -1.50, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 0.62, allowed [-1.50, 4.50]\n\nGPS condition to tune for: recovery. Estimated horizontal GPS white noise sigma_h = 1.37 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-1.50, 0.62], score 46.334\n- moderate (GPS noise ~3.8 m): [1.00, 1.80], score 13.765\n- heavy (GPS noise ~12.3 m): [2.80, 2.19], score 16.608\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 1 window(s) of 19 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [-1.5, 0.62], \"score\": 1.799}\n{\"setting\": [-1.5, 0.62], \"score\": 1.799}\n{\"setting\": [1.0, 1.8], \"score\": 2.161}\n{\"setting\": [1.0, 1.5], \"score\": 2.165}\n{\"setting\": [2.8, 2.19], \"score\": 5.494}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_r_xy, log_r_z], ...]} with 2 numbers per setting.",
+     "reply": "The current best score of 1.799 m uses the nominal settings, which seems counter-intuitive since the GPS noise estimate (1.37 m) is significantly higher than the nominal assumption (1.05 m). This suggests the filter is currently over-trusting the IMU predictions relative to the actual GPS measurement quality, or that the 19-second window captures a specific transient where the current tuning is fortuitously stable. To improve, we must increase the horizontal GPS noise variance (`log_r_xy`) closer to the estimated 1.37 m (~0.14) to allow the filter to correct drift more aggressively, while carefully adjusting the vertical noise to maintain stability, as vertical GPS is inherently noisier.\n\n```json\n{\"settings\": [[0.14, 0.62], [0.18, 0.62], [0.14, 1.0], [0.20, 0.8], [0.14, 0.5], [0.25, 1.2], [0.14, 0.7], [0.16, 0.9]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 683,
+     "tokens_out": 250,
+     "seconds": 6.616378545761108
+    },
+    {
+     "round": 2,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_r_xy', 'log_r_z']:\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default -1.50, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 0.62, allowed [-1.50, 4.50]\n\nGPS condition to tune for: recovery. Estimated horizontal GPS white noise sigma_h = 1.37 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-1.50, 0.62], score 46.334\n- moderate (GPS noise ~3.8 m): [1.00, 1.80], score 13.765\n- heavy (GPS noise ~12.3 m): [2.80, 2.19], score 16.608\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 1 window(s) of 19 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [-1.5, 0.62], \"score\": 1.799}\n{\"setting\": [-1.5, 0.62], \"score\": 1.799}\n{\"setting\": [0.14, 1.0], \"score\": 1.963}\n{\"setting\": [0.14, 0.7], \"score\": 1.964}\n{\"setting\": [0.14, 0.62], \"score\": 1.965}\n{\"setting\": [0.16, 0.9], \"score\": 1.965}\n{\"setting\": [0.14, 0.5], \"score\": 1.966}\n{\"setting\": [0.2, 0.8], \"score\": 1.969}\n{\"setting\": [0.25, 1.2], \"score\": 1.972}\n{\"setting\": [0.27, 0.78], \"score\": 1.977}\n{\"setting\": [1.0, 1.8], \"score\": 2.161}\n{\"setting\": [1.0, 1.5], \"score\": 2.165}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_r_xy, log_r_z], ...]} with 2 numbers per setting.",
+     "reply": "The current best score of 1.799 m with settings `[-1.5, 0.62]` suggests the filter is already well-tuned to the underlying GPS noise statistics, as these match the \"nominal\" configuration used for ~1.1 m noise conditions. However, the \"recovery\" condition has a slightly higher estimated white noise (1.37 m), implying the current horizontal setting might be slightly too optimistic (representing ~1.1 m noise), while the vertical setting seems appropriate. To improve the score, we should slightly relax the horizontal noise estimate to better match the 1.37 m reality, which may reduce the lag in position updates during recovery, and test minor variations in vertical noise to balance the trade-off. We will explore a range from slight relaxations of the horizontal noise to more aggressive increases, while keeping vertical noise near its current optimal range.\n\n```json\n{\n  \"settings\": [\n    [-1.3, 0.65],\n    [-1.2, 0.7],\n    [-1.0, 0.8],\n    [-0.8, 0.9],\n    [-0.6, 1.0],\n    [-0.4, 1.1],\n    [-0.2, 1.2],\n    [0.0, 1.3]\n  ]\n}\n```]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 859,
+     "tokens_out": 303,
+     "seconds": 7.7556235790252686
+    },
+    {
+     "round": 3,
+     "prompt": "Filter: 16-state GPS/IMU EKF, 100 Hz IMU, 0.5 Hz GPS without velocity. Parameters are log10 of variances or PSDs, not of standard deviations: log_r_xy = log10(sigma_axis^2), with sigma_axis = sigma_h / sqrt(2) for white GPS noise (e.g. log_r_xy = 1.0 means sigma_axis = 3.2 m, 2.0 means 10 m). In this order ['log_r_xy', 'log_r_z']:\n- log_r_xy: GPS horizontal position noise variance, m^2 per axis (east, north), default -1.50, allowed [-2.00, 4.00]\n- log_r_z: GPS vertical position noise variance, m^2, default 0.62, allowed [-1.50, 4.50]\n\nGPS condition to tune for: recovery. Estimated horizontal GPS white noise sigma_h = 1.37 m (2-axis standard deviation; this receiver's normal level: 1.05 m). The estimate sees only the fix-to-fix (white) part of the GPS error, not slowly varying errors.\n\nSettings already chosen for other GPS conditions of this drive:\n- nominal (GPS noise ~1.1 m): [-1.50, 0.62], score 46.334\n- moderate (GPS noise ~3.8 m): [1.00, 1.80], score 13.765\n- heavy (GPS noise ~12.3 m): [2.80, 2.19], score 16.608\n\nScore: RMS in metres of the filter's prediction error against each new GPS fix, over 1 window(s) of 19 s in this condition. Lower is better.\n\nTried so far (best first):\n{\"setting\": [-1.33, 0.68], \"score\": 1.789}\n{\"setting\": [-1.27, 0.47], \"score\": 1.792}\n{\"setting\": [-1.2, 0.7], \"score\": 1.796}\n{\"setting\": [-1.5, 0.62], \"score\": 1.799}\n{\"setting\": [-1.5, 0.62], \"score\": 1.799}\n{\"setting\": [-1.0, 0.8], \"score\": 1.821}\n{\"setting\": [-0.8, 0.9], \"score\": 1.856}\n{\"setting\": [-0.6, 1.0], \"score\": 1.889}\n{\"setting\": [-0.4, 1.1], \"score\": 1.916}\n{\"setting\": [-0.2, 1.2], \"score\": 1.935}\n{\"setting\": [0.14, 1.0], \"score\": 1.963}\n{\"setting\": [0.14, 0.7], \"score\": 1.964}\n\nPropose 8 new settings, each different from those tried, that you expect to score lower than the best. Mix small refinements of the best with a few bolder moves. After your sentence, give JSON: {\"settings\": [[log_r_xy, log_r_z], ...]} with 2 numbers per setting.",
+     "reply": "The current best score of 1.789 m is achieved with `[-1.33, 0.68]`, which slightly relaxes the horizontal trust (increasing noise) compared to the nominal setting but keeps vertical trust similar to nominal. Since the actual GPS horizontal noise is 1.37 m (log10 variance \u2248 -1.63) and the filter is currently setting it to 1.37 m (log10 variance \u2248 -1.33), the horizontal noise estimate is likely still too conservative, causing the filter to under-react to GPS updates during recovery. The vertical estimate seems acceptable. To lower the score, I will propose settings that further decrease the horizontal noise floor (closer to -1.7 or -1.6) to allow the IMU-GPS fusion to correct position errors more aggressively, while maintaining or slightly increasing vertical noise to prevent vertical jitter from dominating the error metric.\n\n```json\n{\n  \"settings\": [\n    [-1.65, 0.62],\n    [-1.55, 0.55],\n    [-1.70, 0.65],\n    [-1.45, 0.60],\n    [-1.58, 0.50],\n    [-1.62, 0.70],\n    [-1.50, 0.52],\n    [-1.68, 0.58]\n  ]\n}\n```]]}",
+     "n_parsed": 8,
+     "n_filled": 0,
+     "tokens_in": 856,
+     "tokens_out": 326,
+     "seconds": 8.27291750907898
+    }
+   ],
+   "online_at_s": 505.70501900000005
+  }
+ }
+}

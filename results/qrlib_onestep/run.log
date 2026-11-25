@@ -25,47 +25,47 @@
     moderate  llm    round 2: best 6.071  (LLM parsed 8/8)
   llm init: 'moderate' window 2 done at t = 803 s, tuning on 2 window(s)
     moderate  llm    round 1: best 5.520  (LLM parsed 7/8)
-    moderate  llm    round 2: best 5.520  (LLM parsed 8/8)
+    moderate  llm    round 2: best 5.503  (LLM parsed 7/8)
   llm init: 'moderate' window 3 done at t = 833 s, tuning on 3 window(s)
-    moderate  llm    round 1: best 5.208  (LLM parsed 7/8)
-    moderate  llm    round 2: best 5.208  (LLM parsed 7/8)
+    moderate  llm    round 1: best 5.207  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.206  (LLM parsed 7/8)
   llm init: 'moderate' window 4 done at t = 897 s, tuning on 4 window(s)
-    moderate  llm    round 1: best 5.007  (LLM parsed 7/8)
-    moderate  llm    round 2: best 5.007  (LLM parsed 8/8)
-  llm initialization mode: 10 tunings, 273 s
+    moderate  llm    round 1: best 5.004  (LLM parsed 7/8)
+    moderate  llm    round 2: best 5.004  (LLM parsed 8/8)
+  llm initialization mode: 10 tunings, 277 s
   llm: static, 24 window(s)
-    all (one setting for the whole drive) llm    round 1: best 1.511  (LLM parsed 7/8)
-    all (one setting for the whole drive) llm    round 2: best 1.511  (LLM parsed 7/8)
-    all (one setting for the whole drive) llm    round 3: best 1.509  (LLM parsed 7/8)
-    all (one setting for the whole drive) llm    round 4: best 1.509  (LLM parsed 7/8)
-    all (one setting for the whole drive) llm    round 5: best 1.508  (LLM parsed 7/8)
-    all (one setting for the whole drive) llm    round 6: best 1.508  (LLM parsed 7/8)
-    all (one setting for the whole drive) llm    round 7: best 1.508  (LLM parsed 7/8)
-    all (one setting for the whole drive) llm    round 8: best 1.508  (LLM parsed 7/8)
-  llm library: nominal 0.124 (THETA0 0.713), moderate 5.007 (THETA0 5.026); static 1.508
+    all (one setting for the whole drive) llm    round 1: best 1.543  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 2: best 1.543  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 3: best 1.543  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 4: best 1.511  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 5: best 1.511  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 6: best 1.511  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 7: best 1.511  (LLM parsed 7/8)
+    all (one setting for the whole drive) llm    round 8: best 1.511  (LLM parsed 7/8)
+  llm library: nominal 0.124 (THETA0 0.713), moderate 5.004 (THETA0 5.021); static 1.511
   test part, 6 fixed methods: 13 s
-  online llm: new condition 'heavy' at t = 1596 s
-    heavy     llm    round 1: best 15.269  (LLM parsed 7/8)
-    heavy     llm    round 2: best 15.218  (LLM parsed 7/8)
-    heavy     llm    round 3: best 15.218  (LLM parsed 8/8)
+  online llm: new condition 'heavy' at t = 1616 s
+    heavy     llm    round 1: best 14.805  (LLM parsed 8/8)
+    heavy     llm    round 2: best 14.805  (LLM parsed 8/8)
+    heavy     llm    round 3: best 14.789  (LLM parsed 8/8)
   online llm: new condition 'recovery' at t = 2247 s
-    recovery  llm    round 1: best 0.080  (LLM parsed 7/8)
-    recovery  llm    round 2: best 0.080  (LLM parsed 7/8)
-    recovery  llm    round 3: best 0.079  (LLM parsed 7/8)
-  Library + online update (llm): 89 s, 2 new entries
+    recovery  llm    round 1: best 0.078  (LLM parsed 8/8)
+    recovery  llm    round 2: best 0.078  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.078  (LLM parsed 8/8)
+  Library + online update (llm): 62 s, 2 new entries
                    method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
                    THETA0             3.6                    3.11                             2.83                3.65      NaN
-Initialization mode (llm)            3.53                     3.3                             3.47                3.55       10
+Initialization mode (llm)            3.53                    3.31                             3.47                3.55       10
                                method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
                               Raw GPS      5.78            15.2          NaN               2.23          3.93           NaN       NaN             NaN
                       Baseline THETA0       827            4.58     3.49e+03                2.4          4.12          0.54         0             NaN
   Paper 1 GWO (ground truth, offline)       497            5.72      2.1e+03               2.32          4.04          1.15         0             NaN
-                         Static (llm)       715            5.84     3.02e+03               2.32          4.03          2.61         0             NaN
-                        Library (llm)  1.18e+03            4.62     4.98e+03               2.21          3.92         0.481         3             NaN
-        Library, true condition (llm)  1.17e+03            4.59     4.94e+03               2.21          3.92         0.488         2             NaN
-Library, no plausibility filter (llm)  1.25e+03             6.6     5.29e+03               2.22          3.93          4.46         4             NaN
-        Library + online update (llm)  1.15e+03            3.56     4.85e+03               2.21          3.92         0.314       NaN               2
-  done in 8.2 min
+                         Static (llm)       773            6.27     3.26e+03               2.27          4.01          1.04         0             NaN
+                        Library (llm)   1.3e+03            3.85     5.49e+03               2.22          3.92         0.342         3             NaN
+        Library, true condition (llm)  1.29e+03             3.9     5.46e+03               2.22          3.92         0.346         2             NaN
+Library, no plausibility filter (llm)  1.34e+03            6.11     5.64e+03               2.22          3.93          4.35         4             NaN
+        Library + online update (llm)   1.3e+03            3.38     5.49e+03               2.21          3.92         0.294       NaN               2
+  done in 7.8 min
 === seed 0
 === inavwhu/playground00_outages_s0: split at 520 s (step 104023 of 265330), decision every 200 IMU steps; library: initialization mode
   reference run over the training part: 46 s
@@ -91,101 +91,161 @@ Library, no plausibility filter (llm)  1.25e+03             6.6     5.29e+03    
     moderate  llm    round 1: best 7.886  (LLM parsed 8/8)
     moderate  llm    round 2: best 7.886  (LLM parsed 8/8)
   llm init: 'moderate' window 2 done at t = 394 s, tuning on 2 window(s)
-    moderate  llm    round 1: best 6.812  (LLM parsed 6/8)
-    moderate  llm    round 2: best 6.812  (LLM parsed 8/8)
-  llm initialization mode: 8 tunings, 341 s
+    moderate  llm    round 1: best 6.940  (LLM parsed 6/8)
+    moderate  llm    round 2: best 6.936  (LLM parsed 8/8)
+  llm initialization mode: 8 tunings, 342 s
   llm: static, 17 window(s)
     all (one setting for the whole drive) llm    round 1: best 2.139  (LLM parsed 6/8)
-    all (one setting for the whole drive) llm    round 2: best 2.139  (LLM parsed 6/8)
-    all (one setting for the whole drive) llm    round 3: best 2.139  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 4: best 2.120  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 5: best 2.094  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 6: best 2.094  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 7: best 2.094  (LLM parsed 6/8)
-    all (one setting for the whole drive) llm    round 8: best 2.094  (LLM parsed 6/8)
-  llm library: nominal 0.052 (THETA0 0.151), moderate 6.812 (THETA0 6.928); static 2.094
-  test part, 6 fixed methods: 97 s
-  online llm: new condition 'heavy' at t = 672 s
-    heavy     llm    round 1: best 25.421  (LLM parsed 8/8)
-    heavy     llm    round 2: best 23.616  (LLM parsed 8/8)
-    heavy     llm    round 3: best 21.920  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 2: best 2.097  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 3: best 2.097  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 4: best 2.096  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 2.096  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 2.096  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 2.096  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 2.096  (LLM parsed 8/8)
+  llm library: nominal 0.052 (THETA0 0.151), moderate 6.936 (THETA0 7.150); static 2.096
+  test part, 6 fixed methods: 98 s
+  online llm: new condition 'heavy' at t = 692 s
+    heavy     llm    round 1: best 19.947  (LLM parsed 8/8)
+    heavy     llm    round 2: best 19.714  (LLM parsed 8/8)
+    heavy     llm    round 3: best 19.362  (LLM parsed 8/8)
   online llm: new condition 'recovery' at t = 1024 s
-    recovery  llm    round 1: best 0.074  (LLM parsed 8/8)
-    recovery  llm    round 2: best 0.074  (LLM parsed 8/8)
-    recovery  llm    round 3: best 0.074  (LLM parsed 8/8)
-  Library + online update (llm): 166 s, 2 new entries
+    recovery  llm    round 1: best 0.071  (LLM parsed 8/8)
+    recovery  llm    round 2: best 0.071  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.071  (LLM parsed 8/8)
+  Library + online update (llm): 148 s, 2 new entries
                    method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
                    THETA0            1.22                    2.81                             2.35               0.796      NaN
-Initialization mode (llm)            1.74                     4.6                             7.25               0.791        8
+Initialization mode (llm)            2.81                    7.94                             9.75               0.782        8
                                method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
                               Raw GPS      4.74            17.2          NaN               1.49          1.32           NaN       NaN             NaN
                       Baseline THETA0      15.6            11.8           56               24.4          1.57          7.48         0             NaN
   Paper 1 GWO (ground truth, offline)      3.34            7.76         8.27               4.18          1.57          1.32         0             NaN
-                         Static (llm)      10.9            10.5         38.5               16.9          1.57          6.26         0             NaN
-                        Library (llm)      6.15            10.3         19.8               8.84          1.54          6.87         3             NaN
-        Library, true condition (llm)      6.18            10.6         19.5               8.75          1.76          7.62         2             NaN
-Library, no plausibility filter (llm)      27.5            20.4         99.4               42.3          1.63           879         3             NaN
-        Library + online update (llm)      6.27            10.3         20.2               9.03          1.61          3.51       NaN               2
-  done in 13.3 min
+                         Static (llm)      10.3              11           36               15.9          1.57          3.09         0             NaN
+                        Library (llm)      5.68            7.65           19                8.5           1.4         0.693         3             NaN
+        Library, true condition (llm)      5.67            7.54           19               8.48          1.42         0.716         2             NaN
+Library, no plausibility filter (llm)      36.7            90.1          104               44.4             6           872         3             NaN
+        Library + online update (llm)      5.69            7.74         19.1               8.51          1.38         0.665       NaN               2
+  done in 13.4 min
 === seed 0
 === inavwhu/street00_outages_s0: split at 511 s (step 102221 of 280293), decision every 200 IMU steps; library: initialization mode
   reference run over the training part: 44 s
   llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
     nominal   llm    round 1: best 0.018  (LLM parsed 6/8)
-    nominal   llm    round 2: best 0.016  (LLM parsed 8/8)
+    nominal   llm    round 2: best 0.018  (LLM parsed 8/8)
   llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
-    nominal   llm    round 1: best 0.067  (LLM parsed 6/8)
-    nominal   llm    round 2: best 0.065  (LLM parsed 8/8)
+    nominal   llm    round 1: best 0.069  (LLM parsed 8/8)
+    nominal   llm    round 2: best 0.069  (LLM parsed 8/8)
   llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
-    nominal   llm    round 1: best 0.091  (LLM parsed 6/8)
-    nominal   llm    round 2: best 0.085  (LLM parsed 8/8)
-  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
     nominal   llm    round 1: best 0.085  (LLM parsed 6/8)
     nominal   llm    round 2: best 0.085  (LLM parsed 8/8)
-  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
-    nominal   llm    round 1: best 0.087  (LLM parsed 6/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 0.088  (LLM parsed 8/8)
     nominal   llm    round 2: best 0.087  (LLM parsed 8/8)
+  llm init: 'nominal' window 5 done at t = 151 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 0.091  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.091  (LLM parsed 8/8)
   llm init: 'nominal' window 6 done at t = 181 s, tuning on 6 window(s)
-    nominal   llm    round 1: best 0.081  (LLM parsed 6/8)
-    nominal   llm    round 2: best 0.081  (LLM parsed 6/8)
+    nominal   llm    round 1: best 0.083  (LLM parsed 6/8)
+    nominal   llm    round 2: best 0.083  (LLM parsed 6/8)
   llm init: 'moderate' window 1 done at t = 340 s, tuning on 1 window(s)
-    moderate  llm    round 1: best 8.579  (LLM parsed 8/8)
-    moderate  llm    round 2: best 8.500  (LLM parsed 8/8)
+    moderate  llm    round 1: best 8.281  (LLM parsed 6/8)
+    moderate  llm    round 2: best 8.281  (LLM parsed 8/8)
   llm init: 'moderate' window 2 done at t = 373 s, tuning on 2 window(s)
-    moderate  llm    round 1: best 7.048  (LLM parsed 8/8)
-    moderate  llm    round 2: best 6.920  (LLM parsed 8/8)
-  llm initialization mode: 8 tunings, 331 s
+    moderate  llm    round 1: best 7.097  (LLM parsed 8/8)
+    moderate  llm    round 2: best 7.097  (LLM parsed 8/8)
+  llm initialization mode: 8 tunings, 330 s
   llm: static, 17 window(s)
-    all (one setting for the whole drive) llm    round 1: best 1.995  (LLM parsed 6/8)
-    all (one setting for the whole drive) llm    round 2: best 1.990  (LLM parsed 6/8)
-    all (one setting for the whole drive) llm    round 3: best 1.989  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 4: best 1.960  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 5: best 1.960  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 6: best 1.960  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 7: best 1.960  (LLM parsed 8/8)
-    all (one setting for the whole drive) llm    round 8: best 1.960  (LLM parsed 8/8)
-  llm library: nominal 0.081 (THETA0 0.410), moderate 6.920 (THETA0 7.150); static 1.960
-  test part, 6 fixed methods: 107 s
-  online llm: new condition 'heavy' at t = 679 s
-    heavy     llm    round 1: best 20.257  (LLM parsed 6/8)
-    heavy     llm    round 2: best 20.257  (LLM parsed 8/8)
-    heavy     llm    round 3: best 19.939  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 1: best 1.993  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 2: best 1.963  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 3: best 1.951  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 4: best 1.951  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 1.951  (LLM parsed 6/8)
+    all (one setting for the whole drive) llm    round 6: best 1.951  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 1.951  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 1.950  (LLM parsed 6/8)
+  llm library: nominal 0.083 (THETA0 0.413), moderate 7.097 (THETA0 7.391); static 1.950
+  test part, 6 fixed methods: 109 s
+  online llm: new condition 'heavy' at t = 699 s
+    heavy     llm    round 1: best 19.006  (LLM parsed 8/8)
+    heavy     llm    round 2: best 19.006  (LLM parsed 8/8)
+    heavy     llm    round 3: best 18.689  (LLM parsed 8/8)
   online llm: new condition 'recovery' at t = 1075 s
-    recovery  llm    round 1: best 0.561  (LLM parsed 6/8)
-    recovery  llm    round 2: best 0.561  (LLM parsed 8/8)
-    recovery  llm    round 3: best 0.561  (LLM parsed 8/8)
-  Library + online update (llm): 167 s, 2 new entries
+    recovery  llm    round 1: best 0.744  (LLM parsed 8/8)
+    recovery  llm    round 2: best 0.744  (LLM parsed 8/8)
+    recovery  llm    round 3: best 0.744  (LLM parsed 8/8)
+  Library + online update (llm): 155 s, 2 new entries
                    method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
                    THETA0            1.21                    2.81                             2.36               0.786      NaN
-Initialization mode (llm)            1.85                       5                             6.63               0.759        8
+Initialization mode (llm)            2.67                    7.56                             8.76               0.768        8
                                method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
                               Raw GPS      4.83            16.9          NaN              0.866           1.2           NaN       NaN             NaN
                       Baseline THETA0      3.68            10.9         6.92               1.65          1.32          5.38         0             NaN
   Paper 1 GWO (ground truth, offline)         3            7.73         6.41               1.71          1.43          1.26         0             NaN
-                         Static (llm)      3.07            10.1         3.06               1.18          1.28          3.06         0             NaN
-                        Library (llm)      12.2            10.8         44.3               10.7           1.3          5.38         3             NaN
-        Library, true condition (llm)      10.3            10.9         36.7               8.46           1.3          5.99         2             NaN
-Library, no plausibility filter (llm)      25.3            46.6         82.3               19.9           1.3           422         3             NaN
-        Library + online update (llm)      10.9            11.6         39.1               9.16          1.25          3.44       NaN               2
-  done in 13.4 min
-all done in 34.9 min, results in D:\BTP2 EKF\results\qrlib_onestep
+                         Static (llm)      3.09            9.22          5.2               2.03          1.27          3.09         0             NaN
+                        Library (llm)      12.5            7.39         46.2               11.6          1.23         0.807         3             NaN
+        Library, true condition (llm)      12.6            7.41         46.4               11.6          1.23         0.836         2             NaN
+Library, no plausibility filter (llm)      87.2             295          117               28.8          17.7           418         3             NaN
+        Library + online update (llm)      12.5            7.51         46.1               11.5          1.24         0.757       NaN               2
+  done in 13.2 min
+=== seed 0
+=== home/20260927_115918_outages_s0: split at 262 s (step 26238 of 68186), decision every 100 IMU steps; library: initialization mode
+  reference run over the training part: 11 s
+  llm init: 'nominal' window 1 done at t = 31 s, tuning on 1 window(s)
+    nominal   llm    round 1: best 12.795  (LLM parsed 8/8)
+    nominal   llm    round 2: best 12.795  (LLM parsed 8/8)
+  llm init: 'nominal' window 2 done at t = 61 s, tuning on 2 window(s)
+    nominal   llm    round 1: best 23.061  (LLM parsed 6/8)
+    nominal   llm    round 2: best 23.061  (LLM parsed 8/8)
+  llm init: 'nominal' window 3 done at t = 91 s, tuning on 3 window(s)
+    nominal   llm    round 1: best 20.132  (LLM parsed 6/8)
+    nominal   llm    round 2: best 20.132  (LLM parsed 8/8)
+  llm init: 'nominal' window 4 done at t = 121 s, tuning on 4 window(s)
+    nominal   llm    round 1: best 29.006  (LLM parsed 8/8)
+    nominal   llm    round 2: best 29.006  (LLM parsed 8/8)
+  llm init: 'nominal' window 5 done at t = 157 s, tuning on 5 window(s)
+    nominal   llm    round 1: best 23.116  (LLM parsed 6/8)
+    nominal   llm    round 2: best 23.116  (LLM parsed 6/8)
+  llm init: 'moderate' window 1 done at t = 190 s, tuning on 1 window(s)
+    moderate  llm    round 1: best 32.627  (LLM parsed 8/8)
+    moderate  llm    round 2: best 32.627  (LLM parsed 8/8)
+  llm init: 'moderate' window 2 done at t = 220 s, tuning on 2 window(s)
+    moderate  llm    round 1: best 24.405  (LLM parsed 8/8)
+    moderate  llm    round 2: best 24.405  (LLM parsed 8/8)
+  llm init: 'nominal' window 6 done at t = 262 s, tuning on 6 window(s)
+    nominal   llm    round 1: best 20.384  (LLM parsed 6/8)
+    nominal   llm    round 2: best 20.287  (LLM parsed 6/8)
+  llm initialization mode: 8 tunings, 251 s
+  llm: static, 8 window(s)
+    all (one setting for the whole drive) llm    round 1: best 7.154  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 2: best 7.154  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 3: best 7.054  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 4: best 7.054  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 5: best 6.966  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 6: best 6.966  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 7: best 6.966  (LLM parsed 8/8)
+    all (one setting for the whole drive) llm    round 8: best 6.966  (LLM parsed 8/8)
+  llm library: nominal 20.287 (THETA0 28.074), moderate 24.405 (THETA0 26.222); static 6.966
+  test part, 5 fixed methods: 26 s
+  online llm: new condition 'heavy' at t = 344 s
+    heavy     llm    round 1: best 19.368  (LLM parsed 8/8)
+    heavy     llm    round 2: best 18.878  (LLM parsed 8/8)
+    heavy     llm    round 3: best 18.531  (LLM parsed 8/8)
+  online llm: new condition 'recovery' at t = 506 s
+    recovery  llm    round 1: best 1.183  (LLM parsed 8/8)
+    recovery  llm    round 2: best 1.172  (LLM parsed 8/8)
+    recovery  llm    round 3: best 1.161  (LLM parsed 8/8)
+  Library + online update (llm): 81 s, 2 new entries
+                   method  train_rmse_all  train_rmse_moderate_5m  train_rmse_moderate_5m_first10s  train_rmse_outside  tunings
+                   THETA0            9.59                    9.86                              8.8                9.51      NaN
+Initialization mode (llm)            21.2                    16.7                             17.4                22.4        8
+                               method  rmse_all  rmse_heavy_15m  rmse_outage  rmse_recovery_30s  rmse_outside  nis_over_dof  switches  online_entries
+                              Raw GPS      9.33              18          NaN               3.73          6.53           NaN       NaN             NaN
+                      Baseline THETA0      54.5            18.9          135               59.8          7.06          1.64         0             NaN
+                         Static (llm)       249            22.3          630                257          6.84          18.9         0             NaN
+                        Library (llm)      28.4            20.2         67.2               29.4          7.23         0.965         8             NaN
+        Library, true condition (llm)      28.6            17.5         68.6               29.7          7.67         0.919         2             NaN
+Library, no plausibility filter (llm)      28.5            18.4         68.1               29.3           7.5           3.1         6             NaN
+        Library + online update (llm)      29.7              21         70.3               31.6           7.8         0.747       NaN               2
+  done in 8.3 min
+all done in 42.8 min, results in D:\BTP2 EKF\results\qrlib_onestep

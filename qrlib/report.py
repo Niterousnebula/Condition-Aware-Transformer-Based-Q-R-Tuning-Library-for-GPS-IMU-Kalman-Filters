@@ -3,7 +3,7 @@
 Reads every finished seed under --root (results/qrlib/seed_<s>/<dataset>/) and, when they exist, the ablation
 roots next to it (_offline, _onestep, _wideq), and writes <root>/paper/:
   tables/  main, ablation, init, llm_cost, detector  (.md and .tex; mean +- std over seeds)
-  figures/ fig1_pipeline ... fig8_headline           (.png and .pdf)
+  figures/ fig1_pipeline ... fig8_headline           (.png and .pdf; no fig5: the score check was dropped)
   captions.md
 Time plots use the first seed and the LLM builder (else the first builder found). Shaded GPS sections are
 drawn C.PLOT_HIGHLIGHT_WIDEN (50 %) wider than the sections, centred, so short sections stay visible.
@@ -33,7 +33,7 @@ SECTION = {"5 m": "#e6ab02", "15 m": "#e7298a", "outage": "#7570b3"}         # p
 SECTION_LABEL = {"5 m": "5 m GPS noise", "15 m": "15 m GPS noise", "outage": "GPS outage"}
 BUILDER = {"llm": "LLM", "random": "Random search", "gwo": "GWO", "de": "DE"}
 DS = {"eth_outages_s0": "ETH", "inavwhu/playground00_outages_s0": "iNav-WHU playground",
-      "inavwhu/street00_outages_s0": "iNav-WHU street"}
+      "inavwhu/street00_outages_s0": "iNav-WHU street", "home/20260927_115918_outages_s0": "Home drive"}
 METRICS = [("rmse_heavy_15m", "15 m section"), ("rmse_outside", "Normal GPS"), ("rmse_recovery_30s", "30 s after outage"),
            ("rmse_outage", "Outage"), ("nis_over_dof", "NIS / dof")]
 P1 = "Paper 1 GWO (ground truth, offline)"
@@ -278,7 +278,7 @@ def fig_pipeline(out):
     box(5.0, 2.45, 2.0, 1.0, "Q/R library\none setting per\nGPS condition", fc="#eef4fc", ec=SERIES["llm"])
     box(7.6, 2.45, 2.2, 1.0, "16-state EKF\nQ/R in force\n+ jump gate")
     box(7.6, 0.35, 2.2, 0.9, "IMU\n(accel, gyro)")
-    box(2.1, 0.2, 4.9, 1.2, "Builder: LLM (or random search, GWO) proposes Q/R settings,\n"
+    box(2.1, 0.2, 4.9, 1.2, "Builder: LLM (or GWO) proposes Q/R settings,\n"
                             "scored on GPS only: prediction error against new fixes,\n"
                             "with simulated dropouts. From the drive start (initialization\n"
                             "mode) and when a new condition appears (online update).")
@@ -395,50 +395,6 @@ def fig_test_error(root, out, b):
     save(fig, out, "fig4_test_error")
 
 
-def fig_score(out):
-    pts, coast = C.OUT / "score_points.csv", C.OUT / "coast_points.csv"
-    if not pts.exists() or not coast.exists():
-        return
-    p, q = pd.read_csv(pts), pd.read_csv(coast)
-    p = p[p.score_type == "with dropouts"]
-    dss = [d for d in C.DATASETS if d in set(p.dataset)]
-    fig, axes = plt.subplots(2, len(dss), figsize=(7.0, 4.6), squeeze=False)
-    from scipy.stats import spearmanr
-    note = dict(transform=None, fontsize=6.5, color=INK["secondary"], ha="right", va="bottom")
-    for j, ds in enumerate(dss):
-        ax = axes[0, j]
-        txt = []
-        for sec, col, lab in (("5 m noise", SECTION["5 m"], "5 m GPS noise section"),
-                              ("15 m noise", SECTION["15 m"], "15 m GPS noise section")):
-            r = p[(p.dataset == ds) & (p.section == sec)]
-            if r.empty:
-                continue
-            txt.append(f"{sec.split()[0]} m: $\\rho$ = {spearmanr(r.score, r.truth_rmse)[0]:.2f}")
-            ax.scatter(r.score, r.truth_rmse, s=14, color=col, edgecolors="white", linewidths=0.5, label=lab)
-        ax.text(0.97, 0.04, "\n".join(txt), **{**note, "transform": ax.transAxes})
-        ax.set_xscale("log")
-        ax.set_title(DS.get(ds, ds), loc="left")
-        ax.set_xlabel("GPS-only score (m)")
-        ax2 = axes[1, j]
-        r = q[q.dataset == ds]
-        r = r[np.isfinite(r.truth_drift) & np.isfinite(r.score_dropout)]
-        rho_d = spearmanr(r.score_dropout, r.truth_drift)[0]
-        rho_o = spearmanr(r.score_onestep, r.truth_drift)[0]
-        ax2.scatter(r.score_dropout, r.truth_drift, s=12, color=SERIES["llm"], edgecolors="white", linewidths=0.5,
-                    label="random Q/R setting (normal-GPS windows)")
-        t0 = r[r.is_theta0]
-        ax2.scatter(t0.score_dropout, t0.truth_drift, s=60, marker="*", color=INK["primary"], label="THETA0", zorder=3)
-        ax2.text(0.97, 0.04, f"$\\rho$ = {rho_d:.2f}\n(one-step score: {rho_o:.2f})",
-                 **{**note, "transform": ax2.transAxes})
-        ax2.set_xscale("log")
-        ax2.set_yscale("log")
-        ax2.set_xlabel("score with dropouts (m)")
-    axes[0, 0].set_ylabel("true error in section (m)")
-    axes[1, 0].set_ylabel("true drift, 30 s no GPS (m)")
-    top_legend(fig, axes, ncol=4)
-    save(fig, out, "fig5_score_check")
-
-
 def fig_library(root, out, builders):
     rows = []
     for f in sorted(root.glob("seed_*/*/online_*.json")):
@@ -527,7 +483,7 @@ Shaded bands mark the injected GPS sections (5 m noise, 15 m noise, outage) and 
 sections, centred, so the short sections stay visible at the scale of a whole drive.
 
 - **fig1_pipeline**: the system. The condition detector works on GPS fixes only; the library holds one Q/R
-  setting per GPS condition; the builder (an LLM, or random search / GWO at the same budget) proposes
+  setting per GPS condition; the builder (an LLM, or GWO at the same budget) proposes
   settings scored on GPS only, from the drive start (initialization mode) and when a new condition appears.
 - **fig2_detector**: estimated GPS noise and the detected condition against the true sections, whole drive.
 - **fig3_onset**: horizontal error at the start of the 15 m section (solid line: where the noise starts):
@@ -535,8 +491,6 @@ sections, centred, so the short sections stay visible at the scale of a whole dr
   condition).
 - **fig4_test_error**: horizontal error over the test part: THETA0, paper 1's truth-tuned GWO setting and the
   library with online update.
-- **fig5_score_check**: top, the GPS-only score against the true error over R settings on the noise sections;
-  bottom, on normal-GPS windows, the score against the true drift over 30 s without GPS (Q settings included).
 - **fig6_library**: the library's horizontal GPS noise setting per condition, in decades above THETA0, per
   builder and seed (R rises with the GPS noise).
 - **fig7_initialization**: horizontal error from the drive start to the split, THETA0 against the
@@ -633,7 +587,6 @@ def main():
     fig_detector(root, fo)
     fig_onset(root, fo, b)
     fig_test_error(root, fo, b)
-    fig_score(fo)
     fig_library(root, fo, builders)
     fig_init(root, fo, builders)
     fig_headline(met, fo, builders)

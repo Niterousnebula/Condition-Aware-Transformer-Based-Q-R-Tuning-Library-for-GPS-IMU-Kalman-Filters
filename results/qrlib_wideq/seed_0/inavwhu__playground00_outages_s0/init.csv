@@ -1,3 +1,3 @@
 dataset,method,train_rmse_all,train_rmse_moderate_5m,train_rmse_moderate_5m_first10s,train_rmse_outside,tunings
 inavwhu/playground00_outages_s0,THETA0,1.2168666386564944,2.8122218809020896,2.346619990632481,0.7956422434581745,
-inavwhu/playground00_outages_s0,Initialization mode (llm),1.4419746135772855,3.629157804169216,3.3954917702790923,0.7851858578716476,8.0
+inavwhu/playground00_outages_s0,Initialization mode (llm),1.5188521924800304,3.8814219876634737,3.822663187910239,0.7901177738744193,8.0

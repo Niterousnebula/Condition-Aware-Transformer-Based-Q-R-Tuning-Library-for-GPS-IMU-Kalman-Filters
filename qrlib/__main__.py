@@ -1,4 +1,4 @@
-"""python -m qrlib [--seeds 0 1 2] [--datasets ...] [--builders llm random gwo] [--smoke] [--offline] [--onestep]
+"""python -m qrlib [--seeds 0 1 2] [--datasets ...] [--builders llm gwo] [--smoke] [--offline] [--onestep]
 
 Each drive starts in initialization mode (the library is built from the drive start to the split, causally),
 then runs every method on its test part (normal GPS, the 15 m section, the outage). One folder per seed:
@@ -26,7 +26,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--seeds", nargs="+", type=int, default=list(C.SEEDS))
     ap.add_argument("--datasets", nargs="+", default=list(C.DATASETS))
-    ap.add_argument("--builders", nargs="+", default=["llm", "random", "gwo"], help="llm, random, gwo (and de)")
+    ap.add_argument("--builders", nargs="+", default=["llm", "gwo"], help="llm, gwo (and random, de)")
     ap.add_argument("--smoke", action="store_true", help="tiny budgets")
     ap.add_argument("--offline", action="store_true",
                     help="ablation: build the library offline after the training part (no initialization mode)")

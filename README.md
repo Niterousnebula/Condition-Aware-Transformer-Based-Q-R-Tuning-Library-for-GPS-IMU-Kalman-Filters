@@ -9,9 +9,9 @@ settings, one per GPS condition** (normal, moderate noise, heavy noise, recovery
 the current condition from the GPS fixes alone, and switches between entries online. A **pretrained
 transformer language model** proposes the settings, and each proposal is judged by a **GPS-only score**, so
 neither building nor switching ever sees ground truth. The library is built causally from the start of the
-drive (initialization mode) and extended whenever an unseen condition appears (online update). Random search
-and the Grey Wolf Optimizer, the strongest optimizer in our earlier study [1], are the matched-budget
-baselines without language.
+drive (initialization mode) and extended whenever an unseen condition appears (online update). The benchmark
+is the untuned starting setting THETA0 and the Grey Wolf Optimizer, the strongest optimizer in our earlier
+study [1], as the matched-budget builder without language.
 
 ## Relation to the preprint
 
@@ -25,7 +25,7 @@ paper answers:
 | One Q/R for the whole drive | One Q/R per GPS condition, switched online |
 | Tuned against ground truth | Tuned on GPS alone (self-supervised score) |
 | Offline, on the complete recording | Causal: built while driving, from the drive start |
-| Metaheuristic optimizers | A transformer language model as the optimizer, against random search and GWO |
+| Metaheuristic optimizers | A transformer language model as the optimizer, against GWO |
 
 Reused from [1]: the EKF (`ekf/`: filterpy reference and batched GPU filter, the per-drive starting values
 `THETA0`, data loading), the three drives with their degraded GPS sections (`processed_data/`), GWO, and
@@ -36,11 +36,11 @@ Reused from [1]: the EKF (`ekf/`: filterpy reference and batched GPU filter, the
 1. **A condition-aware Q/R library** for a GPS-IMU EKF, with a GPS-only condition detector and a
    plausibility filter that keeps the switch from corrupting the filter state at the onset of noise.
 2. **A self-supervised score** for Q/R settings: prediction error against incoming GPS fixes, with simulated
-   GPS dropouts so that it also measures coasting on the IMU. Validated against ground truth.
+   GPS dropouts so that it also measures coasting on the IMU.
 3. **Causal construction**: an initialization mode that builds the library from the drive start and an online
    update for unseen conditions. No offline phase and no ground truth.
-4. **A transformer language model as the Q/R optimizer**, compared at equal evaluation budget with random
-   search and the preprint's GWO, with three seeds, ablations of every component, and the preprint's
+4. **A transformer language model as the Q/R optimizer**, compared at equal evaluation budget with the
+   preprint's GWO, with three seeds, ablations of every component, and the preprint's
    ground-truth-tuned settings as a reference.
 
 ## Method
@@ -71,8 +71,10 @@ rules:
   to that bin at once (up to heavy; extreme is left to the 15 s window).
 
 **Library lookup.** The entry for the detected condition is used. A noise condition without an entry takes the
-nearest cleaner entry with its R raised to at least THETA0's, so an unseen, noisier condition never trusts
-GPS more than a cleaner one or the default; otherwise the nearest noisier entry.
+nearest cleaner entry with its R raised to at least THETA0's and its horizontal and vertical GPS variance to at
+least the lower edge of its own noise bin (heavy: 8 m), so an unseen, noisier condition never trusts GPS more
+than a cleaner one, the default, or the noise level the detector has measured; otherwise the nearest noisier
+entry.
 
 **GPS-only score** (`qrlib/runner.py`). A candidate is run on the condition's 30 s windows, starting from the
 running filter's state, and scored by the RMS of |GPS fix - predicted position| over the windows' fixes. For
@@ -87,7 +89,6 @@ and the library's existing entries:
   prompt: the filter, each parameter's meaning, units and bounds, the detected condition and its sigma_h, the
   entries for other conditions and the scored history; it reasons briefly and replies in JSON (an unusable
   reply is filled near the best setting and counted).
-- *Random search*: uniform over the bounds.
 - *GWO*: the preprint's Grey Wolf Optimizer (alpha, beta, delta leaders; a from 2 to 0 over the rounds),
   with a pack of 8 started from the scored seeds plus uniform random wolves.
 
@@ -95,15 +96,24 @@ and the library's existing entries:
 the library as it grows. Each time a condition completes a new 30 s window (up to its first 6), its entry is
 re-tuned on its windows so far (2 rounds of 8), from the running filter's own states, and used from then on.
 
-**Operation mode.** The library switches with the detected condition. A noise condition without an entry, or a
-recovery, that lasts 20 s gets one: 3 rounds of 8 on those 20 s. Outages have no fixes to score and get no
-entry.
+**Operation mode.** The library switches with the detected condition. A noise condition without an entry that
+lasts 40 s gets one (a recovery: 20 s, its GPS is clean): 3 rounds of 8 on that window, scored from the filter's
+state at the window start. Only R is searched; tens of noisy fixes cannot judge the IMU's noise, so Q stays at
+the setting in force. Once the entry is found, the filter re-processes the window with it from that same state
+(causal fixed-lag re-filtering; the positions already output are kept), so the entry is used from the state it
+was scored from rather than from one the window's noisy fixes have already corrupted. Outages have no fixes to
+score and get no entry.
 
 ## Experimental protocol
 
 **Data.** The three drives of [1], each with three degraded GPS sections at 25, 50 and 75 % of the path: about
 5 m of added white noise, about 15 m, and a complete outage. ETH Zurich (10 Hz IMU, 5 Hz GPS with velocity)
-and iNav-WHU playground00 and street00 (200 Hz ADIS IMU, 1 Hz GPS, position only).
+and iNav-WHU playground00 and street00 (200 Hz ADIS IMU, 1 Hz GPS, position only). A fourth drive was
+collected for this paper: a car in Delhi (11 min, 7.7 km, up to 24 m/s) with an MPU-6500 IMU at 100 Hz and
+an NMEA GNSS module at 0.5 Hz, position only (`python make_home_data.py` turns `collected data/` into
+`processed_data/home/`). Its reference track is a consumer GNSS log, not RTK (7.3 m RMS from the module), so
+errors against it include the reference's own error. At car speed 76.2 m of travel lasts ~5 s, so its three
+sections last 60 s each (as long as iNav-WHU's), and the drive starts at its first stop (static start).
 
 **Split.** Each drive is one continuous run, split midway between the 5 m and the 15 m section. The first part
 (normal GPS and the 5 m section) is the initialization period; the second part (normal GPS, the 15 m section
@@ -127,43 +137,11 @@ Three seeds per builder (each seed re-runs every search, LLM sampling included);
 
 Ground truth is used here only to check design choices, never to build or switch.
 
-**The GPS-only score ranks R like the truth** (`python -m qrlib.score_check`). A grid of R settings on each
-noise section, from the THETA0 state at the section start; Spearman correlation between score and true RMSE,
-and the true RMSE of the score's pick against the best setting and THETA0:
-
-| Drive | Section | Spearman rank correlation (one-step / with dropouts) | True RMSE (m): pick with dropouts / best / THETA0 |
-|---|---|---:|---|
-| ETH | 5 m | 0.99 / 0.82 | 3.10 / 3.10 / 3.12 |
-| ETH | 15 m | 0.88 / 0.73 | 3.37 / 3.21 / 4.60 |
-| iNav playground | 5 m | 0.95 / 0.95 | 1.84 / 1.76 / 2.81 |
-| iNav playground | 15 m | 1.00 / 1.00 | 6.19 / 6.19 / 11.79 |
-| iNav street | 5 m | 0.98 / 0.98 | 1.84 / 1.79 / 2.81 |
-| iNav street | 15 m | 1.00 / 1.00 | 6.45 / 6.45 / 10.95 |
-
-*Spearman rank correlation* compares two orderings: +1 means the score ranks the settings exactly as their true
-error does (so its pick is the true best), 0 means no relation, negative means it prefers the worse ones. Only
-the ranking matters here, because the builders use the score only to choose between settings.
-
-![GPS-only score against the truth](docs/figures/fig5_score_check.png)
-
-On ETH the best settings trust the GPS velocity more; on iNav-WHU, without GPS velocity, they raise the
-horizontal GPS variance by about three decades, which is why R spans +- 3 decades.
-
-**Coasting and the Q range.** On normal-GPS windows, 47 random settings and THETA0, each also run for 30 s
-without GPS. Narrowing Q to +- 1 decade bounds how badly any setting can coast, and the dropout score ranks
-that drift on two of the three drives:
-
-| Drive | Worst 30 s drift, Q +- 3 / +- 1 | Spearman rank correlation (score, drift), one-step / with dropouts |
-|---|---:|---:|
-| ETH | 788 / 583 m | -0.11 / +0.30 |
-| iNav playground | 37 / 12 m | +0.59 / +0.76 |
-| iNav street | 35 / 16 m | -0.69 / -0.52 |
-
 **Detector.** It agrees with the true condition 97-99 % of the time and recognises a noise section 1-2 s after
 it starts on ETH (5 Hz GPS) and 4-7 s on iNav-WHU (1 Hz), against 10-14 s for the 15 s window alone.
 
-**Switching.** With the one-step score check's settings in the library (THETA0 for normal GPS, its 5 m and 15 m
-picks), horizontal RMSE in the 15 m section:
+**Switching.** With fixed per-section settings in the library (THETA0 for normal GPS, the best 5 m and 15 m R
+from an R grid scored on GPS only), horizontal RMSE in the 15 m section:
 
 | Drive | THETA0 | Library, no plausibility filter | Library, detected condition | Library, true condition | 15 m setting from the section start |
 |---|---:|---:|---:|---:|---:|
@@ -181,10 +159,10 @@ applying the 15 m setting exactly from the section start.
 cd D:\llama-b9754-bin-win-cuda-13.3-x64; .\llama-server.exe -m "D:\Modelfile\Qwen_Qwen3.5-9B-Q4_K_M.gguf" --alias qwen35-9b -c 4096 --port 8070
 # 2. in another terminal, from this folder
 pip install -r requirements.txt
-python main.py                 # everything: score check, 3 seeds, ablations, tables and figures (~9 h)
+python main.py                 # everything: 3 seeds x 4 drives, ablations, tables and figures (~8.5 h)
 python main.py --plan          # what is done, what is left, rough time; runs nothing
 python main.py --plots-only    # rebuild the tables and figures
-python main.py --smoke         # a few-minute pipeline check (ETH, random search and GWO, no LLM)
+python main.py --smoke         # a few-minute pipeline check (ETH and the home drive, GWO, no LLM)
 python reset.py                # delete the results (lists them, then asks; --smoke, --all, --yes)
 ```
 
@@ -194,7 +172,7 @@ then counted as an empty reply. Log: `results/qrlib/main.log`; sessions: `result
 The steps, also usable on their own:
 
 ```bash
-python -m qrlib.score_check                          # score vs ground truth (R grid, coasting)
+python make_home_data.py                             # collected data/ -> processed_data/home/ (once)
 python -m qrlib --seeds 0 1 2                        # main run -> results/qrlib/seed_<s>/<drive>/
 python -m qrlib --seeds 0 --builders llm --offline   # ablation -> results/qrlib_offline/
 python -m qrlib --seeds 0 --builders llm --onestep   # ablation -> results/qrlib_onestep/
@@ -211,13 +189,12 @@ Markdown and LaTeX, mean +- std over seeds; figures as PNG and PDF, with `captio
 | fig2_detector | Estimated GPS noise and detected condition against the true sections |
 | fig3_onset | Error at the onset of the 15 m section, with and without the plausibility filter |
 | fig4_test_error | Error over the test part: THETA0, the preprint's GWO setting, the library |
-| fig5_score_check | GPS-only score against true error (R grid) and against coasting drift |
 | fig6_library | The library's horizontal GPS variance per condition, per builder and seed |
 | fig7_initialization | Error during the initialization period against THETA0, with the re-tunings |
 | fig8_headline | RMSE per drive and method, mean and std over seeds |
 
 GPS sections are shaded 50 % wider than they are (centred) so that they remain visible at the scale of a
-whole drive. Builders keep one colour throughout (LLM blue, random search orange, GWO aqua; colour-vision
+whole drive. Builders keep one colour throughout (LLM blue, GWO aqua; colour-vision
 checked); references are drawn in neutral inks with their own dash patterns.
 
 ## Repository layout
@@ -230,14 +207,15 @@ checked); references are drawn in neutral inks with their own dash patterns.
 | `qrlib/aekf.py` | The batched EKF: per-decision Q/R, per-element start, displacement and jump gates, simulated dropouts |
 | `qrlib/data.py` | Drives, split, condition detector, jump trigger and gate limits |
 | `qrlib/runner.py` | Checkpoints, the GPS-only score, the switching policy, library lookup |
-| `qrlib/propose.py` | Builders: LLM, random search, GWO (and DE) |
+| `qrlib/propose.py` | Builders: LLM and GWO (random search and DE still selectable with `--builders`) |
 | `qrlib/llm.py` | The llama-server client |
 | `qrlib/build.py` | Initialization mode, offline build (ablation), static entry, the search loop |
 | `qrlib/evaluate.py` | One drive end to end: every method, metrics, traces |
-| `qrlib/score_check.py` | The score against ground truth |
+| `qrlib/score_check.py` | The score against ground truth (standalone; not part of `main.py`) |
 | `qrlib/report.py` | Tables and figures |
-| `ekf/` | The preprint's EKF, unchanged |
-| `processed_data/` | The three drives with their degraded GPS sections |
+| `make_home_data.py` | The home drive: `collected data/` -> `processed_data/home/` |
+| `ekf/` | The preprint's EKF; the plausibility rule's top speed can now be set per drive (`max_speed_ms`) |
+| `processed_data/` | The four drives with their degraded GPS sections |
 | `research/research_map.md` | Literature map and research gaps |
 
 ## Results
@@ -251,50 +229,54 @@ Seeds 0, 1, 2. Horizontal RMSE in metres on the test part (normal GPS, the unsee
 
 | Drive               | Metric (horizontal RMSE, m)   | Raw GPS   | Our system (LLM)     | Winner                                 |
 |:--------------------|:------------------------------|:----------|:---------------------|:---------------------------------------|
-| ETH                 | 15 m section                  | 15.17     | **4.80 ± 1.23**      | Our system (68 % lower)                |
-| ETH                 | Normal GPS                    | **3.93**  | 4.02 ± 0.07          | Raw GPS (2 % lower)                    |
-| ETH                 | 30 s after outage             | **2.23**  | 2.30 ± 0.10          | Raw GPS (3 % lower)                    |
-| ETH                 | Outage                        | no fixes  | **2001.75 ± 232.00** | Our system (raw GPS gives no position) |
-| iNav-WHU playground | 15 m section                  | 17.19     | **14.64 ± 0.76**     | Our system (15 % lower)                |
-| iNav-WHU playground | Normal GPS                    | **1.32**  | 1.62 ± 0.23          | Raw GPS (19 % lower)                   |
-| iNav-WHU playground | 30 s after outage             | **1.49**  | 3.28 ± 1.02          | Raw GPS (55 % lower)                   |
-| iNav-WHU playground | Outage                        | no fixes  | **6.12 ± 2.46**      | Our system (raw GPS gives no position) |
-| iNav-WHU street     | 15 m section                  | **16.91** | 34.67 ± 11.82        | Raw GPS (51 % lower)                   |
-| iNav-WHU street     | Normal GPS                    | **1.20**  | 2.70 ± 1.30          | Raw GPS (56 % lower)                   |
-| iNav-WHU street     | 30 s after outage             | **0.87**  | 7.18 ± 0.55          | Raw GPS (88 % lower)                   |
-| iNav-WHU street     | Outage                        | no fixes  | **24.95 ± 0.92**     | Our system (raw GPS gives no position) |
+| ETH                 | 15 m section                  | 15.17     | **3.87 ± 0.42**      | Our system (74 % lower)                |
+| ETH                 | Normal GPS                    | **3.93**  | 4.01 ± 0.09          | Raw GPS (2 % lower)                    |
+| ETH                 | 30 s after outage             | **2.23**  | 2.29 ± 0.08          | Raw GPS (3 % lower)                    |
+| ETH                 | Outage                        | no fixes  | **2032.34 ± 166.36** | Our system (raw GPS gives no position) |
+| iNav-WHU playground | 15 m section                  | 17.19     | **8.75 ± 0.07**      | Our system (49 % lower)                |
+| iNav-WHU playground | Normal GPS                    | **1.32**  | 1.41 ± 0.03          | Raw GPS (7 % lower)                    |
+| iNav-WHU playground | 30 s after outage             | **1.49**  | 3.06 ± 1.30          | Raw GPS (51 % lower)                   |
+| iNav-WHU playground | Outage                        | no fixes  | **5.35 ± 3.47**      | Our system (raw GPS gives no position) |
+| iNav-WHU street     | 15 m section                  | 16.91     | **7.04 ± 0.17**      | Our system (58 % lower)                |
+| iNav-WHU street     | Normal GPS                    | **1.20**  | 1.25 ± 0.01          | Raw GPS (4 % lower)                    |
+| iNav-WHU street     | 30 s after outage             | **0.87**  | 7.40 ± 0.13          | Raw GPS (88 % lower)                   |
+| iNav-WHU street     | Outage                        | no fixes  | **25.39 ± 0.42**     | Our system (raw GPS gives no position) |
+| Home drive          | 15 m section                  | **17.96** | 19.35 ± 1.44         | Raw GPS (7 % lower)                    |
+| Home drive          | Normal GPS                    | **6.53**  | 7.77 ± 0.67          | Raw GPS (16 % lower)                   |
+| Home drive          | 30 s after outage             | **3.73**  | 30.13 ± 2.88         | Raw GPS (88 % lower)                   |
+| Home drive          | Outage                        | no fixes  | **66.26 ± 6.03**     | Our system (raw GPS gives no position) |
 
 **All methods:**
 
-| Drive               | Method                              | 15 m section   | Normal GPS   | 30 s after outage   | Outage           | NIS / dof       |
-|:--------------------|:------------------------------------|:---------------|:-------------|:--------------------|:-----------------|:----------------|
-| ETH                 | Raw GPS                             | 15.17          | 3.93         | 2.23                | –                | –               |
-| ETH                 | Baseline THETA0                     | 4.58           | 4.12         | 2.40                | 3493.03          | 0.54            |
-| ETH                 | Paper 1 GWO (ground truth, offline) | 5.72           | 4.04         | 2.32                | 2100.28          | 1.15            |
-| ETH                 | Static (llm)                        | 6.11 ± 0.52    | 4.02 ± 0.02  | 2.31 ± 0.01         | 2610.96 ± 326.94 | 2.90 ± 2.16     |
-| ETH                 | Library (llm)                       | 4.80 ± 1.23    | 4.02 ± 0.07  | 2.30 ± 0.10         | 2001.75 ± 232.00 | 1.70 ± 1.33     |
-| ETH                 | Static (random)                     | 3.86 ± 0.50    | 4.26 ± 0.12  | 2.60 ± 0.12         | 2241.98 ± 391.80 | 4.84 ± 2.52     |
-| ETH                 | Library (random)                    | 3.81 ± 0.37    | 3.98 ± 0.01  | 2.27 ± 0.01         | 1900.74 ± 601.06 | 1.60 ± 1.40     |
-| ETH                 | Static (gwo)                        | 3.73 ± 0.41    | 4.27 ± 0.11  | 2.62 ± 0.13         | 2005.30 ± 263.36 | 5.90 ± 8.65     |
-| ETH                 | Library (gwo)                       | 4.06 ± 0.11    | 4.01 ± 0.04  | 2.30 ± 0.05         | 1876.95 ± 334.76 | 1.32 ± 0.15     |
-| iNav-WHU playground | Raw GPS                             | 17.19          | 1.32         | 1.49                | –                | –               |
-| iNav-WHU playground | Baseline THETA0                     | 11.78          | 1.57         | 24.41               | 55.99            | 7.48            |
-| iNav-WHU playground | Paper 1 GWO (ground truth, offline) | 7.76           | 1.57         | 4.18                | 8.27             | 1.32            |
-| iNav-WHU playground | Static (llm)                        | 10.36 ± 0.90   | 1.55 ± 0.03  | 13.47 ± 5.64        | 30.34 ± 13.17    | 5.79 ± 3.03     |
-| iNav-WHU playground | Library (llm)                       | 14.64 ± 0.76   | 1.62 ± 0.23  | 3.28 ± 1.02         | 6.12 ± 2.46      | 2.02 ± 1.70     |
-| iNav-WHU playground | Static (random)                     | 10.09 ± 0.74   | 1.55 ± 0.03  | 12.83 ± 1.31        | 28.86 ± 3.22     | 2.55 ± 0.55     |
-| iNav-WHU playground | Library (random)                    | 12.93 ± 4.58   | 1.63 ± 0.21  | 3.26 ± 0.32         | 6.48 ± 0.74      | 1.96 ± 1.35     |
-| iNav-WHU playground | Static (gwo)                        | 8.97 ± 0.04    | 1.52         | 11.53 ± 0.07        | 25.37 ± 0.15     | 5.06 ± 1.25     |
-| iNav-WHU playground | Library (gwo)                       | 10.48 ± 0.38   | 1.51 ± 0.03  | 4.78 ± 2.14         | 9.58 ± 4.47      | 4.61 ± 2.95     |
-| iNav-WHU street     | Raw GPS                             | 16.91          | 1.20         | 0.87                | –                | –               |
-| iNav-WHU street     | Baseline THETA0                     | 10.93          | 1.32         | 1.65                | 6.92             | 5.38            |
-| iNav-WHU street     | Paper 1 GWO (ground truth, offline) | 7.73           | 1.43         | 1.71                | 6.41             | 1.26            |
-| iNav-WHU street     | Static (llm)                        | 22.74 ± 22.37  | 2.39 ± 1.93  | 27.69 ± 44.99       | 105.57 ± 175.59  | 348.67 ± 598.35 |
-| iNav-WHU street     | Library (llm)                       | 34.67 ± 11.82  | 2.70 ± 1.30  | 7.18 ± 0.55         | 24.95 ± 0.92     | 1.75 ± 0.12     |
-| iNav-WHU street     | Static (random)                     | 9.89 ± 0.26    | 1.34 ± 0.11  | 3.75 ± 2.48         | 14.23 ± 12.83    | 155.09 ± 261.95 |
-| iNav-WHU street     | Library (random)                    | 40.46 ± 9.92   | 3.91 ± 2.21  | 7.64 ± 0.86         | 26.54 ± 2.51     | 2.20 ± 0.44     |
-| iNav-WHU street     | Static (gwo)                        | 8.97 ± 0.32    | 1.28         | 2.65 ± 0.17         | 7.96 ± 0.50      | 6.49 ± 2.80     |
-| iNav-WHU street     | Library (gwo)                       | 9.96 ± 0.80    | 1.26 ± 0.03  | 7.36 ± 0.78         | 25.92 ± 4.56     | 5.79 ± 4.25     |
+| Drive               | Method                              | 15 m section   | Normal GPS   | 30 s after outage   | Outage           | NIS / dof     |
+|:--------------------|:------------------------------------|:---------------|:-------------|:--------------------|:-----------------|:--------------|
+| ETH                 | Raw GPS                             | 15.17          | 3.93         | 2.23                | –                | –             |
+| ETH                 | Baseline THETA0                     | 4.58           | 4.12         | 2.40                | 3493.03          | 0.54          |
+| ETH                 | Paper 1 GWO (ground truth, offline) | 5.72           | 4.04         | 2.32                | 2100.28          | 1.15          |
+| ETH                 | Static (llm)                        | 4.88 ± 1.38    | 4.12 ± 0.10  | 2.45 ± 0.14         | 2067.00 ± 150.42 | 3.15 ± 1.46   |
+| ETH                 | Library (llm)                       | 3.87 ± 0.42    | 4.01 ± 0.09  | 2.29 ± 0.08         | 2032.34 ± 166.36 | 1.00 ± 0.40   |
+| ETH                 | Static (gwo)                        | 3.73 ± 0.41    | 4.27 ± 0.11  | 2.62 ± 0.13         | 2005.30 ± 263.36 | 5.90 ± 8.65   |
+| ETH                 | Library (gwo)                       | 3.48 ± 0.14    | 4.01 ± 0.04  | 2.33 ± 0.07         | 1706.74 ± 262.81 | 0.59 ± 0.06   |
+| Home drive          | Raw GPS                             | 17.96          | 6.53         | 3.73                | –                | –             |
+| Home drive          | Baseline THETA0                     | 18.90          | 7.06         | 59.77               | 135.42           | 1.64          |
+| Home drive          | Static (llm)                        | 22.41 ± 1.04   | 6.92 ± 0.06  | 147.25 ± 83.72      | 357.75 ± 207.99  | 47.62 ± 60.70 |
+| Home drive          | Library (llm)                       | 19.35 ± 1.44   | 7.77 ± 0.67  | 30.13 ± 2.88        | 66.26 ± 6.03     | 1.06 ± 0.41   |
+| Home drive          | Static (gwo)                        | 23.33 ± 1.39   | 6.94 ± 0.20  | 151.25 ± 48.71      | 362.88 ± 131.91  | 56.97 ± 53.58 |
+| Home drive          | Library (gwo)                       | 18.45 ± 1.12   | 7.10 ± 0.09  | 32.24 ± 3.22        | 66.71 ± 11.77    | 1.88 ± 0.14   |
+| iNav-WHU playground | Raw GPS                             | 17.19          | 1.32         | 1.49                | –                | –             |
+| iNav-WHU playground | Baseline THETA0                     | 11.78          | 1.57         | 24.41               | 55.99            | 7.48          |
+| iNav-WHU playground | Paper 1 GWO (ground truth, offline) | 7.76           | 1.57         | 4.18                | 8.27             | 1.32          |
+| iNav-WHU playground | Static (llm)                        | 10.36 ± 0.90   | 1.55 ± 0.03  | 13.47 ± 5.64        | 30.34 ± 13.17    | 5.79 ± 3.03   |
+| iNav-WHU playground | Library (llm)                       | 8.75 ± 0.07    | 1.41 ± 0.03  | 3.06 ± 1.30         | 5.35 ± 3.47      | 0.21          |
+| iNav-WHU playground | Static (gwo)                        | 8.97 ± 0.04    | 1.52         | 11.53 ± 0.07        | 25.37 ± 0.15     | 5.06 ± 1.25   |
+| iNav-WHU playground | Library (gwo)                       | 8.66 ± 0.07    | 1.36 ± 0.02  | 4.29 ± 2.01         | 8.37 ± 4.25      | 0.32 ± 0.17   |
+| iNav-WHU street     | Raw GPS                             | 16.91          | 1.20         | 0.87                | –                | –             |
+| iNav-WHU street     | Baseline THETA0                     | 10.93          | 1.32         | 1.65                | 6.92             | 5.38          |
+| iNav-WHU street     | Paper 1 GWO (ground truth, offline) | 7.73           | 1.43         | 1.71                | 6.41             | 1.26          |
+| iNav-WHU street     | Static (llm)                        | 9.69 ± 0.20    | 1.27         | 1.69 ± 0.15         | 3.82 ± 0.61      | 2.53 ± 0.54   |
+| iNav-WHU street     | Library (llm)                       | 7.04 ± 0.17    | 1.25 ± 0.01  | 7.40 ± 0.13         | 25.39 ± 0.42     | 0.41 ± 0.21   |
+| iNav-WHU street     | Static (gwo)                        | 8.97 ± 0.32    | 1.28         | 2.65 ± 0.17         | 7.96 ± 0.50      | 6.49 ± 2.80   |
+| iNav-WHU street     | Library (gwo)                       | 6.93 ± 0.24    | 1.24 ± 0.01  | 7.32 ± 0.66         | 25.76 ± 4.06     | 0.44 ± 0.22   |
 
 More tables (ablations, initialization period, LLM cost, detector): `results/qrlib/paper/tables/all.md`.
 
@@ -327,14 +309,15 @@ More tables (ablations, initialization period, LLM cost, detector): `results/qrl
 ## Limitations
 
 - **Normal GPS cannot reveal every outage behaviour.** On iNav-WHU street the settings that track best on
-  normal GPS drift most once GPS is lost (Spearman -0.52 between the dropout score and 30 s drift). A
-  GPS-only score sees coasting only over its short simulated gaps.
+  normal GPS drift most once GPS is lost. A GPS-only score sees coasting only over its short simulated gaps.
 - **Q/R cannot stop drift during an outage.** Without fixes the position follows the IMU; on ETH (10 Hz
   IMU) the error grows to kilometres over the 82 s outage for every setting. Outage RMSE is reported apart
   from the headline metrics.
 - **Degradation is synthetic.** The noise sections add white noise to real GPS; multipath and slowly varying
   errors in real urban GPS are not modelled.
-- **Scope.** Three drives, one language model (Qwen3.5-9B, quantised), and one bin structure for conditions.
+- **Reference on the home drive.** Its reference track is a consumer GNSS log (7.3 m RMS from the module), so
+  its RMSE figures compare methods with each other rather than measure absolute accuracy.
+- **Scope.** Four drives, one language model (Qwen3.5-9B, quantised), and one bin structure for conditions.
 
 ## References
 

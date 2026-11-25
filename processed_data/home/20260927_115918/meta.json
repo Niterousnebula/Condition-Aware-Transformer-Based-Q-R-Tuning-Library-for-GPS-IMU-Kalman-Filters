@@ -1,0 +1,81 @@
+{
+  "id": "home/20260927_115918",
+  "label": "Home drive 20260927_115918 (car; MPU-6500 IMU 100 Hz, NMEA GNSS 0.5 Hz, 1 Hz reference track)",
+  "source_files": [
+    "20260927_115918_imu.csv",
+    "20260927_115918_raw.txt",
+    "20260927_115918_truth.csv"
+  ],
+  "time_base": "ESP32 device clock (t_us); UTC mapped onto it",
+  "clock": {
+    "device_per_utc": 1.0001684411995408,
+    "drift_ppm": 168.44119954084746,
+    "arrival_latency_spread_s": [
+      0.06024288789160437,
+      0.20062665504099186
+    ]
+  },
+  "imu_frame": "sensor frame as logged (mounted tilted: static specific force ~(-5.3, -0.8, -8.7) m/s^2)",
+  "imu_note": "MPU-6500, accel +-4 g, gyro +-500 dps, DLPF 41 Hz; no magnetometer. Gyro bias ~(-5, 3, 0) deg/s and |specific force| ~10.2 m/s^2 are left in the data (the EKF estimates the biases)",
+  "gnss": "NMEA GGA (single point), 0.5 Hz, no velocity channel used (ve/vn/vu NaN); speed_mps/course_deg from RMC, sats and hdop kept for reference only",
+  "truth_note": "1 Hz reference track with whole-second UTC stamps (a consumer GNSS log, not RTK): metrics against it include its own error",
+  "truth_alt_shift_m": 46.54999999999998,
+  "gps_origin_lat_lon_alt": [
+    28.586618333333334,
+    77.30765883333333,
+    140.5
+  ],
+  "gps_origin_method": "first fix of the kept part",
+  "start": {
+    "rule": "first run of 3 fixes slower than 0.2 m/s",
+    "t_dev_s": 124.077029,
+    "fix_index": 16,
+    "dropped_s": 32.877624999999995
+  },
+  "t0_source_s": 124.077029,
+  "imu_samples": 68186,
+  "imu_dropped_invalid": 0,
+  "imu_dropped_outside_kept_segment": 3292,
+  "imu_duration_s": 680.923559,
+  "imu_rate_hz": 100.14019627452144,
+  "imu_max_gap_s": 0.02995999999996002,
+  "units": {
+    "time": "s",
+    "accel": "m/s^2",
+    "gyro": "rad/s",
+    "position": "m (ENU)",
+    "velocity": "m/s (ENU)"
+  },
+  "frames": "IMU in the sensor/body frame as logged; GPS and GT in ENU",
+  "gps_samples": 341,
+  "gps_dropped": 16,
+  "gps_start_s": 0.0015233963058989275,
+  "gps_end_s": 680.1160634119951,
+  "gt_samples": 681,
+  "gt_dropped": 352,
+  "gt_start_s": 0.0015233963058989275,
+  "gt_end_s": 680.1160634119951,
+  "gt_path_m": 7687.818264531424,
+  "raw_gps_vs_truth_h_m": {
+    "rmse": 7.2696246467993815,
+    "median": 6.346574699811379,
+    "max": 20.35967278739109
+  },
+  "truth_lag_check": {
+    "best_lag_s": 0.3999999999999997,
+    "rmse_at_best_m": 5.144214808946905,
+    "rmse_at_0_m": 7.2696246467993815,
+    "applied_lag_s": 0.0
+  },
+  "start_specific_force_ms2": 10.17497548946645,
+  "max_speed_ms": 30.0,
+  "ekf_ready": {
+    "ready": true,
+    "reasons": [],
+    "gps_channels": [
+      "e",
+      "n",
+      "u"
+    ]
+  }
+}

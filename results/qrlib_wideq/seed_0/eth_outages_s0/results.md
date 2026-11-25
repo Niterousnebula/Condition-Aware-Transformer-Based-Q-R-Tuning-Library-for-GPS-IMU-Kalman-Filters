@@ -10,14 +10,14 @@ Horizontal RMSE in m.
 | Baseline THETA0                       |     827    |             4.58 |      3.49e+03 |                2.4  |           4.12 |          0.54  |          0 |              nan |
 | Paper 1 GWO (ground truth, offline)   |     497    |             5.72 |      2.1e+03  |                2.32 |           4.04 |          1.15  |          0 |              nan |
 | Static (llm)                          |     407    |             6.04 |      1.72e+03 |                2.31 |           4.02 |          1.27  |          0 |              nan |
-| Library (llm)                         |     465    |             4.52 |      1.97e+03 |                2.22 |           3.96 |          0.803 |          3 |              nan |
-| Library, true condition (llm)         |     454    |             4.5  |      1.92e+03 |                2.22 |           3.96 |          0.813 |          2 |              nan |
-| Library, no plausibility filter (llm) |     533    |             5.09 |      2.25e+03 |                2.23 |           3.97 |          1.35  |          4 |              nan |
-| Library + online update (llm)         |     457    |             4.92 |      1.93e+03 |                2.23 |           3.96 |          1.14  |        nan |                2 |
+| Library (llm)                         |     478    |             3.85 |      2.02e+03 |                2.22 |           3.96 |          0.705 |          3 |              nan |
+| Library, true condition (llm)         |     464    |             3.8  |      1.96e+03 |                2.22 |           3.96 |          0.714 |          2 |              nan |
+| Library, no plausibility filter (llm) |     547    |             4.49 |      2.31e+03 |                2.24 |           3.97 |          1.26  |          4 |              nan |
+| Library + online update (llm)         |     477    |             3.47 |      2.02e+03 |                2.22 |           3.96 |          0.74  |        nan |                2 |
 
 ## Training part (initialization period)
 
 | method                    |   train_rmse_all |   train_rmse_moderate_5m |   train_rmse_moderate_5m_first10s |   train_rmse_outside |   tunings |
 |:--------------------------|-----------------:|-------------------------:|----------------------------------:|---------------------:|----------:|
 | THETA0                    |             3.6  |                     3.11 |                              2.83 |                 3.65 |       nan |
-| Initialization mode (llm) |             3.54 |                     3.29 |                              3.59 |                 3.57 |        10 |
+| Initialization mode (llm) |             3.55 |                     3.3  |                              3.59 |                 3.57 |        10 |

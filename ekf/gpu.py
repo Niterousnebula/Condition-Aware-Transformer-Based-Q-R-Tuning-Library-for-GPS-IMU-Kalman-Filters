@@ -140,7 +140,7 @@ class GpuEvaluator:
         self.gate_limit = float(chi2.isf(OPTIONS["gate_p"], self.m))
         self.gate_timeout = OPTIONS["gate_timeout_s"]
         self.plausibility = OPTIONS["plausibility"]
-        self.max_speed, self.plausible_m = OPTIONS["max_speed_ms"], OPTIONS["plausible_m"]
+        self.max_speed, self.plausible_m = data.get("max_speed_ms") or OPTIONS["max_speed_ms"], OPTIONS["plausible_m"]
         self.t_start = float(t_imu[0])
 
         x_init, P0 = init_state(data)

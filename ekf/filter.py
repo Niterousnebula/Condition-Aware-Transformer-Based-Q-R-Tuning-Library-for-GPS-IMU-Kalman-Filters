@@ -379,7 +379,7 @@ def run_ekf(data, Q_c, R, x0=None, P0=None, t_end=None):
     gate_limit = chi2.isf(OPTIONS["gate_p"], len(channels))
     gate_timeout = OPTIONS["gate_timeout_s"]
     plausibility = OPTIONS["plausibility"]
-    max_speed, plausible_m = OPTIONS["max_speed_ms"], OPTIONS["plausible_m"]
+    max_speed, plausible_m = data.get("max_speed_ms") or OPTIONS["max_speed_ms"], OPTIONS["plausible_m"]
     t_accepted, n_rejected = t_imu[0], 0
     p_accepted = kf.x[0:2].copy()       # filter position (east, north) at the last accepted fix
 

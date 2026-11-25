@@ -9,11 +9,11 @@ Horizontal RMSE in m.
 | Raw GPS                               |       4.83 |            16.9  |        nan    |               0.866 |           1.2  |        nan     |        nan |              nan |
 | Baseline THETA0                       |       3.68 |            10.9  |          6.92 |               1.65  |           1.32 |          5.38  |          0 |              nan |
 | Paper 1 GWO (ground truth, offline)   |       3    |             7.73 |          6.41 |               1.71  |           1.43 |          1.26  |          0 |              nan |
-| Static (llm)                          |       3.22 |            10.5  |          3.65 |               1.14  |           1.29 |          4.02  |          0 |              nan |
-| Library (llm)                         |       7.57 |             9.03 |         26.5  |               7.36  |           1.25 |          1.84  |          2 |              nan |
-| Library, true condition (llm)         |       7.58 |             9.23 |         26.4  |               7.37  |           1.24 |          2.05  |          2 |              nan |
-| Library, no plausibility filter (llm) |      33    |            14.3  |        122    |              36.1   |           1.3  |         26.9   |          2 |              nan |
-| Library + online update (llm)         |      10.6  |            28.4  |         26.1  |               7.29  |           2.58 |          0.775 |        nan |                2 |
+| Static (llm)                          |       3.28 |             9.7  |          5.98 |               1.97  |           1.26 |         10.1   |          0 |              nan |
+| Library (llm)                         |       6.84 |             7.17 |         24.2  |               6.8   |           1.23 |          0.257 |          3 |              nan |
+| Library, true condition (llm)         |       6.86 |             7.27 |         24.2  |               6.81  |           1.23 |          0.284 |          2 |              nan |
+| Library, no plausibility filter (llm) |      19.1  |            17    |         69.1  |              19.3   |           1.38 |         14.1   |          3 |              nan |
+| Library + online update (llm)         |       6.82 |             6.94 |         24.1  |               6.8   |           1.24 |          0.197 |        nan |                2 |
 
 ## Training part (initialization period)
 

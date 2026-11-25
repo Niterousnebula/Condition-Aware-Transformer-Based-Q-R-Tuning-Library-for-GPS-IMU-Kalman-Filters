@@ -92,6 +92,8 @@ def load_data(dataset=DEFAULT_DATASET, processed_dir=PROCESSED_DIR, allow_unread
         "p_true": gt[["e", "n", "u"]].to_numpy(),
         "motion": gt["motion"].to_numpy() if "motion" in gt.columns else np.full(len(gt), "unknown"),
         "dataset": dataset,
+        # top platform speed for the plausibility rule (a car drive sets it; the walking-speed drives keep the default)
+        "max_speed_ms": meta.get("max_speed_ms"),
     }
     from .tuning import set_search_space          # here, not at the top: tuning imports this module
     data["theta0"] = dataset_theta0(data, gps, meta)
